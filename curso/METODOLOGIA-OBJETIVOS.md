@@ -52,7 +52,7 @@ Cada objetivo se puntúa en 5 criterios de 0 a 2 puntos:
 | v2: primera versión de objetivos por módulo | 54 | 5,7 | 9% | Verbos observables, pero casi sin condición, criterio ni evidencia explícita |
 | **v3: objetivos ABCD actuales** | **68** | **9,7** | **100%** | Una conducta, condición, criterio verificable, nivel de Bloom y práctica que lo mide |
 
-La medición completa, objetivo por objetivo, está en [`OBJETIVOS.md`](OBJETIVOS.md).
+La medición completa, objetivo por objetivo, está en [Medición de objetivos](OBJETIVOS.md).
 
 ## Fuentes
 

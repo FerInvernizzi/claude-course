@@ -8,7 +8,7 @@ Fecha: 2026-09-26 · Revisión con la skill `revision-calidad-curso` (incluida e
 
 - **Puntaje global:** 2,7 (primera versión) → 3,8 (primera revisión) → **4,0** (segunda pasada)
 - **Veredicto:** listo para publicar. Las 8 dimensiones están en 4 en los 16 módulos.
-- **Objetivos de aprendizaje:** 68 objetivos ABCD, **9,7/10** de promedio, 100% ≥ 8 (versión original: 3,8/10). Ver [OBJETIVOS.md](OBJETIVOS.md)
+- **Objetivos de aprendizaje:** 68 objetivos ABCD, **9,7/10** de promedio, 100% ≥ 8 (versión original: 3,8/10). Ver [Medición de objetivos](OBJETIVOS.md)
 - **Correcciones:** primera revisión: 14 bloqueantes, 11 importantes y más de 115 de pulido. Segunda pasada: 9 bloqueantes, 16 importantes y 8 de pulido (detalle abajo)
 
 ## Puntajes por módulo

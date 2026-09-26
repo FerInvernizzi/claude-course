@@ -1,0 +1,141 @@
+/* Estética mínima inspirada en la paleta de Agency: negro, lima ácido y oliva.
+   Se usa el lima solo como acento (bordes, marcadores); los links en modo claro
+   van en oliva oscuro para mantener contraste AA sobre blanco. */
+
+:root {
+  --agency-negro: #000000;
+  --agency-lima: #BFEB30;
+  --agency-lima-suave: #D2EF74;
+  --agency-oliva: #879E3E;
+  --agency-oliva-oscuro: #4E6B00;
+}
+
+/* Modo claro (con la misma especificidad que las variables de Material) */
+[data-md-color-scheme="default"],
+[data-md-color-scheme="default"][data-md-color-primary],
+[data-md-color-scheme="default"][data-md-color-accent] {
+  --md-primary-fg-color: var(--agency-negro);
+  --md-primary-fg-color--light: #1E1E1E;
+  --md-primary-fg-color--dark: var(--agency-negro);
+  --md-primary-bg-color: #F4F4F1;
+  --md-accent-fg-color: var(--agency-oliva-oscuro);
+  --md-typeset-a-color: var(--agency-oliva-oscuro);
+  --md-default-fg-color: #1E1E1E;
+}
+
+/* Modo oscuro */
+[data-md-color-scheme="slate"],
+[data-md-color-scheme="slate"][data-md-color-primary],
+[data-md-color-scheme="slate"][data-md-color-accent] {
+  --md-hue: 75;
+  --md-default-bg-color: #0E0F0B;
+  --md-default-fg-color: #EDEDED;
+  --md-default-fg-color--light: #C9C9C9;
+  --md-primary-fg-color: var(--agency-negro);
+  --md-primary-bg-color: #EDEDED;
+  --md-accent-fg-color: var(--agency-lima);
+  --md-typeset-a-color: var(--agency-lima);
+  --md-code-bg-color: #16180F;
+}
+
+/* Barra superior negra con una línea de acento lima */
+.md-header {
+  background-color: var(--agency-negro);
+  border-top: 4px solid var(--agency-lima);
+}
+.md-tabs {
+  background-color: var(--agency-negro);
+}
+.md-header__topic,
+.md-header__title {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  letter-spacing: -0.01em;
+}
+
+/* Títulos */
+.md-typeset h1 {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--md-default-fg-color);
+}
+.md-typeset h2 {
+  font-weight: 700;
+  border-bottom: 1px solid rgba(135, 158, 62, 0.35);
+  padding-bottom: 0.2em;
+}
+
+/* La línea decorativa del contenido ya la da el header: la ocultamos en el sitio */
+.md-typeset img[src$="linea.svg"] {
+  display: none;
+}
+
+/* Navegación: módulo activo marcado con el acento */
+.md-nav__link--active {
+  font-weight: 700;
+  box-shadow: inset 3px 0 0 var(--md-accent-fg-color);
+  padding-left: 0.4em;
+}
+
+/* Tablas legibles */
+.md-typeset table:not([class]) {
+  font-size: 0.72rem;
+}
+.md-typeset table:not([class]) th {
+  background-color: var(--agency-negro);
+  color: #EDEDED;
+}
+
+/* Autoevaluación: respuestas plegables (pymdownx.details / <details>) */
+.md-typeset details,
+.md-typeset details:not([class]) {
+  border: 1px solid rgba(135, 158, 62, 0.45);
+  border-left: 3px solid var(--agency-oliva);
+  box-shadow: none;
+  background: rgba(135, 158, 62, 0.06);
+  font-size: 0.72rem;
+}
+.md-typeset details > summary {
+  background-color: rgba(135, 158, 62, 0.12);
+  color: var(--md-typeset-a-color);
+  font-weight: 600;
+  cursor: pointer;
+}
+.md-typeset details > summary::before {
+  background-color: var(--agency-oliva);
+}
+.md-typeset details > summary::after {
+  color: var(--agency-oliva);
+}
+
+/* Tablas: la primera columna (número o sesión) no se estira */
+.md-typeset table:not([class]) td:first-child,
+.md-typeset table:not([class]) th:first-child {
+  width: 1%;
+  min-width: 0;
+  white-space: nowrap;
+}
+@media screen and (max-width: 44.9375em) {
+  .md-typeset table:not([class]) {
+    font-size: 0.68rem;
+  }
+  .md-typeset table:not([class]) td,
+  .md-typeset table:not([class]) th {
+    padding: 0.6em 0.7em;
+  }
+  .md-typeset table:not([class]) td:nth-child(2) {
+    min-width: 13em;
+  }
+}
+
+/* Bloques de cita como notas */
+.md-typeset blockquote {
+  border-left: 3px solid var(--agency-lima);
+  color: var(--md-default-fg-color);
+}
+
+/* Botón "copiar" y selección con el acento */
+::selection {
+  background: var(--agency-lima);
+  color: #000;
+}

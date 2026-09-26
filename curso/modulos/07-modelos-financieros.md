@@ -13,7 +13,7 @@
 
 **Requisitos previos:** Módulos 03 y 06 (el glosario del módulo cubre los términos contables) · **Duración estimada:** 3 h
 
-> **Plugins recomendados:** `model-builder` (skills `dcf-model`, `lbo-model`, `3-statement-model`, `comps-analysis`, `audit-xls`) y `Finance`. Ver [SKILLS-Y-PLUGINS.md](../SKILLS-Y-PLUGINS.md).
+> **Plugins recomendados:** `model-builder` (skills `dcf-model`, `lbo-model`, `3-statement-model`, `comps-analysis`, `audit-xls`) y `Finance`. Ver [Skills y plugins del curso](../SKILLS-Y-PLUGINS.md).
 >
 > ⚠️ Los modelos son herramientas de análisis, no recomendaciones de inversión. Revisá cada supuesto.
 

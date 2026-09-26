@@ -2,7 +2,7 @@
 
 <img src="assets/linea.svg" alt="" width="100%">
 
-Medición con el instrumento de [`METODOLOGIA-OBJETIVOS.md`](METODOLOGIA-OBJETIVOS.md) (B conducta · O objeto · C condición · D criterio · E evidencia; 0 a 2 cada uno, total sobre 10). La puntúa el script reproducible `.claude/skills/revision-calidad-curso/scripts/medir_objetivos.py`. Es una heurística: una persona revisó además la redacción de cada objetivo. En la segunda pasada se ampliaron sus patrones de condición y criterio en español (por ejemplo "menor al 30%" o "que se entienda en 60 segundos"), y se volvieron a medir las tres versiones con el mismo script.
+Medición con el instrumento de [Metodología de objetivos](METODOLOGIA-OBJETIVOS.md) (B conducta · O objeto · C condición · D criterio · E evidencia; 0 a 2 cada uno, total sobre 10). La puntúa el script reproducible `.claude/skills/revision-calidad-curso/scripts/medir_objetivos.py`. Es una heurística: una persona revisó además la redacción de cada objetivo. En la segunda pasada se ampliaron sus patrones de condición y criterio en español (por ejemplo "menor al 30%" o "que se entienda en 60 segundos"), y se volvieron a medir las tres versiones con el mismo script.
 
 ## Resumen
 
