@@ -198,10 +198,10 @@ En `CLAUDE.md`: *"Todo entregable visual (PPT, PDF, HTML) usa marca/. Nunca inve
 |---------|----------|
 | `/init` | Crea un CLAUDE.md inicial |
 | `/memory` | Editar la memoria |
-| `/agents` | Crear subagentes |
+| `/agents` | Recordatorio de cómo crear subagentes (pedíselo a Claude o editá `.claude/agents/`) |
 | `/mcp` | Ver conectores |
 | `/plugin` | Plugins |
-| `/schedule` (Cowork) | Programar una tarea recurrente |
+| `/schedule` | En Cowork: tarea programada. En Claude Code: rutina en la nube |
 | `/compact`, `/clear`, `/context` | Gestión de contexto |
 
 Tus comandos personalizados (módulo 13) viven en `.claude/commands/` o como skills.

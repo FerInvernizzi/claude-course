@@ -49,6 +49,7 @@ Al terminar el curso vas a poder:
 | 13 | [Las 10 automatizaciones](modulos/13-automatizaciones.md) | Sprint Tracker, Morning Brief, Market Pulse, Research Team, CRM, Meeting Intel, Email Triage, Expense Wrangler, Content Machine, Weekly Exec Report |
 | 14 | [Funciones avanzadas que nadie te cuenta](modulos/14-funciones-avanzadas.md) | `/goal`, `/btw`, `/rewind`, memoria automática, reglas por ruta, `/verify`, skills avanzadas, paralelismo, Cowork y Office en profundidad |
 | 15 | [Skills de nicho: arte, diseño y cualquier pasión](modulos/15-skills-de-nicho.md) | 30 skills y plugins verificados para arte generativo, diseño, video, audio, juegos, aprendizaje y creadores |
+| — | [Informe de calidad](INFORME-CALIDAD.md) | Revisión con rúbrica: puntajes antes/después, correcciones y verificaciones |
 | — | [Metodología de objetivos](METODOLOGIA-OBJETIVOS.md) · [Medición](OBJETIVOS.md) | Cómo se escribieron y midieron los objetivos (ABCD, Bloom, Quality Matters) |
 | — | [Skills y plugins del curso](SKILLS-Y-PLUGINS.md) | Qué skills/plugins usa el curso, cuáles ya tenés y cómo instalar el resto |
 | — | [Plantillas](plantillas/) | SKILL.md, slash commands, subagentes, plugin de finanzas, SOUL.md, CLAUDE.md |

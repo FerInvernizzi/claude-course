@@ -77,7 +77,7 @@ claude            # abre la sesión interactiva; la primera vez te pide iniciar 
 
 Diagnóstico: `claude doctor`. Actualizar: `claude update`.
 
-> En Windows, Git for Windows es necesario (Claude Code usa Git Bash). Si algo falla, probá dentro de **WSL**.
+> En Windows se recomienda instalar **Git for Windows**, para que Claude Code pueda usar Bash; sin él, usa PowerShell. En WSL no hace falta. También podés instalarlo con `winget install Anthropic.ClaudeCode` (Windows) o `brew install --cask claude-code` (Mac); esas dos vías no se actualizan solas, a diferencia del instalador nativo.
 
 ## 9.5 Introducción a la interfaz
 
@@ -134,7 +134,7 @@ Permisos finos en `.claude/settings.json`:
 | `/usage` (alias `/cost`) | Costo de la sesión, uso del plan y estadísticas |
 | `/model` | Cambiar de modelo |
 | `/memory` | Editar los archivos de memoria (CLAUDE.md) |
-| `/agents` | Crear y gestionar subagentes |
+| `/agents` | Te recuerda cómo crear subagentes: pedíselo a Claude o editá `.claude/agents/` (módulo 11) |
 | `/mcp` | Estado de servidores MCP |
 | `/plugin` | Instalar/gestionar plugins y marketplaces |
 | `/hooks` | Configurar hooks |
