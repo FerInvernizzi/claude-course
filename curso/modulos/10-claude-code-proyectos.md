@@ -1,5 +1,13 @@
 # Módulo 10 — Claude Code: proyectos full‑stack de punta a punta
 
+> **🎯 Objetivos.** Al terminar este módulo vas a poder:
+> - Construir y comparar landing pages con y sin la skill frontend-design.
+> - Crear un slash command de marca y un plugin con subagente.
+> - Desarrollar una app full-stack con IA (rutas de API, validación, tests).
+> - Iterar con Ralph Loops usando criterios de fin verificables y desplegar en producción.
+>
+> **Requisitos previos:** Módulo 09 · **Duración estimada:** 6 h
+
 En este módulo construís 4 proyectos reales: landing pages (con y sin skill), un slash command de marca, un plugin de análisis de competencia y una app full‑stack con IA (Calorie Tracker), mejorada con **Ralph Loops** y desplegada en internet.
 
 > **Plugins usados:** `frontend-design`, `plugin-dev`, `ralph-loop`, `feature-dev`, `code-review`, `marketing`. Ya están declarados en [`.claude/settings.json`](../../.claude/settings.json) de este repo.
@@ -14,7 +22,7 @@ En este módulo construís 4 proyectos reales: landing pages (con y sin skill), 
 mkdir landing-cafe && cd landing-cafe && claude
 ```
 
-```
+```text
 Creá una landing page para "Tostado", una cafetería de especialidad en Rosario.
 Secciones: hero, sobre nosotros, menú destacado (6 ítems), testimonios, ubicación y
 horario, footer con redes. HTML + CSS + JS vanilla en un solo index.html, responsive.
@@ -41,7 +49,7 @@ O manualmente: copiá la carpeta de la skill a `~/.claude/skills/frontend-design
 
 ### Parte B: con la skill
 
-```
+```text
 Usando la skill frontend-design, rediseñá la landing de Tostado. Antes de codear,
 proponé 2 direcciones estéticas distintas (paleta, tipografías de Google Fonts,
 concepto visual, tratamiento del hero) inspiradas en el mundo del café de especialidad.
@@ -63,7 +71,7 @@ Construí la landing de **"Patitas Spa"** (peluquería canina a domicilio). Requ
 
 ### ✅ Solución
 
-```
+```text
 Usando la skill frontend-design, creá la landing de "Patitas Spa", peluquería canina a
 domicilio en Montevideo. Público: dueños de perros de 25-45 años que valoran la
 comodidad. Tono: cálido, divertido, confiable.
@@ -94,7 +102,7 @@ levantá un servidor local, revisá en ancho 375px y 1440px y corregí lo que se
 
 ### Parte 1 — Carpeta de marca
 
-```
+```text
 marca/
 ├── brand.md          ← misión, público, tono de voz, palabras sí/no
 ├── colores.md        ← paleta con HEX y uso (primario, acento, fondo, texto)
@@ -128,7 +136,7 @@ Al final, listá qué decisiones de marca aplicaste.
 
 ### Parte 3 — Probar e iterar
 
-```
+```text
 /brand-landing Lanzamiento del plan anual con 20% de descuento
 ```
 
@@ -163,7 +171,7 @@ del 1 al 10 contra brand.md y mejorá los que saquen menos de 8.
 
 ### Parte 1 — Diseño del plugin
 
-```
+```text
 competencia/
 ├── .claude-plugin/plugin.json
 ├── commands/
@@ -179,13 +187,13 @@ competencia/
 
 Usá el plugin **plugin-dev** para que Claude te guíe:
 
-```
+```text
 /plugin-dev:create-plugin
 ```
 
 O pedilo directo:
 
-```
+```text
 Creá un plugin "competencia" con la estructura [pegar árbol]. El subagente
 investigador-mercado usa WebSearch y WebFetch, tiene modelo sonnet y devuelve una ficha
 por competidor (propuesta de valor, precios, público, canales, fortalezas, debilidades,
@@ -210,7 +218,7 @@ generar un mapa de posicionamiento 2x2 en HTML.
 claude --plugin-dir ./competencia     # carga el plugin sin instalarlo
 ```
 
-```
+```text
 /analizar-competidor Mercado Pago
 /mapa-posicionamiento
 ```
@@ -256,7 +264,7 @@ App donde el usuario **sube una foto de su comida** y la IA estima calorías y m
 
 En **Plan mode** (`Shift+Tab`):
 
-```
+```text
 Quiero una app de seguimiento de calorías. Fase 1, SIN IA todavía:
 - Pantalla "Hoy": meta diaria editable, total consumido, barra de progreso, lista de
   comidas del día (nombre, calorías, proteínas, carbohidratos, grasas, hora).
@@ -271,7 +279,7 @@ Aprobá, implementá, y verificá: `npm run dev` → http://localhost:3000.
 
 ### Fase 2 — Agregar la IA: plan de rutas de API
 
-```
+```text
 Fase 2: al agregar una comida, el usuario puede subir una foto. Planificá:
 - Ruta POST /api/analizar-comida (server-side) que recibe la imagen, llama al modelo
   de visión y devuelve JSON: { nombre, porciones, calorias, proteinas_g, carbohidratos_g,
@@ -346,7 +354,8 @@ const msg = await client.messages.create({
     ],
   }],
 });
-const texto = msg.content.find((b) => b.type === "text")?.text ?? "{}";
+const bloque = msg.content.find((b): b is Anthropic.TextBlock => b.type === "text");
+const texto = bloque?.text ?? "{}";
 ```
 
 Pedile a Claude Code que implemente según el plan, **corra los tests** y pruebe con 2–3 fotos reales.
@@ -357,7 +366,7 @@ Pedile a Claude Code que implemente según el plan, **corra los tests** y pruebe
 
 El plugin **ralph-loop** lo implementa con un *hook* `Stop`: cuando Claude intenta terminar, el hook le devuelve el mismo prompt.
 
-```
+```text
 /ralph-loop "PROMPT" --max-iterations N --completion-promise "TEXTO"
 /cancel-ralph      # cortar el bucle
 ```
@@ -378,7 +387,7 @@ El plugin **ralph-loop** lo implementa con un *hook* `Stop`: cuando Claude inten
 
 #### Implementación
 
-```
+```text
 /ralph-loop "Leé MEJORAS.md. Tomá la PRIMERA tarea sin marcar, implementala, corré
 npm test, npm run lint y npx tsc --noEmit. Si todo pasa, marcá la tarea con [x] en
 MEJORAS.md y hacé commit. Si algo falla, arreglalo antes de seguir. Cuando TODAS las
@@ -394,7 +403,7 @@ tareas estén marcadas y los 3 comandos pasen, respondé exactamente <promise>CO
 
 ### Despliegue (deploy)
 
-```
+```text
 Prepará la app para producción y desplegala en Vercel:
 1. npm run build sin errores.
 2. Documentá las variables de entorno necesarias.
@@ -413,9 +422,20 @@ Alternativas: Netlify, Railway, Render, Cloudflare Pages (sitios estáticos: arr
 
 ### Revisión final con agentes
 
-```
+```text
 /code-review            # revisión con múltiples agentes (plugin code-review)
 /feature-dev <feature>  # para la próxima funcionalidad: explorar → diseñar → implementar → revisar
 ```
+
+## 🧠 Autoevaluación
+
+1. ¿Por qué el Ralph Loop necesita un criterio de fin verificable?
+   <details><summary>Ver respuesta</summary>Porque el bucle repite hasta cumplirlo: si es subjetivo, nunca termina o termina mal. Tests, lint y checklists sí se pueden comprobar.</details>
+
+2. ¿Por qué la llamada al modelo de visión va en una ruta de API y no en el cliente?
+   <details><summary>Ver respuesta</summary>Para no exponer la API key en el navegador y poder validar las entradas y la respuesta en el servidor.</details>
+
+3. ¿Para qué sirve `claude --plugin-dir`?
+   <details><summary>Ver respuesta</summary>Para cargar y probar un plugin local sin instalarlo.</details>
 
 ➡️ Siguiente: [Módulo 11 — Agentes, Subagentes y Agent Teams](11-agentes-subagentes-teams.md)

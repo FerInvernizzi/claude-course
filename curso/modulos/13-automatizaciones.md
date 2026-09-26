@@ -1,5 +1,13 @@
 # Módulo 13 — Las 10 automatizaciones de tu agente personal
 
+> **🎯 Objetivos.** Al terminar este módulo vas a poder:
+> - Construir automatizaciones como procedimiento escrito + comando + disparador.
+> - Implementar al menos 5 de los 10 blueprints con conectores reales.
+> - Programar tareas y dispararlas desde el celular con Dispatch.
+> - Evaluar una automatización con 6 criterios de calidad.
+>
+> **Requisitos previos:** Módulo 12 · **Duración estimada:** 8 h o más
+
 ## 13.1 Visión general de los 10 blueprints
 
 | # | Automatización | Qué hace | Conectores | Frecuencia |
@@ -67,7 +75,7 @@ Objetivo: mantener mis objetivos semanales alineados con yo/objetivos.md.
 
 ### Parte 2 — Prueba y mejora
 
-```
+```text
 /sprint-tracker lunes
 ```
 
@@ -93,7 +101,7 @@ Formato: títulos cortos, bullets, nada de relleno.
 
 ### Prueba
 
-```
+```text
 /morning-brief
 ```
 
@@ -101,15 +109,15 @@ Verificá: ¿cabe en 2 minutos? ¿las prioridades son las correctas? Ajustá los
 
 ### Dispatch: ejecutarlo desde el celular
 
-**Dispatch** permite enviarle tareas a tu agente de Cowork desde la app de Claude en el celular, mientras la computadora (con Claude Desktop abierto) hace el trabajo.
+**Dispatch** permite enviarle tareas a tu agente desde la app de Claude en el celular, y que se ejecuten **en tu computadora**: con tus archivos locales, tus conectores e incluso controlando tus aplicaciones de escritorio (por ejemplo, actualizar un Excel). Requiere plan Pro o Max.
 
-1. Claude Desktop → activá Dispatch y vinculá la app móvil (seguí el asistente).
+1. En Cowork (en la computadora o en el celular) → **Dispatch** en la barra lateral → *Get started* → activá el acceso a archivos y el permiso para mantener la computadora despierta → *Finish setup*.
 2. Desde el celular: *"Corré el morning brief y mandame el resumen acá"*.
 3. La tarea corre en tu computadora con acceso a tu vault y conectores; el resultado llega al teléfono.
 
-> La computadora tiene que estar encendida y con Claude Desktop abierto.
+> Para Dispatch, la computadora tiene que estar **encendida y despierta**, con Claude Desktop abierto. Es una sola conversación persistente (no varios hilos). Ojo con la cadena de confianza: una instrucción desde el celular puede leer, mover o borrar archivos y usar tus apps.
 
-**Programarlo:** en Cowork, `/schedule` → *"Todos los días hábiles a las 7:30, ejecutá /morning-brief"*.
+**Programarlo:** en Cowork, `/schedule` → *"Todos los días hábiles a las 7:30, ejecutá /morning-brief"*. Claude redacta el prompt de la tarea y vos lo aprobás. Un truco: hacé la tarea una vez a mano, verificá que el resultado sea el correcto y recién ahí escribí `/schedule` para convertir *ese mismo proceso* en recurrente. Las tareas programadas de Cowork **corren en la nube**, sin necesidad de que tu equipo esté encendido. Si necesitan archivos locales, usá las tareas programadas de Claude Desktop, que corren en tu máquina.
 
 ## 3. Market Pulse
 
@@ -130,7 +138,7 @@ Plugins útiles: **market-researcher** y **financial-analysis** (instalados en e
 
 ### Prueba
 
-```
+```text
 /market-pulse
 ```
 
@@ -158,7 +166,7 @@ Entrada: tema + audiencia + formato (deck, pdf o ambos).
 
 ### Prueba parte 1 — Deck de PowerPoint
 
-```
+```text
 /research-team "Impacto de la IA agéntica en estudios contables de LATAM" audiencia=socios formato=deck
 ```
 
@@ -166,7 +174,7 @@ Revisión: títulos‑acción, datos con fuente, marca aplicada, sin slides de t
 
 ### Prueba parte 2 — Informe PDF y Dispatch
 
-```
+```text
 /research-team "..." formato=pdf
 ```
 
@@ -189,7 +197,7 @@ Probalo desde el celular vía Dispatch: *"Lanzá el research team sobre X y avis
 Nunca guardes datos sensibles (salud, documentos, contraseñas).
 ```
 
-```
+```text
 /personal-crm
 ```
 
@@ -218,7 +226,7 @@ Verificá en Obsidian que las fichas se enlazan con empresas y proyectos.
 
 ### Prueba
 
-```
+```text
 /meeting-intel antes "Reunión con Acme — jueves 15:00"
 /meeting-intel despues raw/reuniones/2026-09-24-acme.md
 ```
@@ -241,7 +249,7 @@ Nunca envíes. Nunca borres. Informe en diario/<hoy>.md.
 
 ### Prueba
 
-```
+```text
 /email-triage
 ```
 
@@ -267,7 +275,7 @@ Plugin útil: **Finance** (`reconciliation`, `variance-analysis`).
 
 ### Prueba
 
-```
+```text
 /expense-wrangler
 ```
 
@@ -290,7 +298,7 @@ Verificá 5 filas al azar contra el recibo original.
 
 ### Prueba
 
-```
+```text
 /content-machine
 ```
 
@@ -313,7 +321,7 @@ Cada viernes, un informe para mí (o mi jefe/equipo):
 
 ### Prueba
 
-```
+```text
 /weekly-report
 ```
 
@@ -321,7 +329,7 @@ Programalo: `/schedule` → *"Viernes 17:00, /weekly-report"*.
 
 ---
 
-## 🧪 Proyecto final
+## 🧪 Práctica final: proyecto integrador
 
 Implementá **al menos 5** de las 10 automatizaciones, con al menos **2 programadas** y **1 disparada por Dispatch**. Documentá en `automatizaciones/README.md`: qué hace cada una, disparador, conectores y cuánto tiempo te ahorra por semana.
 
@@ -333,5 +341,16 @@ Implementá **al menos 5** de las 10 automatizaciones, con al menos **2 programa
 4. **Observable:** deja registro en el diario.
 5. **Tolerante a fallos:** si un conector falla, sigue y avisa.
 6. **Medible:** sabés cuánto tiempo te ahorra.
+
+## 🧠 Autoevaluación
+
+1. ¿Por qué la definición de una automatización va en un archivo y no solo en un prompt?
+   <details><summary>Ver respuesta</summary>Porque se puede versionar, revisar y mejorar: cuando algo falla, se corrige el procedimiento y no hay que reescribir el prompt.</details>
+
+2. ¿Qué significa que una automatización sea idempotente?
+   <details><summary>Ver respuesta</summary>Que si la corrés dos veces no duplica datos ni acciones.</details>
+
+3. ¿Qué requisito tiene Dispatch?
+   <details><summary>Ver respuesta</summary>Plan Pro o Max, y la computadora encendida y despierta con Claude Desktop abierto. Las tareas programadas de Cowork, en cambio, corren en la nube.</details>
 
 🎓 **¡Terminaste el curso!** Volvé al [índice](../README.md) y revisá la lista de objetivos: ahora podés hacer cada uno.

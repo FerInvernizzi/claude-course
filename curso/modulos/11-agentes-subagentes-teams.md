@@ -1,5 +1,13 @@
 # Módulo 11 — Agentes de IA, Subagentes y Agent Teams
 
+> **🎯 Objetivos.** Al terminar este módulo vas a poder:
+> - Explicar el bucle agéntico y los componentes de un agente.
+> - Construir agentes con herramientas, memoria y salida estructurada (OpenAI Agents SDK y Claude Agent SDK).
+> - Diseñar subagentes y equipos de agentes con el patrón de orquestación adecuado.
+> - Llevar un equipo de agentes de la investigación al email con aprobación humana.
+>
+> **Requisitos previos:** Módulos 09 y 10 · Python básico · **Duración estimada:** 5 h
+
 ## 11.1 La revolución de los agentes
 
 Pasamos de **modelos que responden** a **sistemas que actúan**. Tres ideas lo hicieron posible:
@@ -14,7 +22,7 @@ Pasamos de **modelos que responden** a **sistemas que actúan**. Tres ideas lo h
 
 > Un **agente** es un modelo de lenguaje que **usa herramientas en un bucle** para lograr un objetivo.
 
-```
+```text
 ┌──────────────────────────── BUCLE DEL AGENTE ────────────────────────────┐
 │                                                                           │
 │  Objetivo ─► [LLM] piensa ─► ¿necesito una herramienta?                   │
@@ -182,7 +190,7 @@ Creá `SPEC.md`:
 
 ### Parte 2 — Construcción
 
-```
+```text
 Leé SPEC.md y la documentación del OpenAI Agents SDK. Implementá el agente en
 agente_viajes/ con: tools.py, models.py, agent.py, main.py (CLI), tests/.
 Usá Plan mode primero. Corré los tests al final.
@@ -190,7 +198,7 @@ Usá Plan mode primero. Corré los tests al final.
 
 ### Parte 3 — Prueba e iteración
 
-```
+```text
 Ejecutá main.py con 3 escenarios (presupuesto bajo, medio y alto) y mostrame las
 trazas. Si el agente llama herramientas innecesarias o inventa datos, mejorá las
 instrucciones y las descripciones de las herramientas, y repetí.
@@ -198,7 +206,7 @@ instrucciones y las descripciones de las herramientas, y repetí.
 
 ### Parte 4 — Refinar como producto
 
-```
+```text
 Agregá: manejo de errores de red con reintentos, logging, un README con ejemplos, y una
 versión equivalente con el Claude Agent SDK en agente_viajes_claude/. Compará ambas.
 ```
@@ -238,7 +246,7 @@ Un **subagente** es un agente especializado al que el agente principal **delega 
 - Devuelve **solo un resumen** del resultado.
 - Pueden correr **en paralelo**.
 
-```
+```text
                     ┌──────────────────────┐
                     │  Agente principal    │  (contexto limpio: plan + resultados)
                     └───┬───────┬───────┬──┘
@@ -250,7 +258,7 @@ Un **subagente** es un agente especializado al que el agente principal **delega 
 
 ### Subagentes en Claude Code
 
-Crealos con `/agents` o como archivo Markdown en `.claude/agents/<nombre>.md` (proyecto) o `~/.claude/agents/` (personal):
+Crealos pidiéndoselo a Claude (*"creá un subagente revisor de código para este proyecto"*) o escribiendo un archivo Markdown en `.claude/agents/<nombre>.md` (proyecto) o `~/.claude/agents/` (personal). En las versiones recientes, `/agents` solo te recuerda estas dos opciones:
 
 ```markdown
 ---
@@ -317,7 +325,7 @@ Claude Code incluye equipos de agentes como **función experimental**. Se habili
 
 Luego:
 
-```
+```text
 Armá un equipo de 3 agentes para construir la funcionalidad de reservas:
 - "backend": API REST y base de datos.
 - "frontend": pantallas de reserva y confirmación.
@@ -343,7 +351,7 @@ Coordiná con una lista de tareas compartida. Cada agente trabaja solo en su car
 
 ### Parte 1 — Diseño del equipo
 
-```
+```text
 Director de proyecto (orquestador)
   ├── Investigador  → WebSearch; salida estructurada (Hallazgos: tema, hallazgos[], fuentes[])
   ├── Analista      → insights, riesgos, oportunidades, recomendaciones
@@ -419,5 +427,16 @@ editor = Agent(
 # Instrucción extra: "Después de redactar, llamá a evaluar_informe. Si alguna nota es < 8,
 # pedile al redactor que corrija usando los comentarios. Máximo 3 rondas."
 ```
+
+## 🧠 Autoevaluación
+
+1. ¿Cuál es la ventaja principal de un subagente?
+   <details><summary>Ver respuesta</summary>Trabaja en su propia ventana de contexto y devuelve solo el resultado: el agente principal no se llena de ruido.</details>
+
+2. ¿Qué diferencia hay entre `as_tool` y `handoffs` en el OpenAI Agents SDK?
+   <details><summary>Ver respuesta</summary>Con `as_tool` el orquestador mantiene el control y recibe el resultado; con un handoff transfiere la conversación al otro agente.</details>
+
+3. ¿Dónde se guardan los datos que el agente tiene que "recordar" con exactitud?
+   <details><summary>Ver respuesta</summary>En un sistema externo (archivo o base de datos) al que accede con herramientas, no en la memoria del modelo.</details>
 
 ➡️ Siguiente: [Módulo 12 — Tu agente personal](12-agente-personal.md)

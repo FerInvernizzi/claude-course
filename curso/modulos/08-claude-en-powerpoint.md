@@ -1,10 +1,16 @@
 # Módulo 08 — Claude en PowerPoint e informes ejecutivos
 
-## 8.1 Objetivos e instalación del add‑in
+> **🎯 Objetivos.** Al terminar este módulo vas a poder:
+> - Crear presentaciones con títulos-acción y notas del orador.
+> - Mejorar el diseño y generar slides desde PDFs, la web y plantillas de marca.
+> - Automatizar un informe ejecutivo recurrente.
+> - Elegir entre Claude, Copilot y NotebookLM según el caso.
+>
+> **Requisitos previos:** Módulos 04 y 06 · PowerPoint de Microsoft 365 · **Duración estimada:** 2 h
 
-**Objetivos:** crear presentaciones desde cero, agregar notas del orador, mejorar el diseño, traer contenido de fuentes online y PDFs, resumir decks existentes, usar plantillas de marca y practicar la presentación con Claude como coach.
+## 8.1 Instalación del add‑in
 
-**Instalación:** PowerPoint (365) → **Inicio → Complementos → Obtener complementos** → buscar **Claude** (Anthropic) → Agregar → iniciar sesión en el panel lateral.
+PowerPoint (365) → **Inicio → Complementos → Obtener complementos** → buscar **Claude** (Anthropic) → Agregar → iniciar sesión en el panel lateral.
 
 **Dos caminos para crear decks:**
 
@@ -15,7 +21,7 @@
 
 ## 8.2 Crear presentaciones con Claude
 
-```
+```text
 Creá una presentación de 10 diapositivas: "Plan de expansión a Chile 2026" para el
 directorio. Estructura: portada, resumen ejecutivo, contexto de mercado, oportunidad,
 propuesta, plan en 3 fases, inversión y retorno, riesgos y mitigaciones, decisión
@@ -27,7 +33,7 @@ Máximo 5 bullets por slide, 12 palabras por bullet.
 
 ## 8.3 Notas del orador
 
-```
+```text
 Agregá notas del orador a todas las diapositivas: 120-150 palabras cada una, lenguaje
 conversacional, con una transición a la siguiente slide y los datos clave para responder
 preguntas. Marcá en [corchetes] dónde hacer pausas.
@@ -35,7 +41,7 @@ preguntas. Marcá en [corchetes] dónde hacer pausas.
 
 ## 8.4 Mejorar el diseño
 
-```
+```text
 Mejorá el diseño de todo el deck respetando el patrón de la plantilla:
 - Convertí listas largas en diagramas (proceso, comparación, línea de tiempo).
 - Jerarquía clara: un elemento dominante por slide.
@@ -46,7 +52,7 @@ Decime qué cambiaste en cada slide.
 
 ## 8.5 Agregar slides desde fuentes online y cambiar el tono
 
-```
+```text
 Buscá datos recientes sobre adopción de pagos digitales en Chile (fuente oficial) y
 agregá 2 slides después de la 3 con un gráfico y la fuente citada al pie.
 Después reescribí todo el deck con un tono más inspirador para una reunión con
@@ -55,7 +61,7 @@ inversores (sin exagerar cifras).
 
 ## 8.6 Slides desde PDFs
 
-```
+```text
 A partir del PDF adjunto (informe de 40 páginas), creá 8 slides: 1 de resumen ejecutivo,
 5 de hallazgos (una idea por slide, con el dato y número de página de la fuente en el pie),
 1 de implicancias, 1 de próximos pasos.
@@ -63,7 +69,7 @@ A partir del PDF adjunto (informe de 40 páginas), creá 8 slides: 1 de resumen 
 
 ## 8.7 Resumir y organizar decks existentes
 
-```
+```text
 Este deck tiene 45 slides. 1) Hacé un índice con el mensaje de cada slide. 2) Detectá
 duplicados y contradicciones. 3) Proponé una versión de 15 slides con storyline claro
 (situación → complicación → resolución) y movés el resto a Anexo.
@@ -75,7 +81,7 @@ duplicados y contradicciones. 3) Proponé una versión de 15 slides con storylin
 2. Con el add‑in: abrí un archivo basado en la plantilla y pedí que use **solo los diseños del patrón**.
 3. Con la skill `pptx` (Cowork):
 
-```
+```text
 Usá /Marca/plantilla.pptx como base (sus layouts, colores y fuentes; no inventes otros).
 Generá el informe mensual de ventas a partir de /Datos/ventas_octubre.xlsx: portada,
 KPIs, 3 slides de análisis con gráficos nativos (editables), conclusiones. Logo en
@@ -86,7 +92,7 @@ KPIs, 3 slides de análisis con gráficos nativos (editables), conclusiones. Log
 
 ## 8.9 Claude como coach de presentación
 
-```
+```text
 Voy a presentar este deck en 10 minutos al directorio. Actuá como coach:
 1. Estimá el tiempo por slide y decime dónde me voy a pasar.
 2. Hacé las 10 preguntas más difíciles que podría hacer el directorio y cómo responderlas.
@@ -105,5 +111,49 @@ Voy a presentar este deck en 10 minutos al directorio. Actuá como coach:
 | Ideal para | Análisis y entregables de calidad, flujos agénticos | Empresas 100% Microsoft | Investigación y aprendizaje sobre documentos |
 
 **Conclusión práctica:** no son excluyentes. Muchos equipos usan NotebookLM para estudiar fuentes, Copilot para el día a día en M365 y Claude para análisis, modelos y automatizaciones de extremo a extremo.
+
+## 🧪 Práctica: informe ejecutivo con tu marca a partir de datos crudos
+
+Con un Excel de ventas (el del módulo 06 o uno sintético) y una plantilla de tu marca:
+
+1. Generá un deck de 6-8 slides con títulos-acción, gráficos nativos editables y notas del orador.
+2. Mejorá el diseño con el add-in, respetando el patrón de diapositivas.
+3. Usá a Claude como coach: pedile las 5 preguntas más difíciles y ensayá las respuestas.
+4. Convertí el proceso en algo reutilizable: una skill o un slash command `informe-mensual`.
+
+### ✅ Solución
+
+```text
+Usá /Marca/plantilla.pptx (solo sus layouts, colores y fuentes) y /Datos/ventas.xlsx.
+Creá "Informe de Ventas — Octubre" con:
+1. Portada.
+2. Resumen ejecutivo: 3 mensajes clave con su número.
+3. Evolución mensual (gráfico de líneas nativo).
+4. Ventas por categoría (barras) y top 5 productos.
+5. Qué salió bien / qué salió mal.
+6. 3 recomendaciones con responsable y fecha.
+7. Próximos pasos.
+Títulos-acción en todas las slides. Notas del orador de 100-130 palabras.
+Guardá también un PDF.
+```
+
+Para hacerlo reutilizable, pedile a Claude: *"Convertí este pedido en una skill llamada informe-mensual que reciba el Excel del mes como entrada"* (usa `skill-creator`).
+
+**Criterios de éxito:**
+- [ ] Todos los números del deck coinciden con el Excel.
+- [ ] Los gráficos son editables (no imágenes).
+- [ ] Solo se usaron layouts, colores y fuentes de la plantilla.
+- [ ] El mes siguiente podés generar el informe con un solo pedido.
+
+## 🧠 Autoevaluación
+
+1. ¿Qué es un título-acción?
+   <details><summary>Ver respuesta</summary>Un título que expresa la conclusión de la slide ("Chile ofrece USD 40M de mercado") y no solo el tema ("Mercado").</details>
+
+2. ¿Cuándo usar el add-in y cuándo la skill pptx?
+   <details><summary>Ver respuesta</summary>El add-in para editar un deck abierto con el patrón de la empresa; la skill para generar decks completos desde datos o de forma automatizada.</details>
+
+3. ¿Cómo convertís un informe mensual en algo reutilizable?
+   <details><summary>Ver respuesta</summary>Guardando el pedido como skill o slash command y, si querés, programándolo.</details>
 
 ➡️ Siguiente: [Módulo 09 — Claude Code: fundamentos](09-claude-code-fundamentos.md)

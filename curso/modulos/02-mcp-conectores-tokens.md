@@ -1,12 +1,20 @@
 # Módulo 02 — MCP, conectores, tokens y ventana de contexto
 
+> **🎯 Objetivos.** Al terminar este módulo vas a poder:
+> - Explicar la arquitectura de MCP (host, cliente, servidor; tools, resources, prompts).
+> - Conectar un conector (Gmail) y ejecutar un flujo con aprobación humana.
+> - Agregar servidores MCP en Claude Code con `claude mcp add` o `.mcp.json`.
+> - Estimar tokens y aplicar reglas para cuidar la ventana de contexto.
+>
+> **Requisitos previos:** Módulo 01 · **Duración estimada:** 1 h 15 min
+
 ## 2.1 Model Context Protocol (MCP)
 
 **MCP** es un estándar abierto (creado por Anthropic) para conectar modelos de IA con herramientas y datos externos. Pensalo como el **"USB‑C de la IA"**: un único enchufe para conectar Claude con Gmail, Slack, Salesforce, Notion, bases de datos, GitHub, etc.
 
 ### Arquitectura
 
-```
+```text
 ┌──────────────┐        ┌──────────────┐        ┌──────────────────┐
 │   HOST       │        │  CLIENTE MCP │  JSON  │  SERVIDOR MCP    │
 │ (Claude      │◄──────►│  (dentro del │◄──────►│  (Gmail, Slack,  │──► API real
@@ -65,7 +73,7 @@ O compartido con el equipo en un archivo `.mcp.json` en la raíz del proyecto:
 2. En Cowork, verificá que el conector está activo para la sesión.
 3. Prompt:
 
-```
+```text
 1. Buscá en mi Gmail los emails de la última semana que contengan "factura" o "invoice".
 2. Hacé un Excel "Facturas_semana.xlsx" con: remitente, fecha, monto (si aparece),
    vencimiento y si tiene adjunto.
@@ -84,7 +92,7 @@ Mostrame el borrador antes de hacer nada más.
 
 Con Gmail + Slack + Salesforce conectados:
 
-```
+```text
 Cada vez que te pida "sync de leads":
 1. Leé en Gmail los emails nuevos con asunto "Demo request".
 2. Creá o actualizá el Lead en Salesforce (nombre, empresa, email, fuente = "Email").
@@ -107,7 +115,7 @@ Un **token** es la unidad mínima de texto que procesa el modelo: un fragmento d
 
 Es la **memoria de trabajo** del modelo en una conversación: todo lo que Claude "ve" a la vez. Incluye:
 
-```
+```text
 ┌──────────────────────── VENTANA DE CONTEXTO ────────────────────────┐
 │ Instrucciones del sistema │ Skills cargadas │ Definiciones de tools   │
 │ (MCP) │ Archivos leídos │ Historial de mensajes │ Resultados de tools │
@@ -127,7 +135,7 @@ Los modelos actuales de Claude tienen ventanas de ~200.000 tokens (y algunos has
 
 - **Una tarea, una conversación.** Nueva tarea → nueva sesión.
 - Pasá **solo los archivos relevantes**; si un PDF es enorme, pedí que extraiga solo las secciones necesarias.
-- **Desactivá conectores MCP que no uses:** cada uno agrega definiciones de herramientas al contexto.
+- **Desactivá conectores MCP que no uses.** Al inicio, Claude carga solo los *nombres* de las herramientas de cada conector y trae los esquemas completos cuando las usa, así que el costo fijo es bajo. Pero muchos conectores igual suman ruido, y cada resultado de herramienta (un hilo de email, un registro del CRM) sí ocupa contexto.
 - Pedí **resúmenes intermedios** y arrancá una nueva sesión con el resumen.
 - En Claude Code: `/context` (ver uso), `/compact` (resumir), `/clear` (limpiar). Ver módulo 09.
 
@@ -144,5 +152,37 @@ Respondé:
 1. 120 páginas × ~700 tokens ≈ **84.000 tokens** (rango razonable 60K–100K). **Entra** en 200K, pero ocupa casi la mitad: queda menos espacio para otros archivos, herramientas y respuestas. Mejor: pedir que lo procese por capítulos o extraiga solo lo relevante.
 2. La ventana está muy llena (definiciones de 10 conectores + Excels + historial). Las instrucciones iniciales quedan "enterradas" o fueron compactadas. **Solución:** pedir un resumen del estado y decisiones, abrir una **sesión nueva** con ese resumen, activar solo los conectores necesarios y referenciar los Excels por ruta en lugar de volcarlos enteros.
 3. Por la **carga progresiva (progressive disclosure)**: al inicio Claude solo ve el *nombre y la descripción* de la skill (pocas decenas de tokens). El contenido completo se carga **solo cuando la tarea lo necesita**, y los scripts se ejecutan sin cargarse en el contexto.
+
+## 🧪 Práctica: automatización entre plataformas con MCP
+
+Conectá **dos o más** conectores (por ejemplo Gmail + Slack, o Gmail + Google Calendar; si tu empresa usa Salesforce o HubSpot, sumalo) y construí un flujo que lea de uno y escriba en otro, con aprobación humana antes de cualquier acción externa.
+
+### ✅ Solución (Gmail → Slack)
+
+```text
+1. Buscá en Gmail los emails de clientes de los últimos 3 días que mencionen
+   "reclamo", "problema" o "no funciona".
+2. Para cada uno: cliente, resumen en una línea, urgencia (alta/media/baja) y si ya
+   respondimos.
+3. Prepará un mensaje para el canal #soporte de Slack con la tabla, ordenada por urgencia.
+4. Mostrame el mensaje y NO lo publiques hasta que te diga "publicar".
+```
+
+**Criterios de éxito:**
+- [ ] El flujo usa al menos dos conectores distintos.
+- [ ] Nada se envía ni se publica sin tu aprobación explícita.
+- [ ] Solo activaste los conectores que el flujo necesita (así ahorrás contexto, como viste en 2.3).
+- [ ] Podés describir qué herramientas (tools) de cada servidor MCP usó Claude. Las ves en el detalle de cada paso.
+
+## 🧠 Autoevaluación
+
+1. ¿Qué diferencia hay entre un conector y un servidor MCP?
+   <details><summary>Ver respuesta</summary>Un conector es un servidor MCP ya empaquetado que se activa con un clic y OAuth desde la configuración de Claude.</details>
+
+2. ¿Por qué desactivar conectores que no usás?
+   <details><summary>Ver respuesta</summary>Aunque hoy cada conector carga solo los nombres de sus herramientas hasta que se usan, muchos conectores suman ruido y opciones que pueden distraer al modelo, y sus resultados ocupan contexto. Activá solo los que la tarea necesita.</details>
+
+3. Tu sesión está muy larga y Claude olvida instrucciones. ¿Qué hacés?
+   <details><summary>Ver respuesta</summary>Pedís un resumen del estado y las decisiones, y abrís una sesión nueva con ese resumen (en Claude Code: `/compact` o `/clear`).</details>
 
 ➡️ Siguiente: [Módulo 03 — Agent Skills y Plugins](03-skills-y-plugins.md)

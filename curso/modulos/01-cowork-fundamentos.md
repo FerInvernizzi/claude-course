@@ -1,12 +1,21 @@
 # Módulo 01 — Claude Cowork: fundamentos
 
+> **🎯 Objetivos.** Al terminar este módulo vas a poder:
+> - Configurar Cowork con una carpeta de trabajo segura.
+> - Formular pedidos con objetivo, entradas, formato, restricciones y plan previo.
+> - Generar un Excel con fórmulas y formato a partir de archivos crudos.
+> - Adaptar el patrón de pedido a finanzas, legal, marketing e investigación.
+>
+> **Requisitos previos:** Módulo 00 · Claude Desktop instalado · **Duración estimada:** 1 h 30 min
+
 ## 1.1 ¿Qué es Claude Cowork?
 
 **Claude Cowork** es el modo agéntico de **Claude Desktop** pensado para trabajo de conocimiento (no solo programadores). Usa el mismo "motor" que Claude Code, pero con una interfaz visual:
 
 - Le das acceso a **una carpeta** de tu computadora.
 - Le describís una tarea en lenguaje natural.
-- Claude **planifica, ejecuta en un entorno aislado (sandbox/VM), crea y modifica archivos**, y te muestra el progreso.
+- Claude **planifica, ejecuta en un entorno aislado en los servidores de Anthropic, crea y modifica archivos**, y te muestra el progreso.
+- Como la ejecución ocurre en la nube, **la tarea sigue aunque cierres la laptop**, y la podés retomar desde la web, la app de escritorio o el celular.
 - Podés dejarlo trabajando en tareas largas mientras hacés otra cosa, y encolar varias tareas.
 
 **Casos de uso por área:**
@@ -24,7 +33,7 @@
 
 ### El ciclo agéntico
 
-```
+```text
  Objetivo ──► Plan (lista de tareas) ──► Ejecutar paso ──► Observar resultado
                      ▲                                          │
                      └────────── ajustar / siguiente paso ◄─────┘
@@ -35,7 +44,7 @@
 ### Componentes
 
 1. **Carpeta de trabajo:** Cowork solo ve lo que le das. Todo lo que crea queda ahí.
-2. **Sandbox:** ejecuta código (Python, etc.) en un entorno aislado para procesar archivos, generar gráficos, crear `.xlsx`/`.pptx`/`.docx`/`.pdf`.
+2. **Entorno aislado:** ejecuta código (Python, etc.) separado de tu computadora y de tu red para procesar archivos, generar gráficos y crear `.xlsx`/`.pptx`/`.docx`/`.pdf`.
 3. **Skills:** instrucciones empaquetadas (ej. la skill de Excel sabe crear hojas con fórmulas, formato y gráficos correctos). Ver módulo 03.
 4. **Conectores (MCP):** acceso a Gmail, Google Drive, Calendar, Slack, Notion, etc. Ver módulo 02.
 5. **Plugins:** paquetes de skills + comandos + conectores para un rol (finanzas, datos, legal, marketing…).
@@ -44,9 +53,27 @@
 
 ### Permisos y seguridad
 
-- Claude pide confirmación antes de acciones sensibles (borrar, enviar emails, etc.).
+Cowork tiene tres modos de permiso, que elegís por tarea:
+
+| Modo | Qué hace | Cuándo usarlo |
+|------|----------|---------------|
+| **Manual** | Claude pide tu aprobación antes de cada acción | Primeras veces, datos sensibles, acciones externas |
+| **Auto** | Trabaja sin interrumpirte, pero una revisión de seguridad automática bloquea o te consulta lo riesgoso (exfiltración de datos, inyección de prompts). Consume algo más de uso | Tareas largas que ya conocés |
+| **Skip** | Sin pausas ni revisión automática | Solo si confiás por completo en todos los archivos, conectores y acciones involucrados |
+
+- Siempre pide permiso explícito antes de **borrar archivos de forma permanente**, en cualquier modo.
 - **Buenas prácticas:** trabajá sobre **copias** de archivos importantes; no le des acceso a carpetas con credenciales; revisá las acciones externas (emails, mensajes) antes de aprobarlas.
 - Cuidado con la **inyección de prompts**: un documento o web puede contener instrucciones maliciosas. Si Claude propone algo raro, frenalo.
+
+### Contexto permanente: instrucciones y proyectos
+
+Tres lugares donde Cowork guarda contexto para que no lo repitas en cada tarea:
+
+- **Instrucciones globales** (Configuración → instrucciones para Claude): tono, formato y rol que aplican a todas tus tareas. Ejemplo: *"Respondé en español rioplatense. Números con separador de miles. Siempre un resumen de 3 líneas al inicio."*
+- **Instrucciones de carpeta:** contexto propio de la carpeta local que elegís. Claude las puede actualizar solo mientras trabaja, igual que un `CLAUDE.md` (módulo 09).
+- **Proyectos:** agrupan tareas relacionadas con sus propios archivos, instrucciones y memoria, y persisten entre sesiones. Ideal para "Cierre mensual", "Cliente X" o "Tesis".
+
+**Consumo de uso:** las tareas de varios pasos consumen bastante más que una pregunta rápida (cada paso, archivo creado, conector o navegación suma). Agrupá trabajo relacionado, abrí una tarea nueva para cada tema distinto y revisá el consumo en *Configuración → Uso*.
 
 ## 1.3 Primeros pasos
 
@@ -61,7 +88,7 @@
 
 **Preparación:** poné en la carpeta una mezcla de archivos (PDFs, imágenes, CSV, docs). Si no tenés, pedile:
 
-```
+```text
 Creá en esta carpeta 25 archivos de ejemplo variados (facturas en PDF, fotos .jpg,
 CSV de ventas, notas .txt y documentos .docx) con nombres desordenados, para practicar
 la organización.
@@ -69,7 +96,7 @@ la organización.
 
 **Prompt de la demo:**
 
-```
+```text
 Organizá esta carpeta:
 1. Creá subcarpetas por tipo: /Facturas, /Imagenes, /Datos, /Documentos, /Otros.
 2. Renombrá cada archivo con el formato AAAA-MM-DD_descripcion-corta.ext
@@ -88,7 +115,7 @@ Antes de mover nada, mostrame el plan y esperá mi OK.
 
 ### Parte B — Skill de Excel: de datos crudos a reporte
 
-```
+```text
 En /Datos hay CSV de ventas. Consolidalos en un único Excel "Ventas_Consolidado.xlsx" con:
 - Hoja "Datos": todas las filas, con columnas normalizadas (fecha ISO, región en mayúsculas,
   monto numérico).
@@ -107,14 +134,14 @@ Explicame al final qué problemas de calidad de datos encontraste.
 ## 1.5 Patrones de tareas para cada área
 
 **Finanzas**
-```
+```text
 Tengo los extractos bancarios de enero a marzo en /Extractos (PDF). Extraé todas las
 transacciones a Excel, categorizalas (Nómina, Proveedores, Impuestos, Otros) y armá
 un resumen de flujo de caja mensual con gráfico.
 ```
 
 **Legal**
-```
+```text
 Revisá los 12 contratos de /Contratos contra este checklist: plazo, renovación automática,
 cláusula de rescisión, penalidades, jurisdicción, confidencialidad. Generá una matriz en
 Excel (contrato × cláusula) con el texto citado y un semáforo de riesgo. No des consejo
@@ -122,23 +149,63 @@ legal definitivo; marcá lo que requiere revisión de un abogado.
 ```
 
 **Marketing**
-```
+```text
 Con el brief de /Brief.docx y el tono de marca de /Marca/tono.md, creá un calendario de
 contenido de 4 semanas para LinkedIn e Instagram en Excel, y redactá los 8 primeros posts
 en un Word.
 ```
 
 **Investigación**
-```
+```text
 Leé los 20 papers de /Papers. Hacé una tabla comparativa (autor, año, método, muestra,
 hallazgo principal, limitaciones) y un informe de síntesis de 2 páginas en Word con
 referencias en formato APA.
 ```
+
+## 🧪 Práctica: tu primera automatización en Cowork
+
+Elegí **tu área** (finanzas, legal, marketing, datos o investigación) y resolvé con Cowork una tarea real de principio a fin:
+
+1. Prepará una carpeta con 10-20 archivos de trabajo (o pedile a Cowork que genere datos sintéticos realistas de tu área).
+2. Escribí el pedido con la estructura: **objetivo + entradas + formato de salida + restricciones + "mostrame el plan"**.
+3. El entregable debe incluir al menos un Excel con fórmulas (no valores pegados) y un resumen de hallazgos.
+4. Iterá al menos dos veces sobre el resultado.
+
+### ✅ Solución (ejemplo para Marketing)
+
+```text
+En /Campañas hay 12 CSV exportados de Meta Ads y Google Ads (enero a junio).
+Objetivo: saber qué campañas conviene escalar y cuáles pausar.
+1. Consolidá todo en Campañas_2025.xlsx, hoja "Datos", con columnas normalizadas
+   (fecha, plataforma, campaña, inversión, clics, conversiones, ingresos).
+2. Hoja "KPIs" con FÓRMULAS: CTR, CPC, CPA y ROAS por campaña y por mes.
+3. Hoja "Gráficos": ROAS por campaña (barras) e inversión vs. ingresos por mes (líneas).
+4. Un resumen de 5 bullets: qué escalar, qué pausar y por qué, con el dato de respaldo.
+Restricciones: no borres los CSV originales; si hay campañas con nombres inconsistentes,
+listalas antes de unificarlas. Mostrame el plan y esperá mi OK.
+```
+
+**Criterios de éxito:**
+- [ ] Cowork mostró un plan y esperó tu aprobación antes de modificar archivos.
+- [ ] Si cambiás un dato en "Datos", los KPIs se recalculan (hay fórmulas, no valores).
+- [ ] Cada conclusión del resumen cita el número que la respalda.
+- [ ] Los archivos originales siguen intactos.
 
 ## ✅ Resumen del módulo
 
 - Cowork = Claude agéntico sobre **tus archivos**, con sandbox, skills, conectores y plugins.
 - Estructura de un buen pedido: **objetivo + entradas + formato de salida + restricciones + "mostrame el plan"**.
 - La skill de Excel produce hojas reales con fórmulas, formato y gráficos.
+
+## 🧠 Autoevaluación
+
+1. ¿Por qué conviene pedir "mostrame el plan y esperá mi OK"?
+   <details><summary>Ver respuesta</summary>Porque podés corregir el rumbo antes de que Cowork mueva o modifique archivos, que es más barato que deshacer.</details>
+
+2. ¿Por qué pedir fórmulas en lugar de valores en un Excel?
+   <details><summary>Ver respuesta</summary>El libro queda auditable y se recalcula si cambian los datos.</details>
+
+3. Nombrá dos buenas prácticas de seguridad en Cowork.
+   <details><summary>Ver respuesta</summary>Trabajar sobre copias y dar acceso solo a la carpeta necesaria. También: revisar las acciones externas antes de aprobarlas y desconfiar de instrucciones que vengan dentro de documentos (inyección de prompts).</details>
 
 ➡️ Siguiente: [Módulo 02 — MCP, conectores, tokens y contexto](02-mcp-conectores-tokens.md)

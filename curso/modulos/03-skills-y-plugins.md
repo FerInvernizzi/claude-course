@@ -1,5 +1,14 @@
 # Módulo 03 — Agent Skills y Plugins en Cowork
 
+> **🎯 Objetivos.** Al terminar este módulo vas a poder:
+> - Explicar qué es una skill, su estructura y la carga progresiva.
+> - Crear una skill propia con `skill-creator`.
+> - Diferenciar skills de plugins e instalar un plugin.
+> - Limpiar datos, hacer análisis estadístico, dashboards y slides con el plugin de datos.
+> - Diseñar y empaquetar un plugin de finanzas propio.
+>
+> **Requisitos previos:** Módulos 01 y 02 · **Duración estimada:** 4 h
+
 ## 3.1 ¿Qué es una Agent Skill?
 
 Una **Skill** es una carpeta con instrucciones, scripts y recursos que Claude **carga automáticamente cuando son relevantes** para la tarea. Es la forma de "enseñarle un oficio" a Claude una vez y reutilizarlo siempre.
@@ -8,7 +17,7 @@ Una **Skill** es una carpeta con instrucciones, scripts y recursos que Claude **
 
 ### Estructura de una skill
 
-```
+```text
 mi-skill/
 ├── SKILL.md          ← obligatorio: frontmatter + instrucciones
 ├── reference.md      ← opcional: documentación extra (se lee solo si hace falta)
@@ -46,7 +55,7 @@ description: Redacta posts de LinkedIn con el tono y formato de la marca. Usar c
 
 ### Progressive disclosure (carga progresiva)
 
-```
+```text
 Nivel 1: name + description      → siempre en contexto (muy pocos tokens)
 Nivel 2: cuerpo de SKILL.md      → se carga cuando la tarea coincide
 Nivel 3: archivos y scripts      → se leen/ejecutan solo si hacen falta
@@ -67,7 +76,7 @@ Por eso podés tener decenas de skills instaladas sin saturar el contexto.
 
 1. *Configuración → Capacidades/Skills* → activar las skills de ejemplo.
 2. Subir una skill propia como `.zip` de la carpeta, o pedirle a Claude:
-   ```
+   ```text
    Usá skill-creator para crear una skill llamada "informe-semanal" que ...
    ```
 3. En Claude Code, las skills viven en `~/.claude/skills/<nombre>/SKILL.md` (personales) o `.claude/skills/<nombre>/SKILL.md` (del proyecto).
@@ -77,7 +86,7 @@ Por eso podés tener decenas de skills instaladas sin saturar el contexto.
 1. Creá la carpeta `Marca/` con: `tono.md` (cómo habla tu marca), 3–5 posts que te gustaron en `ejemplos/`.
 2. Pedile a Cowork:
 
-```
+```text
 Usá la skill skill-creator para crear una skill "posts-linkedin" basada en mi carpeta
 /Marca: extraé el tono, estructura y longitud de los ejemplos y convertilo en reglas.
 Incluí en la skill una checklist de calidad que debas verificar antes de entregar.
@@ -85,7 +94,7 @@ Incluí en la skill una checklist de calidad que debas verificar antes de entreg
 
 3. Probala:
 
-```
+```text
 Escribí un post de LinkedIn sobre cómo automatizamos el cierre contable con IA
 y ahorramos 3 días por mes.
 ```
@@ -96,7 +105,7 @@ y ahorramos 3 días por mes.
 
 Un **Plugin** es un **paquete instalable** que agrupa varias piezas para un rol o flujo:
 
-```
+```text
 mi-plugin/
 ├── .claude-plugin/
 │   └── plugin.json        ← metadatos (nombre, versión, autor)
@@ -126,7 +135,7 @@ Anthropic publica plugins de ejemplo para roles (datos, finanzas, legal, ventas,
 2. Escribí `/` en Cowork para ver los comandos que agrega (por ejemplo, explorar, limpiar, analizar, visualizar, construir dashboard — los nombres exactos dependen de la versión).
 3. Generá un dataset de práctica:
 
-```
+```text
 Generá "ventas_2025.csv" con 2.000 filas: fecha, id_cliente, region (Norte, Sur, Este,
 Oeste), producto (8 productos), canal (Online, Tienda, Mayorista), unidades, precio,
 descuento, satisfaccion (1-5). Introducí a propósito: 5% de valores faltantes, 20 filas
@@ -136,7 +145,7 @@ fechas en 2 formatos distintos.
 
 ### Parte 2 — Limpieza de datos
 
-```
+```text
 Hacé un perfil de calidad de ventas_2025.csv y después limpialo:
 - Normalizá regiones y fechas.
 - Eliminá duplicados exactos.
@@ -150,7 +159,7 @@ Entregá ventas_limpio.xlsx con una hoja "Log de limpieza" que documente cada ca
 
 ### Parte 3 — Visualización
 
-```
+```text
 Con ventas_limpio.xlsx creá 6 visualizaciones que respondan:
 1. ¿Cómo evolucionan las ventas por mes?
 2. ¿Qué región y canal venden más?
@@ -168,7 +177,7 @@ Con el mismo dataset, pedile a Claude un **dashboard interactivo en HTML** de un
 
 ### ✅ Solución (prompt modelo)
 
-```
+```text
 Construí dashboard.html (un solo archivo, usando Chart.js desde CDN) a partir de
 ventas_limpio.xlsx:
 - Fila de 4 tarjetas KPI: Ventas totales, Ticket promedio, Satisfacción media, % Online.
@@ -184,7 +193,7 @@ Abrilo y verificá que los filtros funcionan antes de entregarlo.
 
 ### Parte 4 — Análisis estadístico y PowerPoint
 
-```
+```text
 Hacé un análisis estadístico de ventas_limpio.xlsx:
 1. Estadística descriptiva por región y canal.
 2. ¿Las ventas medias difieren entre regiones? (ANOVA + post-hoc Tukey; verificá supuestos).
@@ -200,7 +209,7 @@ de 8 slides "Insights de Ventas 2025" con la skill pptx: portada, resumen ejecut
 
 ## 3.5 Forecasting financiero con Cowork y Skills
 
-```
+```text
 En /Finanzas tengo ingresos_mensuales_2021_2025.xlsx. Construí un forecast de 12 meses:
 1. Analizá tendencia y estacionalidad (descomposición).
 2. Compará 3 métodos: media móvil, suavizado exponencial (Holt-Winters) y regresión con
@@ -230,7 +239,7 @@ Decidí qué debe hacer el plugin. Ejemplo "finanzas-pyme":
 
 Tenés el plugin completo en [`plantillas/plugin-finanzas/`](../plantillas/plugin-finanzas/). Pedile a Cowork:
 
-```
+```text
 Usá skill-creator para crear un plugin "finanzas-pyme" con esta estructura: [pegá la tabla].
 Cada skill debe tener: cuándo usarse, proceso paso a paso, convenciones de formato,
 y una checklist de verificación final.
@@ -255,5 +264,16 @@ Con tu plugin de datos (o el de finanzas), analizá un dataset de **RR.HH.** (ge
 4. **Gráficos:** barras de rotación por depto; boxplot de salario por estado; curva de rotación por antigüedad; importancia de factores.
 5. **Slides:** 1) Resumen, 2) Dónde se concentra la rotación, 3) Qué la explica, 4) Costo estimado, 5) 3 recomendaciones accionables.
 6. **Revisión:** ¿los números de las slides coinciden con el Excel? ¿Se aclara que es correlacional?
+
+## 🧠 Autoevaluación
+
+1. ¿Qué parte de una skill decide si Claude la usa?
+   <details><summary>Ver respuesta</summary>El `name` y sobre todo la `description`: tiene que decir qué hace y cuándo usarla.</details>
+
+2. ¿Qué contiene un plugin que no contiene una skill?
+   <details><summary>Ver respuesta</summary>Puede agrupar varias skills, slash commands, subagentes, hooks y servidores MCP en un paquete instalable.</details>
+
+3. ¿Por qué pedir un "log de limpieza" al limpiar datos?
+   <details><summary>Ver respuesta</summary>Para que cada cambio sea auditable: qué regla se aplicó y a cuántas filas.</details>
 
 ➡️ Siguiente: [Módulo 04 — Claude Chat](04-claude-chat.md)

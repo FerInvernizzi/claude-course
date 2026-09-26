@@ -1,5 +1,12 @@
 # Módulo 05 — Prompt Engineering y Context Engineering
 
+> **🎯 Objetivos.** Al terminar este módulo vas a poder:
+> - Escribir prompts con los 6 componentes (rol, tarea, contexto, formato, restricciones, ejemplos).
+> - Aplicar técnicas avanzadas: XML, few-shot, encadenamiento, autocrítica y preguntas previas.
+> - Diseñar el contexto de un agente con las 4 estrategias (escribir, seleccionar, comprimir, aislar).
+>
+> **Requisitos previos:** Módulo 04 · **Duración estimada:** 1 h 30 min
+
 ## 5.1 Fundamentos: qué es un buen prompt
 
 Un prompt es una **especificación de trabajo**. Claude no puede leer tu mente: todo lo que no escribís, lo tiene que adivinar.
@@ -20,7 +27,7 @@ Un prompt es una **especificación de trabajo**. Claude no puede leer tu mente: 
 ❌ *"Hacé un resumen de este contrato."*
 
 ✅
-```
+```text
 Sos abogado corporativo. Resumí el contrato adjunto para el gerente comercial (no abogado),
 que debe decidir hoy si lo firma.
 Formato:
@@ -42,7 +49,7 @@ Restricciones: lenguaje simple, máx. 400 palabras. Si algo es ambiguo, decilo; 
 
 ### 1. Etiquetas XML para estructurar
 
-```
+```text
 <contexto>Empresa SaaS B2B, 40 empleados, churn mensual 3%.</contexto>
 <datos>{{pegar CSV}}</datos>
 <tarea>Identificá los 3 segmentos con mayor churn y proponé acciones.</tarea>
@@ -53,7 +60,7 @@ Separa claramente instrucciones de datos (y reduce el riesgo de que el modelo co
 
 ### 2. Few‑shot (ejemplos)
 
-```
+```text
 Clasificá el sentimiento y el tema de cada reseña.
 Ejemplo: "La app se cuelga al pagar" → {sentimiento: negativo, tema: pagos}
 Ejemplo: "Me encantó la atención de Sofía" → {sentimiento: positivo, tema: soporte}
@@ -68,7 +75,7 @@ Para problemas complejos: *"Pensá el problema paso a paso antes de responder"* 
 
 Dividí tareas grandes en etapas con salidas intermedias revisables:
 
-```
+```text
 Etapa 1: Extraé los datos → revisás
 Etapa 2: Analizá → revisás
 Etapa 3: Redactá el informe → revisás
@@ -77,7 +84,7 @@ Etapa 4: Autocrítica y versión final
 
 ### 5. Autocrítica / reflexión
 
-```
+```text
 Ahora revisá tu respuesta como si fueras un revisor exigente: listá 5 debilidades
 y entregá una versión mejorada.
 ```
@@ -92,13 +99,13 @@ y entregá una versión mejorada.
 
 ### 8. Pedir preguntas primero
 
-```
+```text
 Antes de empezar, hacé las preguntas que necesites para hacerlo bien (máx. 5).
 ```
 
 ### Prompts para generación de código avanzada
 
-```
+```text
 Contexto: API en Next.js 15 (App Router) + TypeScript + Prisma + PostgreSQL.
 Tarea: endpoint POST /api/pedidos que cree un pedido con sus ítems en una transacción.
 Requisitos:
@@ -137,7 +144,7 @@ Primero proponé el diseño; después implementá; al final corré los tests.
 ## 5.4 Plantillas reutilizables
 
 **Análisis**
-```
+```text
 <rol>Analista senior de {{área}}</rol>
 <objetivo>{{decisión que se va a tomar}}</objetivo>
 <audiencia>{{quién lo lee}}</audiencia>
@@ -147,7 +154,7 @@ Primero proponé el diseño; después implementá; al final corré los tests.
 ```
 
 **Contenido**
-```
+```text
 Público: {{}} | Objetivo: {{informar/persuadir/vender}} | Canal: {{}}
 Tono: {{}} | Longitud: {{}} | Llamado a la acción: {{}}
 Ejemplos de estilo: {{}}
@@ -155,7 +162,7 @@ Entregá 3 variantes con enfoques distintos y decí cuál recomendás y por qué
 ```
 
 **Resolución de problemas**
-```
+```text
 Problema: {{}}. Lo que ya probé: {{}}. Restricciones: {{}}.
 1) Reformulá el problema. 2) Listá hipótesis de causa ordenadas por probabilidad.
 3) Proponé cómo verificar cada una. 4) Recomendá la solución y el plan B.
@@ -167,7 +174,7 @@ Reescribí este prompt aplicando la fórmula y al menos 3 técnicas: *"Haceme un
 
 ### ✅ Solución
 
-```
+```text
 <rol>Consultor de marketing para negocios gastronómicos locales.</rol>
 <contexto>Cafetería de especialidad en Córdoba (barrio universitario), 2 años abierta,
 ticket promedio $6.000, clientes: estudiantes y trabajadores remotos. Presupuesto
@@ -184,5 +191,16 @@ Al final, criticá tu plan: ¿qué podría fallar?
 ```
 
 Técnicas aplicadas: rol, XML, contexto rico, formato explícito, restricciones, preguntas previas y autocrítica.
+
+## 🧠 Autoevaluación
+
+1. ¿Por qué conviene explicar el porqué de una instrucción?
+   <details><summary>Ver respuesta</summary>Porque Claude generaliza mejor: entiende el objetivo y lo aplica a casos que no previste.</details>
+
+2. ¿Qué es context engineering?
+   <details><summary>Ver respuesta</summary>Diseñar todo lo que entra en la ventana de contexto del agente a lo largo de la tarea: instrucciones, memoria, skills, herramientas, archivos e historial.</details>
+
+3. Nombrá una técnica para "aislar" contexto.
+   <details><summary>Ver respuesta</summary>Usar subagentes (cada uno con su propia ventana) o sesiones nuevas por tarea.</details>
 
 ➡️ Siguiente: [Módulo 06 — Claude en Excel](06-claude-en-excel.md)

@@ -1,5 +1,13 @@
 # Módulo 12 — Tu agente personal con Claude Code y Cowork
 
+> **🎯 Objetivos.** Al terminar este módulo vas a poder:
+> - Diseñar la arquitectura de un agente personal (identidad, memoria, capacidades, disparadores).
+> - Aplicar el patrón Wiki de Karpathy y visualizarlo en Obsidian.
+> - Escribir un SOUL.md y un CLAUDE.md para tu agente.
+> - Conectar Gmail, Calendar y Notion y configurar tu marca.
+>
+> **Requisitos previos:** Módulos 02, 03 y 09 · **Duración estimada:** 3 h
+
 ## 12.1 Bienvenida y materiales
 
 En este módulo construís un **agente personal**: un "segundo cerebro" que te conoce (tu CV, objetivos, estilo, marca), está conectado a tus herramientas (Gmail, Calendar, Notion) y ejecuta **automatizaciones** por vos (módulo 13).
@@ -18,7 +26,7 @@ En 2025–2026 se popularizaron los agentes personales que **viven en tu computa
 
 ## 12.3 Arquitectura del agente personal
 
-```
+```text
 ┌─────────────────────────────────────────────────────────────────────────┐
 │                      TU AGENTE PERSONAL                                  │
 │                                                                          │
@@ -48,7 +56,7 @@ En 2025–2026 se popularizaron los agentes personales que **viven en tu computa
 
 Andrej Karpathy propuso usar un LLM como **"compilador" de conocimiento personal**: en lugar de hacer RAG sobre documentos sueltos cada vez que preguntás, el LLM **lee tus fuentes crudas y mantiene una wiki en Markdown**, interconectada y siempre actualizada, que después consulta (y que vos podés navegar).
 
-```
+```text
 raw/ (fuentes crudas)  ──►  LLM "compila"  ──►  wiki/ (páginas interconectadas)
  artículos, PDFs,           resume, extrae,       conceptos, personas, proyectos,
  notas, transcripciones     enlaza, actualiza     índice, [[enlaces]] entre páginas
@@ -77,7 +85,7 @@ raw/ (fuentes crudas)  ──►  LLM "compila"  ──►  wiki/ (páginas inte
 
 ## 12.6 Estructura de carpetas del agente
 
-```
+```text
 mi-agente/                       ← abrila en Claude Code/Cowork y en Obsidian
 ├── CLAUDE.md                    ← playbook: cómo trabaja el agente
 ├── SOUL.md                      ← personalidad y valores
@@ -168,7 +176,7 @@ a lo que más importa según yo/objetivos.md.
 
 ## 12.10 Carpeta de marca
 
-```
+```text
 marca/
 ├── logo.png              (fondo transparente, versión clara y oscura si tenés)
 ├── colores.md            primario #1B3A5C · acento #F2A541 · fondo #FAFAF7 · texto #1E1E1E
@@ -205,7 +213,7 @@ Tus comandos personalizados (módulo 13) viven en `.claude/commands/` o como ski
 
 Copiá tu CV (PDF), 5–10 textos tuyos (posts, emails, artículos) y tus objetivos a `raw/documentos/`. Luego:
 
-```
+```text
 Leé todo raw/documentos/. Construí:
 - yo/perfil.md: resumen profesional, experiencia, habilidades, logros con números.
 - yo/objetivos.md: mis metas ordenadas por horizonte (90 días, 1 año, 3 años). Si faltan,
@@ -220,7 +228,7 @@ No inventes nada: marcá con [VERIFICAR] lo que infieras.
 1. *Configuración → Conectores* → **Gmail**, **Google Calendar**, **Notion** → Conectar (OAuth).
 2. En Claude Code, verificá con `/mcp`. En Cowork, en la configuración de la tarea.
 3. Probá cada uno:
-   ```
+   ```text
    Decime mis 3 próximas reuniones, los 5 emails sin leer más importantes y las páginas
    de Notion que modifiqué esta semana. Solo lectura.
    ```
@@ -228,7 +236,7 @@ No inventes nada: marcá con [VERIFICAR] lo que infieras.
 
 ### Parte 3 — Recorrido del vault
 
-```
+```text
 Hacé la ingesta inicial siguiendo el procedimiento de CLAUDE.md: procesá raw/ y creá las
 páginas de wiki/ (personas, proyectos, empresas, conceptos), con enlaces [[...]] entre
 ellas, wiki/index.md y una entrada en wiki/log.md. Al final mostrame el árbol del vault
@@ -253,5 +261,16 @@ Armá tu agente con: SOUL.md propio (nombre, 3 rasgos, 3 límites), CLAUDE.md co
 - [ ] Al pedir una slide, aplica `marca/`.
 - [ ] Antes de cualquier acción externa, pide aprobación.
 - [ ] El Graph View de Obsidian muestra nodos conectados, no aislados.
+
+## 🧠 Autoevaluación
+
+1. ¿Qué diferencia hay entre SOUL.md y CLAUDE.md?
+   <details><summary>Ver respuesta</summary>SOUL.md define quién es el agente (personalidad, valores, límites); CLAUDE.md define cómo trabaja (mapa del vault, procedimientos, reglas).</details>
+
+2. ¿Por qué `raw/` es inmutable en el patrón de Karpathy?
+   <details><summary>Ver respuesta</summary>Para conservar la fuente original: la wiki se puede regenerar o corregir, pero la evidencia no se toca.</details>
+
+3. ¿Por qué el contenido de los emails se trata como datos y no como instrucciones?
+   <details><summary>Ver respuesta</summary>Para protegerse de la inyección de prompts: un email podría intentar que el agente haga algo que vos no pediste.</details>
 
 ➡️ Siguiente: [Módulo 13 — Las 10 automatizaciones](13-automatizaciones.md)

@@ -1,5 +1,12 @@
 # Módulo 00 — Introducción: el poder de Claude Code y Cowork
 
+> **🎯 Objetivos.** Al terminar este módulo vas a poder:
+> - Explicar la diferencia entre un chatbot y un agente.
+> - Ubicar Chat, Cowork, Code y los add-ins de Office en el ecosistema de Claude.
+> - Aplicar los 8 consejos de éxito al formular un pedido.
+>
+> **Requisitos previos:** Ninguno · **Duración estimada:** 20 min
+
 ## 0.1 El cambio de paradigma: de "chatbot" a "agente"
 
 Durante años usamos la IA así: **vos preguntás → la IA responde → vos copiás y pegás**. Todo el trabajo de ejecutar recaía en vos.
@@ -16,7 +23,7 @@ Con Claude Code y Claude Cowork el modelo cambia a: **vos delegás un objetivo �
 
 ## 0.2 El ecosistema de Claude (mapa mental)
 
-```
+```text
                          ┌──────────────── CLAUDE ────────────────┐
                          │                                         │
      Conversación        │   Trabajo de oficina       Desarrollo   │
@@ -64,5 +71,16 @@ Todo lo que necesitás está en este repositorio:
 - [`plantillas/`](../plantillas/) — skills, comandos, agentes y plugin listos para copiar.
 - [`codigo/`](../codigo/) — scripts Python de los proyectos de agentes.
 - Datos de práctica: en cada ejercicio se indica cómo pedirle a Claude que **genere un dataset sintético** para que no dependas de archivos externos.
+
+## 🧠 Autoevaluación
+
+1. ¿Qué cambia cuando pasás de "chat" a "agente"?
+   <details><summary>Ver respuesta</summary>Delegás un objetivo en vez de hacer una pregunta: el agente planifica, usa herramientas (archivos, apps, terminal), verifica su trabajo y entrega archivos reales.</details>
+
+2. ¿Qué tienen en común Cowork y Claude Code?
+   <details><summary>Ver respuesta</summary>El mismo motor agéntico y las mismas capas de extensión: skills, plugins, MCP y subagentes.</details>
+
+3. ¿Cuándo conviene convertir un prompt en una skill?
+   <details><summary>Ver respuesta</summary>Cuando lo repetís: la regla práctica del curso es la tercera vez.</details>
 
 ➡️ Siguiente: [Módulo 01 — Claude Cowork: fundamentos](01-cowork-fundamentos.md)
