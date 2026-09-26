@@ -6,11 +6,22 @@
 
 | # | Al terminar vas a poder… (conducta · condición · criterio) | Nivel (Bloom) | Evidencia |
 |---|---|---|---|
-| 13.1 | Construir al menos 5 automatizaciones como procedimiento escrito + comando + disparador, a partir de los blueprints del módulo | Crear · procedimental | Práctica |
-| 13.2 | Programar al menos 2 automatizaciones con `/schedule` y disparar 1 con Dispatch desde el celular, registrando cada ejecución en el diario | Aplicar · procedimental | Práctica |
-| 13.3 | Evaluar cada automatización con los 6 criterios de calidad (definición escrita, idempotencia, seguridad, observabilidad, tolerancia a fallos, medición), documentando el tiempo ahorrado por semana | Evaluar · metacognitivo | Práctica |
+| 13.1 | Construir al menos 5 automatizaciones como procedimiento escrito + comando + disparador, a partir de los blueprints del módulo | Crear · procedimental | Práctica (entregas 1 y 2) |
+| 13.2 | Programar al menos 2 automatizaciones con `/schedule` y disparar 1 con Dispatch desde el celular, registrando cada ejecución en el diario | Aplicar · procedimental | Práctica (entrega 3) |
+| 13.3 | Evaluar cada automatización con los 6 criterios de calidad (definición escrita, idempotencia, seguridad, observabilidad, tolerancia a fallos, medición), documentando el tiempo ahorrado por semana | Evaluar · metacognitivo | Práctica (entrega 4) |
 
 **Requisitos previos:** Módulo 12 · **Duración estimada:** 8 h o más
+
+### 🗺️ Ruta de estudio (4 sesiones)
+
+| Sesión | Secciones | Resultado |
+|---|---|---|
+| 1 · 2 h | 13.1, Morning Brief y Email Triage | Entrega 1 |
+| 2 · 2 h | 3 blueprints a elección | Entrega 2 |
+| 3 · 2 h | `/schedule` y Dispatch (dentro del Morning Brief) | Entrega 3 |
+| 4 · 2 h | Pruebas de calidad | Entrega 4 |
+
+No hace falta leer los 10 blueprints en orden: leé primero los dos de la sesión 1 y usá el resto como catálogo.
 
 ## 13.1 Visión general de los 10 blueprints
 
@@ -113,15 +124,16 @@ Verificá: ¿cabe en 2 minutos? ¿las prioridades son las correctas? Ajustá los
 
 ### Dispatch: ejecutarlo desde el celular
 
-**Dispatch** permite enviarle tareas a tu agente desde la app de Claude en el celular, y que se ejecuten **en tu computadora**: con tus archivos locales, tus conectores e incluso controlando tus aplicaciones de escritorio (por ejemplo, actualizar un Excel). Requiere plan Pro o Max.
+**Dispatch** es un agente de larga duración dentro de Cowork: le describís un resultado en una sola conversación y él **lo divide en tareas hijas** que corren en segundo plano. Las envía a **Claude Code** (si es trabajo de código, sobre un workspace que ya configuraste) o a un **proyecto de Cowork** (si es trabajo de conocimiento). Cada tarea hija aparece en la barra lateral con su estado (*Running*, *Awaiting input*, *Completed*, *Error*…). Requiere plan **Pro o Max** y Claude Desktop actualizado en macOS o Windows.
 
-1. En Cowork (en la computadora o en el celular) → **Dispatch** en la barra lateral → *Get started* → activá el acceso a archivos y el permiso para mantener la computadora despierta → *Finish setup*.
-2. Desde el celular: *"Corré el morning brief y mandame el resumen acá"*.
-3. La tarea corre en tu computadora con acceso a tu vault y conectores; el resultado llega al teléfono.
+1. En Claude Desktop, abrí **Dispatch** en la barra lateral y completá la configuración inicial (acceso a archivos y permiso para mantener la computadora despierta).
+2. Indicá en qué proyecto de Cowork trabajar (por ejemplo, el de tu vault). Si no lo decís, el agente te muestra los disponibles y elige.
+3. Desde el celular, abrí **Dispatch** en la app de Claude y escribí: *"Corré el morning brief en el proyecto Mi agente y mostrame el resumen"*.
+4. El trabajo corre en tu computadora, con tus carpetas, conectores e incluso tus aplicaciones de escritorio. El resultado se ve en el celular y en el escritorio.
 
-> Para Dispatch, la computadora tiene que estar **encendida y despierta**, con Claude Desktop abierto. Es una sola conversación persistente (no varios hilos). Ojo con la cadena de confianza: una instrucción desde el celular puede leer, mover o borrar archivos y usar tus apps.
+> Para Dispatch, la computadora tiene que estar **encendida, despierta y en línea**, con Claude Desktop abierto. Si una tarea hija necesita un permiso, el pedido te llega a vos; **si no respondés en 10 minutos, se deniega automáticamente**. Ojo con la cadena de confianza: una instrucción desde el celular puede leer, mover o borrar archivos y usar tus apps.
 
-**Programarlo:** en Cowork, `/schedule` → *"Todos los días hábiles a las 7:30, ejecutá /morning-brief"*. Claude redacta el prompt de la tarea y vos lo aprobás. Un truco: hacé la tarea una vez a mano, verificá que el resultado sea el correcto y recién ahí escribí `/schedule` para convertir *ese mismo proceso* en recurrente. Las tareas programadas de Cowork **corren en la nube**, sin necesidad de que tu equipo esté encendido. Si necesitan archivos locales, usá las tareas programadas de Claude Desktop, que corren en tu máquina.
+**Programarlo:** en Cowork, `/schedule` → *"Todos los días hábiles a las 7:30, ejecutá /morning-brief"*. Claude redacta el prompt de la tarea y vos lo aprobás. Un truco: hacé la tarea una vez a mano, verificá que el resultado sea el correcto y recién ahí escribí `/schedule` para convertir *ese mismo proceso* en recurrente. Según el centro de ayuda, las tareas programadas de Cowork corren en la nube sin que tu equipo esté encendido. **Pero el morning brief lee tu vault, que está en tu computadora:** para tareas que dependen de carpetas locales, dejá la computadora encendida o usá las tareas programadas de Claude Desktop, que corren en tu máquina. Las que solo usan conectores (Gmail, Calendar) no tienen esa limitación.
 
 ## 3. Market Pulse
 
@@ -333,18 +345,47 @@ Programalo: `/schedule` → *"Viernes 17:00, /weekly-report"*.
 
 ---
 
-## 🧪 Práctica final: proyecto integrador
+## 🧪 Práctica final: proyecto integrador en 4 entregas
 
-Implementá **al menos 5** de las 10 automatizaciones, con al menos **2 programadas** y **1 disparada por Dispatch**. Documentá en `automatizaciones/README.md`: qué hace cada una, disparador, conectores y cuánto tiempo te ahorra por semana.
+| Entrega | Objetivo | Qué hacés | Criterio de éxito |
+|---|---|---|---|
+| **1. Primeras 2 automatizaciones** | 13.1 | Morning Brief y Email Triage: definición en `automatizaciones/`, comando en `.claude/commands/`, ejecución manual | Cada una corre con su comando y deja registro en `diario/<hoy>.md` |
+| **2. Tres más** | 13.1 | Elegí 3 blueprints que te sirvan de verdad (por ejemplo CRM, Meeting Intel, Expense Wrangler) | 5 automatizaciones en total, con definición, comando y salida donde indica su definición |
+| **3. Disparadores** | 13.2 | Programá 2 con `/schedule` y lanzá 1 desde el celular con Dispatch | Las 2 programadas corrieron solas al menos una vez; la de Dispatch dejó su resultado en el diario |
+| **4. Evaluación** | 13.3 | Aplicá las 6 pruebas de calidad (abajo) a cada automatización y completá `automatizaciones/README.md` | Tabla con las 5 automatizaciones × 6 criterios, con evidencia y minutos ahorrados por semana |
 
-### ✅ Criterios de calidad de una automatización
+> Si tu plan no incluye Dispatch (hoy requiere Pro o Max), reemplazá ese disparador por `/remote-control` desde el celular o por una rutina de Claude Code (`/schedule`), y anotalo en el README.
 
-1. **Definición escrita** y versionada (no solo un prompt).
-2. **Idempotente:** si la corrés dos veces, no duplica datos.
-3. **Segura:** nada externo sin aprobación; no borra.
-4. **Observable:** deja registro en el diario.
-5. **Tolerante a fallos:** si un conector falla, sigue y avisa.
-6. **Medible:** sabés cuánto tiempo te ahorra.
+### Las 6 pruebas de calidad (cómo verificar cada criterio)
+
+| Criterio | Prueba concreta |
+|---|---|
+| 1. **Definición escrita** | Existe `automatizaciones/<nombre>.md` con objetivo, entradas, pasos, salida y reglas, y está en git |
+| 2. **Idempotente** | Corré la automatización **dos veces seguidas**: la segunda no duplica filas, fichas ni entradas del diario |
+| 3. **Segura** | Pedile en el prompt que "mande el email directamente": tiene que dejar un borrador y pedir aprobación |
+| 4. **Observable** | Después de correrla, `diario/<hoy>.md` dice qué hizo, a qué hora y dónde quedó la salida |
+| 5. **Tolerante a fallos** | Desactivá un conector (**+** → *Connectors*) y corrila: tiene que seguir con el resto y avisar qué falló |
+| 6. **Medible** | Cronometrá cuánto te llevaba la tarea a mano y restale lo que te lleva revisar la salida |
+
+### ✅ Solución: ejemplo resuelto de una fila del README
+
+```markdown
+| Automatización | Disparador | Conectores | 1 Def | 2 Idem | 3 Seg | 4 Obs | 5 Fallos | 6 Ahorro/semana |
+|---|---|---|---|---|---|---|---|---|
+| Morning Brief | /schedule, días hábiles 7:30 | Gmail, Calendar | ✅ automatizaciones/morning-brief.md | ✅ 2ª corrida reemplazó la sección "Brief", no la duplicó | ✅ solo lectura | ✅ diario/2026-09-28.md | ✅ sin Calendar avisó "agenda no disponible" | 5 × (15 − 2) = 65 min |
+```
+
+**Si falla la prueba 2 (idempotencia):** agregá a la definición *"Si la sección ya existe en el diario de hoy, reemplazala; no agregues otra"*. En CRM o gastos, definí una clave única (email del contacto; fecha + comercio + monto).
+
+**Si falla la prueba 5:** agregá *"Si un conector no responde, anotalo en el diario y continuá con los pasos que no dependen de él"*.
+
+## 📌 Ideas clave
+
+- Automatización = procedimiento escrito + comando + disparador.
+- Idempotencia, seguridad y observabilidad se prueban, no se suponen.
+- `/schedule` después de hacer la tarea una vez a mano.
+- Dispatch necesita la computadora despierta; las tareas que solo usan conectores no.
+- Medí los minutos ahorrados: es lo que justifica mantener cada automatización.
 
 ## 🧠 Autoevaluación
 
@@ -358,5 +399,10 @@ Implementá **al menos 5** de las 10 automatizaciones, con al menos **2 programa
    <details><summary>Ver respuesta</summary>Plan Pro o Max, y la computadora encendida y despierta con Claude Desktop abierto. Las tareas programadas de Cowork, en cambio, corren en la nube.</details>
 
 🎓 **¡Completaste el recorrido principal!** Seguí con los dos módulos de profundización.
+
+## Fuentes oficiales
+
+- [Dispatch](https://claude.com/docs/cowork/guide/dispatch) · [Assign tasks from anywhere in Cowork](https://support.claude.com/en/articles/13947068-assign-tasks-from-anywhere-in-claude-cowork) · [Schedule recurring tasks in Cowork](https://support.claude.com/en/articles/13854387-schedule-recurring-tasks-in-claude-cowork)
+- [Routines (Claude Code)](https://code.claude.com/docs/en/routines) · [Desktop scheduled tasks](https://code.claude.com/docs/en/desktop-scheduled-tasks)
 
 ➡️ Siguiente: [Módulo 14 — Funciones avanzadas que nadie te cuenta](14-funciones-avanzadas.md)

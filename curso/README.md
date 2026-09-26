@@ -8,7 +8,7 @@ Curso práctico y en español para dominar el ecosistema de Claude de punta a pu
 
 ## Qué vas a lograr
 
-Los objetivos están escritos para ser **medibles**: cada uno dice qué vas a poder hacer, con qué y cómo se comprueba. Cada módulo abre con sus objetivos detallados (formato ABCD, nivel de Bloom y la práctica que los mide). La metodología está en [METODOLOGIA-OBJETIVOS.md](METODOLOGIA-OBJETIVOS.md) y la medición completa en [OBJETIVOS.md](OBJETIVOS.md): **67 objetivos, 9,4/10 de promedio**.
+Los objetivos están escritos para ser **medibles**: cada uno dice qué vas a poder hacer, con qué y cómo se comprueba. Cada módulo abre con sus objetivos detallados (formato ABCD, nivel de Bloom y la práctica que los mide). La metodología está en [METODOLOGIA-OBJETIVOS.md](METODOLOGIA-OBJETIVOS.md) y la medición completa en [OBJETIVOS.md](OBJETIVOS.md): **68 objetivos, 9,7/10 de promedio**.
 
 Al terminar el curso vas a poder:
 

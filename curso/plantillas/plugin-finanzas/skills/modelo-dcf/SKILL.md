@@ -25,6 +25,6 @@ Azul = input · Negro = fórmula · Verde = vínculo a otra hoja · Rojo = chequ
 
 ## Antes de entregar
 - [ ] Todos los chequeos en verde.
-- [ ] Si el valor terminal aporta más del 80% del EV, advertilo.
+- [ ] Si el valor terminal aporta más del 85% del EV, advertilo.
 - [ ] Listá los 3 supuestos que más mueven el valor (según las sensibilidades).
 - [ ] Aclará que es un análisis y no una recomendación de inversión.

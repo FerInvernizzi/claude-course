@@ -109,11 +109,13 @@ Voy a presentar este deck en 10 minutos al directorio. Actuá como coach:
 
 | Criterio | Claude (add‑ins + Cowork) | Microsoft Copilot | Google NotebookLM |
 |----------|---------------------------|-------------------|-------------------|
-| Fuerte en | Razonamiento, redacción, análisis, crear archivos complejos, agentes | Integración profunda con M365 (Outlook, Teams, SharePoint) | Estudiar y consultar **tus fuentes** con citas; resúmenes en audio |
-| Excel / PPT | Add‑ins + skills xlsx/pptx; modelos complejos | Nativo en Office | No edita Office |
-| Datos de la empresa | Vía conectores MCP | Microsoft Graph (nativo) | Solo lo que subís |
+| Fuerte en | Razonamiento, redacción, análisis, crear archivos complejos, agentes | Integración profunda con M365 (Outlook, Teams, SharePoint) | Estudiar y consultar **tus fuentes** con citas; resúmenes en audio y video, mapas mentales, cuestionarios y flashcards |
+| Excel / PPT | Complementos de Excel, PowerPoint, Word y Outlook con contexto compartido + skills xlsx/pptx | Nativo en Office | No edita archivos de Office (genera sus propias presentaciones e infografías) |
+| Datos de la empresa | Vía conectores MCP | Microsoft Graph (nativo) | Las fuentes que agregás al cuaderno (documentos, links, videos) |
 | Automatización/agentes | Cowork, Claude Code, plugins, subagentes | Copilot Studio | Limitada |
 | Ideal para | Análisis y entregables de calidad, flujos agénticos | Empresas 100% Microsoft | Investigación y aprendizaje sobre documentos |
+
+> Comparación a septiembre de 2026. Los tres productos cambian rápido; antes de decidir, revisá sus páginas oficiales ([Claude para Microsoft 365](https://claude.com/docs/office-agents/overview), [Microsoft 365 Copilot](https://www.microsoft.com/microsoft-365/copilot), [NotebookLM](https://notebooklm.google/)).
 
 **Conclusión práctica:** no son excluyentes. Muchos equipos usan NotebookLM para estudiar fuentes, Copilot para el día a día en M365 y Claude para análisis, modelos y automatizaciones de extremo a extremo.
 
@@ -150,6 +152,14 @@ Para hacerlo reutilizable, pedile a Claude: *"Convertí este pedido en una skill
 - [ ] Solo se usaron layouts, colores y fuentes de la plantilla.
 - [ ] El mes siguiente podés generar el informe con un solo pedido.
 
+## 📌 Ideas clave
+
+- Títulos‑acción: cada slide dice su conclusión.
+- El complemento respeta el patrón de diapositivas; seleccioná una slide para editar solo esa.
+- Verificá cada número contra la fuente de datos.
+- Lo que se repite todos los meses se convierte en skill o comando.
+- Claude, Copilot y NotebookLM se complementan: elegí según la tarea.
+
 ## 🧠 Autoevaluación
 
 1. ¿Qué es un título-acción?
@@ -160,5 +170,9 @@ Para hacerlo reutilizable, pedile a Claude: *"Convertí este pedido en una skill
 
 3. ¿Cómo convertís un informe mensual en algo reutilizable?
    <details><summary>Ver respuesta</summary>Guardando el pedido como skill o slash command y, si querés, programándolo.</details>
+
+## Fuentes oficiales
+
+- [Use Claude for PowerPoint](https://claude.com/docs/office-agents/powerpoint) · [Work across M365 apps](https://claude.com/docs/office-agents/work-across-apps) · [Connectors and Skills en M365](https://claude.com/docs/office-agents/connectors-and-skills)
 
 ➡️ Siguiente: [Módulo 09 — Claude Code: fundamentos](09-claude-code-fundamentos.md)

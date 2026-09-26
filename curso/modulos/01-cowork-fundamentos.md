@@ -15,13 +15,15 @@
 
 ## 1.1 ¿Qué es Claude Cowork?
 
-**Claude Cowork** es el modo agéntico de **Claude Desktop** pensado para trabajo de conocimiento (no solo programadores). Usa el mismo "motor" que Claude Code, pero con una interfaz visual:
+**Claude Cowork** es el espacio de trabajo agéntico de Claude pensado para trabajo de conocimiento (no solo programadores). Usa la **misma arquitectura agéntica que Claude Code**, pero sin terminal: describís el resultado que querés y volvés más tarde a buscar el trabajo terminado.
 
-- Le das acceso a **una carpeta** de tu computadora.
-- Le describís una tarea en lenguaje natural.
-- Claude **planifica, ejecuta en un entorno aislado en los servidores de Anthropic, crea y modifica archivos**, y te muestra el progreso.
-- Como la ejecución ocurre en la nube, **la tarea sigue aunque cierres la laptop**, y la podés retomar desde la web, la app de escritorio o el celular.
-- Podés dejarlo trabajando en tareas largas mientras hacés otra cosa, y encolar varias tareas.
+- Está disponible en **Claude Desktop** (Mac y Windows), en **claude.ai** y en las apps móviles, en planes pagos (Pro, Max, Team y Enterprise).
+- En el escritorio, **lee y escribe archivos de las carpetas que le das**, sin subir ni descargar nada a mano.
+- Le describís una tarea en lenguaje natural; Claude **planifica, divide el trabajo en subtareas (con subagentes en paralelo si conviene), crea y modifica archivos** y te muestra el progreso.
+- El código se ejecuta en un **entorno aislado**, separado de tu computadora y de tu red. Según el centro de ayuda, las tareas corren en servidores de Anthropic y **siguen aunque cierres la laptop**, salvo las que dependen de tu computadora (carpetas locales o apps de escritorio vía Dispatch). Las sesiones quedan en tu cuenta y las retomás desde cualquier dispositivo.
+- Podés dejarlo trabajando en tareas largas mientras hacés otra cosa.
+
+> ℹ️ Cowork cambia seguido. Este módulo sigue la documentación oficial de septiembre de 2026 ([Cowork overview](https://claude.com/docs/cowork/overview), [Get started with Claude Cowork](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork)); si un menú tiene otro nombre en tu versión, buscá la función equivalente.
 
 **Casos de uso por área:**
 
@@ -48,13 +50,13 @@
 
 ### Componentes
 
-1. **Carpeta de trabajo:** Cowork solo ve lo que le das. Todo lo que crea queda ahí.
+1. **Carpetas de trabajo:** Cowork solo ve las carpetas que le das. Todo lo que crea queda ahí. Lee archivos individuales de hasta 50 MB.
 2. **Entorno aislado:** ejecuta código (Python, etc.) separado de tu computadora y de tu red para procesar archivos, generar gráficos y crear `.xlsx`/`.pptx`/`.docx`/`.pdf`.
 3. **Skills:** instrucciones empaquetadas (ej. la skill de Excel sabe crear hojas con fórmulas, formato y gráficos correctos). Ver módulo 03.
 4. **Conectores (MCP):** acceso a Gmail, Google Drive, Calendar, Slack, Notion, etc. Ver módulo 02.
-5. **Plugins:** paquetes de skills + comandos + conectores para un rol (finanzas, datos, legal, marketing…).
+5. **Plugins:** paquetes de skills, conectores, subagentes y hooks para un rol (finanzas, datos, legal, marketing…). Todo se administra desde **Customize** en la barra lateral.
 6. **Navegador (Claude in Chrome):** opcionalmente puede navegar la web por vos.
-7. **Tareas programadas y Dispatch:** puede ejecutar tareas recurrentes y podés mandarle tareas desde el celular (módulo 13).
+7. **Tareas programadas y Dispatch:** ejecuta tareas recurrentes (`/schedule`), y con Dispatch le delegás trabajo en segundo plano, incluso desde el celular (módulo 13).
 
 ### Permisos y seguridad
 
@@ -74,11 +76,11 @@ Cowork tiene tres modos de permiso, que elegís por tarea:
 
 Tres lugares donde Cowork guarda contexto para que no lo repitas en cada tarea:
 
-- **Instrucciones globales** (Configuración → instrucciones para Claude): tono, formato y rol que aplican a todas tus tareas. Ejemplo: *"Respondé en español rioplatense. Números con separador de miles. Siempre un resumen de 3 líneas al inicio."*
+- **Instrucciones globales** (*Settings*, instrucciones para Claude): tono, formato y rol que aplican a todas tus tareas. Ejemplo: *"Respondé en español rioplatense. Números con separador de miles. Siempre un resumen de 3 líneas al inicio."*
 - **Instrucciones de carpeta:** contexto propio de la carpeta local que elegís. Claude las puede actualizar solo mientras trabaja, igual que un `CLAUDE.md` (módulo 09).
-- **Proyectos:** agrupan tareas relacionadas con sus propios archivos, instrucciones y memoria, y persisten entre sesiones. Ideal para "Cierre mensual", "Cliente X" o "Tesis".
+- **Proyectos de Cowork** (*Projects* → **+**): reúnen para un área de trabajo recurrente sus **carpetas locales, instrucciones, links de referencia, proyectos de claude.ai vinculados y una memoria propia** que persiste entre sesiones. Ideal para "Cierre mensual", "Cliente X" o "Tesis". Ojo: **viven solo en tu computadora** y no se comparten. Son distintos de los proyectos de claude.ai, aunque podés vincular uno para usar su conocimiento. Archivar un proyecto borra su configuración y su memoria, pero no toca tus carpetas.
 
-**Consumo de uso:** las tareas de varios pasos consumen bastante más que una pregunta rápida (cada paso, archivo creado, conector o navegación suma). Agrupá trabajo relacionado, abrí una tarea nueva para cada tema distinto y revisá el consumo en *Configuración → Uso*.
+**Consumo de uso:** las tareas de varios pasos consumen bastante más que una pregunta rápida (cada paso, archivo creado, conector o navegación suma). Agrupá trabajo relacionado, abrí una tarea nueva para cada tema distinto y revisá el consumo en *Settings → Usage*.
 
 ## 1.3 Primeros pasos
 
@@ -169,7 +171,7 @@ referencias en formato APA.
 
 ## 🧪 Práctica: tu primera automatización en Cowork
 
-Elegí **tu área** (finanzas, legal, marketing, datos o investigación) y resolvé con Cowork una tarea real de principio a fin:
+Elegí **tu área** (finanzas, legal, marketing, datos o investigación) y resolvé con Cowork una tarea real de principio a fin. Si hiciste la práctica del módulo 00, usá el pedido delegable que guardaste:
 
 1. Prepará una carpeta con 10-20 archivos de trabajo (o pedile a Cowork que genere datos sintéticos realistas de tu área).
 2. Escribí el pedido con la estructura: **objetivo + entradas + formato de salida + restricciones + "mostrame el plan"**.
@@ -212,5 +214,11 @@ listalas antes de unificarlas. Mostrame el plan y esperá mi OK.
 
 3. Nombrá dos buenas prácticas de seguridad en Cowork.
    <details><summary>Ver respuesta</summary>Trabajar sobre copias y dar acceso solo a la carpeta necesaria. También: revisar las acciones externas antes de aprobarlas y desconfiar de instrucciones que vengan dentro de documentos (inyección de prompts).</details>
+
+## Fuentes oficiales
+
+- [Cowork overview](https://claude.com/docs/cowork/overview) · [Get started with Claude Cowork](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork)
+- [Organize work with projects](https://claude.com/docs/cowork/guide/projects) · [Install plugins](https://claude.com/docs/cowork/guide/plugins)
+- [Understanding usage and length limits](https://support.claude.com/en/articles/11647753-understanding-usage-and-length-limits)
 
 ➡️ Siguiente: [Módulo 02 — MCP, conectores, tokens y contexto](02-mcp-conectores-tokens.md)

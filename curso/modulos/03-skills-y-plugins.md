@@ -6,7 +6,7 @@
 
 | # | Al terminar vas a poder… (conducta · condición · criterio) | Nivel (Bloom) | Evidencia |
 |---|---|---|---|
-| 3.1 | Explicar, usando un SKILL.md de ejemplo, cómo la carga progresiva decide qué partes de una skill entran al contexto y cuándo | Comprender · conceptual | Autoevaluación |
+| 3.1 | Explicar, usando un SKILL.md de ejemplo, cómo la carga progresiva decide qué partes de una skill entran al contexto y cuándo, identificando correctamente sus 3 niveles (descripción, cuerpo, archivos) | Comprender · conceptual | Autoevaluación |
 | 3.2 | Crear con `skill-creator` una skill propia con una `description` que diga qué hace y cuándo usarla, y verificar que se activa sola con un pedido que no la nombra | Crear · procedimental | Práctica |
 | 3.3 | Diferenciar, dado un caso de uso, si corresponde una skill, un plugin, un slash command o un subagente, justificando con la tabla del módulo | Analizar · conceptual | Autoevaluación |
 | 3.4 | Limpiar un dataset con el plugin de datos, dejando un log de limpieza con regla aplicada y filas afectadas en cada paso | Aplicar · procedimental | Práctica |
@@ -14,6 +14,16 @@
 | 3.6 | Empaquetar un plugin propio con al menos una skill, un comando y un subagente, que pase `claude plugin validate` | Crear · procedimental | Práctica |
 
 **Requisitos previos:** Módulos 01 y 02 · **Duración estimada:** 4 h
+
+### 🗺️ Ruta de estudio (4 sesiones)
+
+| Sesión | Secciones | Resultado |
+|---|---|---|
+| 1 · 60 min | 3.1 a 3.3 | Tu primera skill (posts de LinkedIn) funcionando |
+| 2 · 60 min | 3.4, partes 1 a 3, y la práctica de visualización | Dataset limpio con log y dashboard HTML |
+| 3 · 60 min | 3.4, parte 4, y 3.5 | Análisis estadístico, slides y forecast |
+| 4 · 60 min | 3.6 y la práctica final | Plugin propio validado y análisis de RR.HH. |
+
 
 ## 3.1 ¿Qué es una Agent Skill?
 
@@ -80,12 +90,16 @@ Por eso podés tener decenas de skills instaladas sin saturar el contexto.
 
 ### Cómo instalar/crear skills en Cowork / Claude app
 
-1. *Configuración → Capacidades/Skills* → activar las skills de ejemplo.
-2. Subir una skill propia como `.zip` de la carpeta, o pedirle a Claude:
+1. Requisito: activá **Code execution and file creation** en *Settings → Capabilities* (las skills corren en el entorno de código de Claude). Disponible en planes Pro, Max, Team y Enterprise.
+2. Abrí **Customize → Skills** (en claude.ai o en la app de escritorio). La pestaña *Your skills* agrupa las tuyas por origen (creadas por vos, de tu organización, compartidas, de Anthropic y partners), y *Discover* muestra las que podés agregar. Activá cada una con **Turn on**.
+3. Para usar una a propósito, escribí `/` en el cuadro de mensaje y elegila. Si no, Claude la carga sola cuando tu pedido coincide con su descripción.
+4. Para crear una propia, subí la carpeta de la skill o pedíselo a Claude:
    ```text
    Usá skill-creator para crear una skill llamada "informe-semanal" que ...
    ```
-3. En Claude Code, las skills viven en `~/.claude/skills/<nombre>/SKILL.md` (personales) o `.claude/skills/<nombre>/SKILL.md` (del proyecto).
+5. En Claude Code, las skills viven en `~/.claude/skills/<nombre>/SKILL.md` (personales) o `.claude/skills/<nombre>/SKILL.md` (del proyecto). **Ojo:** Cowork **no lee** la carpeta `~/.claude` de tu computadora; carga las skills y plugins habilitados en tu cuenta de claude.ai. Para usar en Cowork una skill que solo tenés en `~/.claude`, agregala desde *Customize*.
+
+Las skills siguen un estándar abierto ([Agent Skills](https://agentskills.io/specification)), así que una skill que escribís para Claude también funciona en otras herramientas que lo adopten.
 
 ## 3.2 Demo práctica: usar skills y crear posts de LinkedIn
 
@@ -131,7 +145,7 @@ mi-plugin/
 | Contiene | SKILL.md + archivos | Skills + comandos + agentes + MCP + hooks |
 | Se activa | Automáticamente por relevancia | Se instala; sus comandos se invocan con `/` |
 
-Anthropic publica plugins de ejemplo para roles (datos, finanzas, legal, ventas, marketing, soporte, productividad…) en su marketplace. En Cowork: *Plugins → Explorar → Instalar*. En Claude Code: `/plugin` (módulo 09).
+Anthropic publica plugins de ejemplo para roles (datos, finanzas, legal, ventas, marketing, soporte, productividad…) en su marketplace. En Cowork: **Customize → Plugins → Discover** → elegí el plugin → **Install**. Instalar no conecta los conectores que trae: después abrí la pestaña *Connectors* del plugin y conectá cada uno. Un plugin instalado queda guardado en tu cuenta, así que sus skills y conectores también están disponibles en el chat y en Claude Code. En Claude Code: `/plugin` (módulo 09).
 
 ## 3.4 Demo: plugin de datos (Data Plugin)
 
@@ -253,8 +267,8 @@ y una checklist de verificación final.
 
 ### Parte 3 — Empaquetar, instalar y probar
 
-1. Comprimí la carpeta del plugin en `.zip` (o subila a un repo de GitHub como marketplace).
-2. Cowork → *Plugins → Subir/Instalar plugin*.
+1. Comprimí la carpeta del plugin en `.zip`, o subila a un repositorio de GitHub.
+2. En Cowork → **Customize → Plugins**: usá la opción de subir un archivo, o **Add marketplace** con la URL del repositorio (acepta `https://github.com/usuario/repo` o `usuario/repo`). Con **Check for updates** o **Sync automatically** recibís las nuevas versiones.
 3. Probá cada comando: `/forecast ingresos.xlsx`, `/one-pager`.
 4. Ajustá las skills según los errores que veas. **Un plugin es un producto: versionalo.**
 
@@ -271,6 +285,14 @@ Con tu plugin de datos (o el de finanzas), analizá un dataset de **RR.HH.** (ge
 5. **Slides:** 1) Resumen, 2) Dónde se concentra la rotación, 3) Qué la explica, 4) Costo estimado, 5) 3 recomendaciones accionables.
 6. **Revisión:** ¿los números de las slides coinciden con el Excel? ¿Se aclara que es correlacional?
 
+## 📌 Ideas clave
+
+- Una skill es una carpeta con `SKILL.md`; su `description` decide cuándo se usa.
+- La carga progresiva hace que tener muchas skills cueste poco contexto.
+- Un plugin empaqueta skills, comandos, subagentes, hooks y conectores; se instala desde *Customize → Plugins* o `/plugin`.
+- Al limpiar datos, dejá un log; al analizar, verificá los supuestos; al presentar, que los números coincidan.
+- Un plugin propio es un producto: validalo (`claude plugin validate`) y versionalo.
+
 ## 🧠 Autoevaluación
 
 1. ¿Qué parte de una skill decide si Claude la usa?
@@ -281,5 +303,11 @@ Con tu plugin de datos (o el de finanzas), analizá un dataset de **RR.HH.** (ge
 
 3. ¿Por qué pedir un "log de limpieza" al limpiar datos?
    <details><summary>Ver respuesta</summary>Para que cada cambio sea auditable: qué regla se aplicó y a cuántas filas.</details>
+
+## Fuentes oficiales
+
+- [Skills overview](https://claude.com/docs/skills/overview) · [Create custom skills](https://claude.com/docs/skills/how-to) · [Especificación Agent Skills](https://agentskills.io/specification)
+- [Plugins](https://claude.com/docs/plugins/overview) · [Install plugins in Cowork](https://claude.com/docs/cowork/guide/plugins) · [Plugins en Claude Code](https://code.claude.com/docs/en/plugins/overview)
+- [Repositorio oficial de skills de Anthropic](https://github.com/anthropics/skills) · [knowledge-work-plugins](https://github.com/anthropics/knowledge-work-plugins)
 
 ➡️ Siguiente: [Módulo 04 — Claude Chat](04-claude-chat.md)

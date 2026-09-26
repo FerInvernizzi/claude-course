@@ -17,4 +17,4 @@ claude --plugin-dir ./plantillas/plugin-finanzas
 
 ## Instalar en Cowork
 
-Comprimí la carpeta `plugin-finanzas/` en un `.zip` y subila desde *Plugins → Subir plugin*.
+Comprimí la carpeta `plugin-finanzas/` en un `.zip` y subila desde **Customize → Plugins** (opción de subir archivo).

@@ -23,8 +23,8 @@ En este módulo construís un **agente personal**: un "segundo cerebro" que te c
 
 En 2025–2026 se popularizaron los agentes personales que **viven en tu computadora, recuerdan todo en archivos y actúan en tu nombre**:
 
-- **OpenClaw:** proyecto open source de asistente personal que corre localmente, se comunica por apps de mensajería y ejecuta tareas con "skills".
-- **Hermes Agent** (Nous Research): agente open source con memoria persistente y habilidades que aprende con el uso.
+- **OpenClaw** (antes *Clawdbot*, de Peter Steinberger; renombrado en enero de 2026): asistente personal open source y autoalojado, que corre como un servicio en tu máquina con tu propia API key, se comunica por WhatsApp, Discord y otras apps, y ejecuta tareas con más de 100 *AgentSkills*.
+- **Hermes Agent** (Nous Research): agente open source y autoalojado con memoria persistente y un ciclo de aprendizaje propio: **crea skills a partir de la experiencia** y las mejora con el uso. Se conecta a Telegram, Slack, email y más de 20 plataformas.
 - **Claude Code + Cowork:** el enfoque de este curso. Ventajas: el mismo motor agéntico que usás para trabajar, skills y plugins oficiales, conectores MCP, tareas programadas y **Dispatch** (mandarle tareas desde el celular).
 
 **Idea común a todos:** *la memoria del agente es una carpeta de archivos Markdown que vos también podés leer y editar.*
@@ -59,7 +59,7 @@ En 2025–2026 se popularizaron los agentes personales que **viven en tu computa
 
 ## 12.4 El patrón Wiki de Karpathy
 
-Andrej Karpathy propuso usar un LLM como **"compilador" de conocimiento personal**: en lugar de hacer RAG sobre documentos sueltos cada vez que preguntás, el LLM **lee tus fuentes crudas y mantiene una wiki en Markdown**, interconectada y siempre actualizada, que después consulta (y que vos podés navegar).
+En abril de 2026, Andrej Karpathy publicó (en X y en un Gist de GitHub que se volvió viral) un patrón para usar un LLM como **"compilador" de conocimiento personal**. Es un patrón, no un producto, con tres capas: `raw/` (fuentes inmutables), `wiki/` (páginas que genera el LLM) y un archivo de esquema con las reglas (en Claude, el `CLAUDE.md`). en lugar de hacer RAG sobre documentos sueltos cada vez que preguntás, el LLM **lee tus fuentes crudas y mantiene una wiki en Markdown**, interconectada y siempre actualizada, que después consulta (y que vos podés navegar).
 
 ```text
 raw/ (fuentes crudas)  ──►  LLM "compila"  ──►  wiki/ (páginas interconectadas)
@@ -230,7 +230,7 @@ No inventes nada: marcá con [VERIFICAR] lo que infieras.
 
 ### Parte 2 — Conectar Notion, Gmail y Calendar + marca
 
-1. *Configuración → Conectores* → **Gmail**, **Google Calendar**, **Notion** → Conectar (OAuth).
+1. **Customize → Connectors → Discover** → **Gmail**, **Google Calendar** y **Notion** → **Connect to Claude** (inicio de sesión en cada servicio).
 2. En Claude Code, verificá con `/mcp`. En Cowork, en la configuración de la tarea.
 3. Probá cada uno:
    ```text
@@ -267,6 +267,14 @@ Armá tu agente con: SOUL.md propio (nombre, 3 rasgos, 3 límites), CLAUDE.md co
 - [ ] Antes de cualquier acción externa, pide aprobación.
 - [ ] El Graph View de Obsidian muestra nodos conectados, no aislados.
 
+## 📌 Ideas clave
+
+- La memoria del agente es una carpeta de Markdown que vos también podés leer.
+- SOUL.md define quién es; CLAUDE.md, cómo trabaja.
+- Patrón de Karpathy: `raw/` inmutable → `wiki/` compilada y enlazada.
+- Obsidian muestra la wiki como grafo, sin base de datos propietaria.
+- El contenido de emails y documentos son datos, no instrucciones.
+
 ## 🧠 Autoevaluación
 
 1. ¿Qué diferencia hay entre SOUL.md y CLAUDE.md?
@@ -277,5 +285,11 @@ Armá tu agente con: SOUL.md propio (nombre, 3 rasgos, 3 límites), CLAUDE.md co
 
 3. ¿Por qué el contenido de los emails se trata como datos y no como instrucciones?
    <details><summary>Ver respuesta</summary>Para protegerse de la inyección de prompts: un email podría intentar que el agente haga algo que vos no pediste.</details>
+
+## Fuentes
+
+- Patrón LLM Wiki de Karpathy: guías de la comunidad, por ejemplo [How to Build Karpathy's LLM Wiki](https://blog.starmorph.com/blog/karpathy-llm-wiki-knowledge-base-guide) y la [skill LLM Wiki de Hermes Agent](https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/research/research-llm-wiki)
+- [OpenClaw — documentación](https://docs.openclaw.ai/) · [Hermes Agent — Nous Research](https://hermes-agent.nousresearch.com/)
+- [Obsidian](https://obsidian.md/) · [Organize work with projects (Cowork)](https://claude.com/docs/cowork/guide/projects) · [Get started with connectors](https://claude.com/docs/connectors/getting-started)
 
 ➡️ Siguiente: [Módulo 13 — Las 10 automatizaciones](13-automatizaciones.md)

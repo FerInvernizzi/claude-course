@@ -14,6 +14,27 @@
 
 **Requisitos previos:** Módulos 09 y 10 · Python básico · **Duración estimada:** 5 h
 
+### 🗺️ Ruta de estudio (4 sesiones)
+
+| Sesión | Secciones | Resultado |
+|---|---|---|
+| 1 · 60 min | 11.1 a 11.5 | Modelo mental del agente, de MCP y de los frameworks |
+| 2 · 75 min | 11.6 a 11.8 | Tres primeros scripts corriendo; agente con memoria |
+| 3 · 75 min | 11.9 y 11.10 | Agente y subagentes con el Claude Agent SDK |
+| 4 · 90 min | 11.11, 11.12 y la práctica | Equipo de punta a punta + editor evaluador |
+
+### 🐍 Python mínimo para este módulo
+
+| Concepto | Qué necesitás saber |
+|---|---|
+| Entorno virtual | `python -m venv .venv` crea un entorno aislado; `source .venv/bin/activate` (Windows: `.venv\Scripts\activate`) lo activa |
+| Dependencias | `pip install -r requirements.txt` instala lo que usan los scripts |
+| Variables de entorno | Las claves van en `.env` (nunca en el código); `load_dotenv()` las carga |
+| Decoradores | `@function_tool` o `@tool` arriba de una función la convierten en herramienta para el agente |
+| `async` / `await` | El Claude Agent SDK es asíncrono: `async def main()` y `asyncio.run(main())` alcanzan para empezar |
+| Tipos | `monto: float` le dice al SDK qué parámetros espera la herramienta; el docstring es su descripción |
+
+
 ## 11.1 La revolución de los agentes
 
 Pasamos de **modelos que responden** a **sistemas que actúan**. Tres ideas lo hicieron posible:
@@ -73,12 +94,12 @@ Repaso del módulo 02: MCP estandariza cómo un agente descubre y usa herramient
 - **Consumir** servidores MCP existentes (Gmail, Slack, Salesforce, GitHub, Postgres…).
 - **Crear** tu propio servidor MCP para exponer tu API interna a cualquier agente compatible.
 
-Servidor MCP mínimo en Python (SDK oficial `mcp`):
+Servidor MCP mínimo en Python (SDK oficial `mcp` 2.x; archivo [`codigo/mcp/servidor_inventario.py`](../codigo/mcp/servidor_inventario.py)):
 
 ```python
-from mcp.server.fastmcp import FastMCP
+from mcp.server.mcpserver import MCPServer
 
-mcp = FastMCP("inventario")
+mcp = MCPServer("inventario")
 
 @mcp.tool()
 def stock(producto: str) -> int:
@@ -86,11 +107,13 @@ def stock(producto: str) -> int:
     return {"yerba": 120, "mate": 35}.get(producto.lower(), 0)
 
 if __name__ == "__main__":
-    mcp.run()   # stdio
+    mcp.run()   # stdio por defecto
 ```
 
+> En la versión 1.x del SDK la clase se llamaba `FastMCP` (`from mcp.server.fastmcp import FastMCP`). Muchos tutoriales todavía la usan; con `mcp` 2.x da error de importación.
+
 ```bash
-claude mcp add inventario -- python servidor_inventario.py
+claude mcp add --transport stdio inventario -- python servidor_inventario.py
 ```
 
 ## 11.5 Frameworks agénticos
@@ -434,6 +457,14 @@ editor = Agent(
 # pedile al redactor que corrija usando los comentarios. Máximo 3 rondas."
 ```
 
+## 📌 Ideas clave
+
+- Un agente es un modelo que usa herramientas en un bucle; usá el sistema más simple que funcione.
+- La memoria exacta vive en sistemas externos (archivos, bases de datos), no en el modelo.
+- Los subagentes aíslan contexto; los agent teams coordinan compañeros que se comunican.
+- Elegí el patrón: secuencial, paralelo, orquestador, evaluador‑optimizador o handoff.
+- Las acciones externas llevan aprobación humana y guardrails.
+
 ## 🧠 Autoevaluación
 
 1. ¿Cuál es la ventaja principal de un subagente?
@@ -444,5 +475,11 @@ editor = Agent(
 
 3. ¿Dónde se guardan los datos que el agente tiene que "recordar" con exactitud?
    <details><summary>Ver respuesta</summary>En un sistema externo (archivo o base de datos) al que accede con herramientas, no en la memoria del modelo.</details>
+
+## Fuentes oficiales
+
+- [Building effective agents — Anthropic](https://www.anthropic.com/engineering/building-effective-agents) · [Claude Agent SDK overview](https://code.claude.com/docs/en/agent-sdk/overview) · [Subagents](https://code.claude.com/docs/en/sub-agents) · [Agent teams](https://code.claude.com/docs/en/agent-teams)
+- [OpenAI Agents SDK](https://openai.github.io/openai-agents-python/) · [Especificación de MCP](https://modelcontextprotocol.io/specification/2025-11-25)
+- Los scripts de `codigo/` se verificaron con `openai-agents` y `claude-agent-sdk` (septiembre de 2026); los del Claude Agent SDK se ejecutaron de punta a punta.
 
 ➡️ Siguiente: [Módulo 12 — Tu agente personal](12-agente-personal.md)

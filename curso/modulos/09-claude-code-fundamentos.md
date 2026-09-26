@@ -296,6 +296,14 @@ No modifiques el archivo.
 - [ ] El `CLAUDE.md` tiene menos de 60 líneas y solo información que Claude no puede inferir del código.
 - [ ] Sabés explicar la diferencia entre `/clear` y `/compact`.
 
+## 📌 Ideas clave
+
+- Claude Code se instala con el instalador nativo, `winget` o `brew`, y se verifica con `claude doctor`.
+- Flujo: explorar → planificar (Plan mode) → codear → verificar → commit.
+- `CLAUDE.md` corto con lo que Claude no puede inferir; los comandos propios van en `.claude/commands/` o como skills.
+- Argumentos de skills y comandos: `$ARGUMENTS`, y `$0` es el primero.
+- `/clear` entre tareas; `/compact` con foco; hooks para lo que tiene que pasar siempre.
+
 ## 🧠 Autoevaluación
 
 1. ¿Qué hace Plan mode y cuándo lo usás?
@@ -306,5 +314,10 @@ No modifiques el archivo.
 
 3. ¿Cuál es la diferencia entre una instrucción en CLAUDE.md y un hook?
    <details><summary>Ver respuesta</summary>La instrucción es una guía que el modelo puede no seguir; el hook es un comando que se ejecuta siempre.</details>
+
+## Fuentes oficiales
+
+- [Advanced setup](https://code.claude.com/docs/en/setup) · [VS Code](https://code.claude.com/docs/en/vs-code) · [Commands](https://code.claude.com/docs/en/commands) · [Interactive mode](https://code.claude.com/docs/en/interactive-mode)
+- [Memory (CLAUDE.md)](https://code.claude.com/docs/en/memory) · [Skills](https://code.claude.com/docs/en/skills) · [Hooks](https://code.claude.com/docs/en/hooks-guide) · [Permissions](https://code.claude.com/docs/en/permissions) · [Context window](https://code.claude.com/docs/en/context-window)
 
 ➡️ Siguiente: [Módulo 10 — Proyectos full‑stack con Claude Code](10-claude-code-proyectos.md)

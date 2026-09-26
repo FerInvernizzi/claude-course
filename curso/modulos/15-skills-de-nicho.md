@@ -11,7 +11,7 @@ Claude no es solo para planillas y código. Con las skills y plugins correctos s
 | 15.1 | **Seleccionar** del catálogo al menos 3 skills o plugins adecuados a un interés propio, justificando cada elección con su función y su requisito (cuenta externa, API key o ninguno) | Evaluar · conceptual | Práctica 1 |
 | 15.2 | **Instalar** skills de nicho desde el marketplace oficial de Anthropic y desde un marketplace de terceros, y **verificar** con `/skills` o `/plugin` que quedaron activas | Aplicar · procedimental | Práctica 1 |
 | 15.3 | **Producir** una pieza creativa completa (obra generativa, póster, video, episodio de audio, prototipo de juego o diseño de interfaz) con una skill de nicho, iterando al menos dos veces sobre el resultado | Crear · procedimental | Práctica 2 |
-| 15.4 | **Adaptar** una skill existente a tu estilo personal (paleta, tono, restricciones) con `skill-creator`, y **comparar** el resultado antes y después del cambio | Crear · metacognitivo | Práctica 3 |
+| 15.4 | **Adaptar** con `skill-creator` una skill existente a tu estilo personal (paleta, tono, restricciones), de modo que, ante la misma consigna, tu variante cumpla al menos 3 reglas que la original no cumple | Crear · metacognitivo | Práctica 3 |
 
 **Requisitos previos:** módulos 03 y 09 · **Duración estimada:** 2 h + tiempo libre de exploración
 
@@ -27,7 +27,7 @@ Claude no es solo para planillas y código. Con las skills y plugins correctos s
 /plugin install example-skills@anthropic-agent-skills
 ```
 
-En Claude (web, escritorio o Cowork) muchas de estas skills ya vienen disponibles o se activan en *Configuración → Capacidades*.
+En Claude (web, escritorio o Cowork) las skills y plugins se agregan desde **Customize → Skills** y **Customize → Plugins** (en *Plugins* podés sumar `anthropics/skills` como marketplace con **Add marketplace**).
 
 **Plugins de los marketplaces oficiales:**
 
@@ -181,6 +181,14 @@ Con `skill-creator`, creá una variante de la skill que usaste con **tu estilo**
 
 **Criterios de éxito:** la variante tiene una `description` clara de cuándo usarla; comparando las dos salidas, la tuya respeta al menos 3 de tus reglas y la original no.
 
+## 📌 Ideas clave
+
+- Instalá solo las skills que vas a usar: cada una suma contexto.
+- Revisá qué cuenta o API key pide cada plugin de terceros.
+- Las buenas skills creativas empiezan por un concepto o filosofía, no por una plantilla.
+- Iterá con cambios concretos y guardá versiones.
+- Si tu nicho no existe, creá la skill con `skill-creator`.
+
 ## 🧠 Autoevaluación
 
 1. ¿Por qué no conviene instalar las 30 skills "por las dudas"?
@@ -191,5 +199,10 @@ Con `skill-creator`, creá una variante de la skill que usaste con **tu estilo**
 
 3. Querés un video vertical con subtítulos a partir de un texto, sin herramientas de edición. ¿Qué plugin probás primero y qué revisás antes de instalarlo?
    <details><summary>Ver respuesta</summary><strong>hyperframes</strong> (HTML → video con subtítulos y animaciones). Antes, revisá en su README qué cuenta o credenciales necesita.</details>
+
+## Fuentes oficiales
+
+- [Repositorio oficial de skills de Anthropic](https://github.com/anthropics/skills) · [claude-plugins-official](https://github.com/anthropics/claude-plugins-official) · [knowledge-work-plugins](https://github.com/anthropics/knowledge-work-plugins)
+- Cada fila del catálogo enlaza al repositorio del plugin; todos se verificaron con `git ls-remote` en septiembre de 2026.
 
 ➡️ Volvé al [índice del curso](../README.md).

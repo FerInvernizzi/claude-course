@@ -9,9 +9,18 @@
 | 6.1 | Configurar el complemento de Claude en Excel en una versión compatible, con instrucciones persistentes de formato, y verificar que se aplican sin repetirlas en el prompt | Aplicar · procedimental | Práctica |
 | 6.2 | Calcular, en una tabla de Excel dada, un resumen estadístico por grupo con fórmulas que se recalculen al cambiar un dato | Aplicar · procedimental | Práctica |
 | 6.3 | Imputar valores faltantes con la mediana por grupo, dejando columnas imputadas, bandera y una tabla comparativa antes/después (trazabilidad completa) | Aplicar · procedimental | Práctica |
-| 6.4 | Construir en Excel un dashboard con 4 KPIs, 3 gráficos y un filtro que actualice todo, a partir de un dataset limpio | Crear · procedimental | Práctica |
+| 6.4 | Construir en Excel, a partir de un dataset limpio, un dashboard con 4 KPIs, 3 gráficos y un filtro, de modo que al cambiar el filtro se actualicen los KPIs y los gráficos | Crear · procedimental | Práctica |
 
 **Requisitos previos:** Módulo 01 · Excel de Microsoft 365 · **Duración estimada:** 2 h 30 min
+
+### 🗺️ Ruta de estudio (3 sesiones)
+
+| Sesión | Secciones | Resultado |
+|---|---|---|
+| 1 · 50 min | 6.1 a 6.4 | Complemento instalado, dataset e insights con estadística en fórmulas |
+| 2 · 50 min | 6.5 a 6.9 | Gráficos, orden, filtros, formato condicional e imputación trazable |
+| 3 · 50 min | 6.10 y la práctica | Dashboard y práctica de RR.HH. completa |
+
 
 ## 6.1 Instalación de Claude en Excel
 
@@ -168,6 +177,14 @@ Tareas: 0) configurá en el complemento las *Instrucciones* persistentes de form
 
 **Autoevaluación:** ¿las fórmulas se recalculan si cambio un dato? ¿La imputación es trazable? ¿El dashboard responde al segmentador?
 
+## 📌 Ideas clave
+
+- El complemento lee todo el libro y cita celdas; mantiene las relaciones entre fórmulas al cambiar valores.
+- Pedí fórmulas dinámicas (`FILTRAR`, `SUMAR.SI.CONJUNTO`) para que el libro siga vivo.
+- Imputá con trazabilidad: columnas nuevas, bandera y comparación antes/después.
+- No soporta tablas de datos ni macros/VBA; usalo solo con archivos confiables.
+- Las instrucciones persistentes guardan tus convenciones de formato.
+
 ## 🧠 Autoevaluación
 
 1. ¿Por qué imputar con la mediana por grupo en vez de la media general?
@@ -178,5 +195,9 @@ Tareas: 0) configurá en el complemento las *Instrucciones* persistentes de form
 
 3. ¿Qué ventaja tiene `FILTRAR` frente a copiar filas filtradas?
    <details><summary>Ver respuesta</summary>Es dinámico: el resultado se actualiza solo cuando cambian los datos.</details>
+
+## Fuentes oficiales
+
+- [Use Claude for Excel](https://claude.com/docs/office-agents/excel) · [Work across M365 apps](https://claude.com/docs/office-agents/work-across-apps) · [Connectors and Skills en M365](https://claude.com/docs/office-agents/connectors-and-skills)
 
 ➡️ Siguiente: [Módulo 07 — Modelos financieros](07-modelos-financieros.md)

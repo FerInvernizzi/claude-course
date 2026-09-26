@@ -45,11 +45,11 @@ Estas son las skills y plugins que el curso usa o recomienda, agrupadas por prio
 
 ## D. Conectores (MCP) que pide el curso
 
-Se activan en *Configuración → Conectores* (no son plugins): **Gmail, Google Calendar, Google Drive, Slack, Notion, Salesforce** (o HubSpot). Varios plugins de arriba ya los traen declarados.
+Se agregan en **Customize → Connectors** (no son plugins): **Gmail, Google Calendar, Google Drive, Slack, Notion, Salesforce** (o HubSpot). Varios plugins de arriba ya los traen declarados.
 
 ## E. Cómo instalar
 
-**En Claude (web / Desktop / Cowork):** *Configuración → Plugins* (o *Personalizar*) → buscar el nombre → **Instalar**. Las skills sueltas se activan en *Configuración → Capacidades*.
+**En Claude (web / Desktop / Cowork):** **Customize → Plugins → Discover** → buscar el nombre → **Install** (para marketplaces propios: **Add marketplace** con `usuario/repo`). Las skills sueltas se activan en **Customize → Skills** (requiere *Code execution and file creation* activado en *Settings → Capabilities*).
 
 **En Claude Code (terminal):**
 

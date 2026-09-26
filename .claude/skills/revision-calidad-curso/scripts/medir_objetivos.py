@@ -22,8 +22,8 @@ from pathlib import Path
 
 VAGOS = r"^(entender|comprender|conocer|saber|aprender|familiarizarse|dominar|explorar|apreciar|mejorar|master|understand|leverage|learn|know)\b"
 OBSERVABLES = r"^(reformular|agregar|identificar|nombrar|listar|explicar|comparar|clasificar|diferenciar|resumir|configurar|instalar|ejecutar|aplicar|usar|conectar|generar|escribir|formular|diagnosticar|descomponer|auditar|perfilar|verificar|evaluar|justificar|seleccionar|construir|diseñar|crear|empaquetar|automatizar|producir|adaptar|implementar|recuperar|paralelizar|redactar|extraer|imputar|calcular|estimar|interpretar|desplegar|depurar|programar|convertir|investigar|elegir|ubicar|desarrollar|build|connect|construct|automate|design)\b"
-CONDICION = r"\b(dado|dada|con |a partir de|usando|mediante|sobre |en un|en una|en tu|desde|para un|para una|sin salir|partiendo|using |with |from |through )"
-CRITERIO = r"(sin |de modo que|que (pase|pasen|coincid|cumpl|respet|funcion)|coincid|menos de|al menos|como mínimo|≥|<|verific|exit|código de salida|0 errores|cada |todas? |todos |con fuente|trazab|reproducib|en menos de|hasta que)"
+CONDICION = r"\b(dado|dada|con |a partir de|usando|mediante|sobre |en un|en una|en tu|desde|para un|para una|sin salir|partiendo|using |with |from |through |para tu |con dos |con al menos )"
+CRITERIO = r"(sin |de modo que|que (pase|pasen|coincid|cumpl|respet|funcion)|coincid|menos de|al menos|como mínimo|≥|<|verific|exit|código de salida|0 errores|cada |todas? |todos |con fuente|trazab|reproducib|en menos de|hasta que|menor a|mayor a|en \d+ segundos|que se (recalcul|actualic|entienda|activ)|que (aparezca|recuerde|produzca|pase)|justificando|correctamente)"
 ESPECIFICO = r"(`|excel|powerpoint|cowork|claude code|mcp|skill|plugin|subagente|dcf|lbo|gmail|slack|salesforce|claude\.md|soul\.md|/[a-z]|api|dashboard|landing|tokens|ralph|git|obsidian|research|pptx|xlsx|hook|ventana de contexto|prompt)"
 
 

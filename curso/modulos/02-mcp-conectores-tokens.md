@@ -39,16 +39,16 @@ Un servidor MCP expone tres tipos de cosas:
 
 ### Conectores vs. MCP
 
-En Claude (web/Desktop/Cowork) los **Conectores** son servidores MCP ya empaquetados, que se activan con un clic y OAuth: *Configuración → Conectores*. Ejemplos: Gmail, Google Calendar, Google Drive, Slack, Notion, Asana, Linear, Salesforce, HubSpot, Stripe, Figma, Canva, etc.
+En Claude (web/Desktop/Cowork) los **Conectores** son servidores MCP ya empaquetados, que se agregan desde **Customize → Connectors → Discover** (buscás el servicio y elegís **Connect to Claude**; cada conector figura como *Verified* o *Community*). Ejemplos: Gmail, Google Calendar, Google Drive, Slack, Notion, Asana, Linear, Salesforce, HubSpot, Stripe, Figma, Canva, etc.
 
-En **Claude Code** los agregás por terminal:
+Si iniciás sesión en Claude Code con tu cuenta de Claude, **los conectores que agregaste en claude.ai también están disponibles ahí**. Para servidores propios o que no están en el directorio, en **Claude Code** los agregás por terminal:
 
 ```bash
 # Servidor remoto (HTTP)
 claude mcp add --transport http notion https://mcp.notion.com/mcp
 
 # Servidor local (stdio)
-claude mcp add mi-db -- npx -y @modelcontextprotocol/server-postgres postgresql://localhost/ventas
+claude mcp add --transport stdio archivos -- npx -y @modelcontextprotocol/server-filesystem ~/Documentos/ventas
 
 # Listar / revisar estado
 claude mcp list
@@ -56,15 +56,16 @@ claude mcp list
 /mcp
 ```
 
-O compartido con el equipo en un archivo `.mcp.json` en la raíz del proyecto:
+O compartido con el equipo en un archivo `.mcp.json` en la raíz del proyecto. Las variables `${VAR}` y `${VAR:-valor_por_defecto}` se expanden, así que las claves no quedan escritas en el archivo:
 
 ```json
 {
   "mcpServers": {
     "slack": { "type": "http", "url": "https://mcp.slack.com/mcp" },
-    "postgres": {
+    "archivos": {
+      "type": "stdio",
       "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-postgres", "${DATABASE_URL}"]
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "${CLAUDE_PROJECT_DIR:-.}/datos"]
     }
   }
 }
@@ -74,9 +75,10 @@ O compartido con el equipo en un archivo `.mcp.json` en la raíz del proyecto:
 
 ## 2.2 Demo práctica: conectar Gmail y enviar emails desde Cowork
 
-1. En Claude Desktop: **Configuración → Conectores → Gmail → Conectar**. Autorizá con OAuth.
-2. En Cowork, verificá que el conector está activo para la sesión.
-3. Prompt:
+1. En claude.ai o Claude Desktop: **Customize → Connectors → Discover → Gmail → Connect to Claude**. Iniciá sesión en Google y aprobá los permisos. Vuelve a la lista con estado **Connected**.
+2. En la conversación o tarea, tocá **+** → **Connectors** y verificá que Gmail esté activado (el interruptor es por conversación).
+3. En la página del conector, sección **Tool permissions**, dejá las herramientas de envío en **Needs approval** (requiere aprobación). Las de lectura pueden quedar en **Always allow**.
+4. Prompt:
 
 ```text
 1. Buscá en mi Gmail los emails de la última semana que contengan "factura" o "invoice".
@@ -87,7 +89,7 @@ O compartido con el equipo en un archivo `.mcp.json` en la raíz del proyecto:
 Mostrame el borrador antes de hacer nada más.
 ```
 
-4. Revisá el borrador. Luego: *"Está bien, envialo"*.
+5. Revisá el borrador. Luego: *"Está bien, envialo"*.
 
 **Buenas prácticas:**
 - Empezá con **borradores**, nunca envío directo, hasta que confíes en el flujo.
@@ -181,6 +183,14 @@ Conectá **dos o más** conectores (por ejemplo Gmail + Slack, o Gmail + Google 
 
 **Variante en Claude Code:** agregá un servidor con `claude mcp add --transport http notion https://mcp.notion.com/mcp` (o el de tu herramienta), autenticalo desde `/mcp` y verificá que aparece como conectado. Pedile una consulta de solo lectura.
 
+## 📌 Ideas clave
+
+- MCP es el estándar para conectar Claude con apps: los servidores exponen *tools*, *resources* y *prompts*.
+- Los conectores se agregan en *Customize → Connectors*, se activan por conversación y tienen permisos por herramienta.
+- En Claude Code: `claude mcp add` o `.mcp.json` compartido en el repo.
+- La ventana de contexto es memoria de trabajo limitada: una tarea por sesión, solo los archivos y conectores necesarios.
+- Toda acción externa (enviar, publicar, borrar) empieza como borrador con tu aprobación.
+
 ## 🧠 Autoevaluación
 
 1. ¿Qué diferencia hay entre un conector y un servidor MCP?
@@ -191,5 +201,11 @@ Conectá **dos o más** conectores (por ejemplo Gmail + Slack, o Gmail + Google 
 
 3. Tu sesión está muy larga y Claude olvida instrucciones. ¿Qué hacés?
    <details><summary>Ver respuesta</summary>Pedís un resumen del estado y las decisiones, y abrís una sesión nueva con ese resumen (en Claude Code: `/compact` o `/clear`).</details>
+
+## Fuentes oficiales
+
+- [Get started with connectors](https://claude.com/docs/connectors/getting-started) · [Connect Claude Code to tools via MCP](https://code.claude.com/docs/en/mcp)
+- [Especificación de Model Context Protocol](https://modelcontextprotocol.io/specification/2025-11-25) · [Registro oficial de servidores MCP](https://registry.modelcontextprotocol.io/)
+- [Explore the context window (Claude Code)](https://code.claude.com/docs/en/context-window) · [Understanding usage and length limits](https://support.claude.com/en/articles/11647753-understanding-usage-and-length-limits)
 
 ➡️ Siguiente: [Módulo 03 — Agent Skills y Plugins](03-skills-y-plugins.md)

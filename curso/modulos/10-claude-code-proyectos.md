@@ -14,6 +14,19 @@
 
 **Requisitos previos:** Módulo 09 · **Duración estimada:** 6 h
 
+### 🗺️ Ruta de estudio (5 sesiones)
+
+| Sesión | Secciones | Resultado |
+|---|---|---|
+| 1 · 75 min | Proyecto 1 y su práctica | Dos landings comparadas + landing de Patitas Spa |
+| 2 · 60 min | Proyecto 2 y su práctica | `/brand-landing` y `/post-marca` funcionando |
+| 3 · 75 min | Proyecto 3 y su práctica | Plugin `competencia` validado y mapa de posicionamiento |
+| 4 · 90 min | Proyecto 4, fases 1 y 2 | App con análisis de fotos y tests en verde |
+| 5 · 60 min | Proyecto 4, fase 3 y despliegue | Ralph Loop completo y app publicada |
+
+> Si nunca usaste Node.js ni npm: `node --version` y `npm --version` tienen que responder (instalá la versión LTS desde nodejs.org). `npm install` descarga dependencias, `npm run dev` levanta el servidor local y `npm test` corre los tests. Con eso alcanza para seguir el módulo: el resto lo hace Claude, y vos revisás.
+
+
 En este módulo construís 4 proyectos reales: landing pages (con y sin skill), un slash command de marca, un plugin de análisis de competencia y una app full‑stack con IA (Calorie Tracker), mejorada con **Ralph Loops** y desplegada en internet.
 
 > **Plugins usados:** `frontend-design`, `plugin-dev`, `ralph-loop`, `feature-dev`, `code-review`, `marketing`. Ya están declarados en [`.claude/settings.json`](../../.claude/settings.json) de este repo.
@@ -266,7 +279,7 @@ App donde el usuario **sube una foto de su comida** y la IA estima calorías y m
 3. Verificá que `.env.local` está en `.gitignore`. **Nunca** pegues la clave en el chat ni en el código.
 4. `/init` para crear `CLAUDE.md` y agregá las reglas del proyecto (ver 9.7).
 
-### Fase 1 — App básica (sin IA)
+### Fase 1 — Construir la app básica (sin IA)
 
 En **Plan mode** (`Shift+Tab`):
 
@@ -297,9 +310,9 @@ Fase 2: al agregar una comida, el usuario puede subir una foto. Planificá:
 - Tests de la ruta con el cliente de IA mockeado.
 ```
 
-### Fase 2 — Implementación
+### Fase 2 — Implementar la ruta de API
 
-Ejemplo de la ruta con **Gemini**:
+Ejemplo de la ruta con **Gemini** (usa `generateContent`, que Google hoy marca como API *legacy* pero sigue funcionando; para proyectos nuevos, revisá la [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/image-understanding)):
 
 ```ts
 // src/app/api/analizar-comida/route.ts
@@ -328,7 +341,7 @@ export async function POST(req: Request) {
 
   const base64 = Buffer.from(await file.arrayBuffer()).toString("base64");
   const res = await ai.models.generateContent({
-    model: "gemini-2.5-flash",
+    model: "gemini-2.5-flash", // usá el modelo de visión vigente en la documentación de Gemini
     contents: [
       { inlineData: { mimeType: file.type, data: base64 } },
       { text: "Estimá la comida de la foto. Respondé SOLO JSON con: nombre, porciones, calorias, proteinas_g, carbohidratos_g, grasas_g, confianza (0-1), notas." },
@@ -419,9 +432,9 @@ Prepará la app para producción y desplegala en Vercel:
 
 ```bash
 npm i -g vercel
-vercel                    # primer deploy (preview)
-vercel env add GEMINI_API_KEY
-vercel --prod             # producción
+vercel link               # vincula la carpeta con un proyecto de Vercel
+vercel env add GEMINI_API_KEY   # cargá la clave ANTES del primer deploy
+vercel --prod             # deploy a producción (sin --prod, los deploys siguientes van a una vista previa)
 ```
 
 Alternativas: Netlify, Railway, Render, Cloudflare Pages (sitios estáticos: arrastrar la carpeta o conectar GitHub).
@@ -433,6 +446,24 @@ Alternativas: Netlify, Railway, Render, Cloudflare Pages (sitios estáticos: arr
 /feature-dev <feature>  # para la próxima funcionalidad: explorar → diseñar → implementar → revisar
 ```
 
+### ✅ Criterios de éxito del Proyecto 4
+
+| Objetivo | Prueba |
+|---|---|
+| 10.4 · App full‑stack con IA | Al subir la foto de un plato, la app muestra nombre, calorías y macros, y deja editarlos antes de guardar. Una imagen de más de 4 MB devuelve un error claro (413). `npm test` pasa, incluido el test de la ruta con el modelo simulado (*mock*) |
+| 10.4 · Validación | Si el modelo devuelve un JSON inválido, la ruta responde 502 y la UI muestra un mensaje, sin romperse |
+| 10.5 · Ralph Loop | Todas las tareas de `MEJORAS.md` están marcadas con `[x]`; `npm test`, `npm run lint` y `npx tsc --noEmit` terminan con código de salida 0; cada tarea tiene su commit |
+| Seguridad | La API key está solo en `.env.local` (o en las variables de entorno de Vercel), y `git grep` no la encuentra en el repositorio |
+| Despliegue | La URL de producción de `vercel --prod` abre la app y el análisis de una foto funciona ahí |
+
+## 📌 Ideas clave
+
+- La skill frontend-design cambia plantilla genérica por dirección visual con criterio.
+- Tu marca en archivos + un slash command = resultados consistentes.
+- Un plugin propio se prueba con `--plugin-dir` y se distribuye como marketplace de GitHub.
+- La IA va en rutas de API del servidor, con validación y tests.
+- Ralph Loop y `/goal` necesitan criterios de fin verificables.
+
 ## 🧠 Autoevaluación
 
 1. ¿Por qué el Ralph Loop necesita un criterio de fin verificable?
@@ -443,5 +474,11 @@ Alternativas: Netlify, Railway, Render, Cloudflare Pages (sitios estáticos: arr
 
 3. ¿Para qué sirve `claude --plugin-dir`?
    <details><summary>Ver respuesta</summary>Para cargar y probar un plugin local sin instalarlo.</details>
+
+## Fuentes oficiales
+
+- [Plugins en Claude Code](https://code.claude.com/docs/en/plugins/overview) · [Skills](https://code.claude.com/docs/en/skills) · [Plugin ralph-loop y frontend-design](https://github.com/anthropics/claude-plugins-official)
+- [Vision — Claude Docs](https://platform.claude.com/docs/en/build-with-claude/vision) · [Image understanding — Gemini API](https://ai.google.dev/gemini-api/docs/interactions/image-understanding)
+- [Deploying from the Vercel CLI](https://vercel.com/docs/cli/deploying-from-cli)
 
 ➡️ Siguiente: [Módulo 11 — Agentes, Subagentes y Agent Teams](11-agentes-subagentes-teams.md)

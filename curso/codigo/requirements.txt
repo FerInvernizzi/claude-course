@@ -1,4 +1,5 @@
 # Módulo 11 — agentes de IA
 openai-agents>=0.3        # OpenAI Agents SDK (agrega [litellm] para usar modelos de Claude)
 claude-agent-sdk>=0.1     # Claude Agent SDK (requiere Claude Code instalado)
+mcp>=2.0                  # SDK oficial de MCP (servidor del módulo 11.4)
 python-dotenv>=1.0

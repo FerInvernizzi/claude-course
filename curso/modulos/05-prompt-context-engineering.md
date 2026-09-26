@@ -6,7 +6,7 @@
 
 | # | Al terminar vas a poder… (conducta · condición · criterio) | Nivel (Bloom) | Evidencia |
 |---|---|---|---|
-| 5.1 | Escribir un prompt con los 6 componentes (rol, tarea, contexto, formato, restricciones y ejemplos) a partir de un pedido de una línea | Aplicar · procedimental | Práctica |
+| 5.1 | Escribir, a partir de un pedido de una línea, un prompt que incluya los 6 componentes (rol, tarea, contexto, formato, restricciones y ejemplos), verificable con la tabla de 5.1 | Aplicar · procedimental | Práctica |
 | 5.2 | Aplicar al menos 3 técnicas avanzadas (XML, few-shot, encadenamiento, autocrítica o preguntas previas) en un mismo prompt, identificando cada una | Aplicar · procedimental | Práctica |
 | 5.3 | Diseñar el contexto de un agente para una tarea larga usando las 4 estrategias (escribir, seleccionar, comprimir, aislar), con al menos una acción concreta por estrategia | Crear · metacognitivo | Autoevaluación |
 
@@ -197,6 +197,13 @@ Al final, criticá tu plan: ¿qué podría fallar?
 
 Técnicas aplicadas: rol, XML, contexto rico, formato explícito, restricciones, preguntas previas y autocrítica.
 
+## 📌 Ideas clave
+
+- Un prompt es una especificación: rol, tarea, contexto, formato, restricciones y ejemplos.
+- Explicar el porqué hace que Claude generalice mejor.
+- XML, few‑shot, encadenamiento, autocrítica y preguntas previas mejoran resultados complejos.
+- Context engineering: escribir, seleccionar, comprimir y aislar lo que entra en la ventana de contexto.
+
 ## 🧠 Autoevaluación
 
 1. ¿Por qué conviene explicar el porqué de una instrucción?
@@ -207,5 +214,11 @@ Técnicas aplicadas: rol, XML, contexto rico, formato explícito, restricciones,
 
 3. Nombrá una técnica para "aislar" contexto.
    <details><summary>Ver respuesta</summary>Usar subagentes (cada uno con su propia ventana) o sesiones nuevas por tarea.</details>
+
+## Fuentes oficiales
+
+- [Prompt engineering overview — Claude Docs](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview)
+- [Effective context engineering for AI agents — Anthropic](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents)
+- [Best practices for Claude Code](https://code.claude.com/docs/en/best-practices)
 
 ➡️ Siguiente: [Módulo 06 — Claude en Excel](06-claude-en-excel.md)

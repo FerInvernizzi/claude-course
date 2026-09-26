@@ -18,6 +18,18 @@ Este módulo reúne lo que **no vas a descubrir usando Claude "de oído"**: ataj
 
 **Requisitos previos:** módulos 01, 06, 08, 09 y 11 · **Duración estimada:** 3 h
 
+### 🗺️ Ruta de estudio y base de cada sección
+
+| Sesión | Secciones | Se apoya en | Resultado |
+|---|---|---|---|
+| 1 · 60 min | 14.1 a 14.3 | Módulos 05 (contexto) y 09 (CLAUDE.md) | Práctica A |
+| 2 · 60 min | 14.4 a 14.6 | Módulos 09 (comandos) y 10 (Ralph Loop) | Prácticas B y C |
+| 3 · 45 min | 14.7 a 14.11 | Módulo 11 (subagentes) | Autoevaluación |
+| 4 · 30 min | 14.12 | Módulos 01, 06 y 08 | Práctica D |
+
+No hace falta usar todo: elegí 3 funciones que resuelvan un problema que ya tuviste y practicalas primero.
+
+
 ---
 
 ## 14.1 Claude Code: sesiones que no se arruinan
@@ -183,10 +195,10 @@ Subagentes con **memoria persistente**: agregá `memory: project` (o `user`/`loc
 
 **Cowork**
 - **Instrucciones globales** (tono, formato y rol para todas las tareas) e **instrucciones de carpeta** (contexto de cada carpeta; Claude las puede actualizar solo).
-- **Proyectos:** archivos, instrucciones y memoria propios por tema.
 - **Modos:** Manual, Auto (con revisión de seguridad automática y algo más de consumo) y Skip.
 - **`/schedule` después de hacer la tarea una vez:** convierte *ese* proceso probado en recurrente.
-- Las tareas corren en la nube y **siguen aunque cierres la laptop**; **Dispatch** usa tu computadora (tiene que estar despierta).
+- Las tareas que no dependen de tu computadora siguen aunque cierres la laptop; las que usan carpetas locales y **Dispatch** necesitan la computadora despierta. Dispatch divide tu pedido en tareas hijas (hacia Code o hacia un proyecto de Cowork), y si no respondés un pedido de permiso en 10 minutos, se deniega.
+- **Proyectos de Cowork:** carpetas, instrucciones, links, memoria propia y proyectos de claude.ai vinculados; viven solo en tu computadora.
 - Nunca borra archivos permanentemente sin pedirte permiso explícito.
 
 **Claude en Excel y PowerPoint**
@@ -231,6 +243,14 @@ Creá `/estado-repo`: una skill con `disable-model-invocation: true`, `context: 
 Escribí instrucciones globales de Cowork y las instrucciones del complemento de Excel para tu trabajo real (idioma, formato de números, estilo de salida). Hacé la misma tarea antes y después y compará.
 
 **Criterios de éxito:** sin repetir tus preferencias en el prompt, el resultado ya las respeta; elegiste y justificaste el modo de permiso de la tarea.
+
+## 📌 Ideas clave
+
+- `/rewind`, `/btw` y `/branch` evitan arruinar una sesión larga.
+- `CLAUDE.md` < 200 líneas; reglas por ruta en `.claude/rules/`; memoria automática controlable.
+- Dale a Claude una forma de verificar su trabajo (tests, `/verify`).
+- `/goal` con condición medible; modo auto para correr sin interrupciones.
+- Elegí el mecanismo de paralelismo según el aislamiento y la coordinación que necesitás.
 
 ## 🧠 Autoevaluación
 
