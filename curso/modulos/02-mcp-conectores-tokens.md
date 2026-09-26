@@ -1,12 +1,15 @@
 # Módulo 02 — MCP, conectores, tokens y ventana de contexto
 
-> **🎯 Objetivos.** Al terminar este módulo vas a poder:
-> - Explicar la arquitectura de MCP (host, cliente, servidor; tools, resources, prompts).
-> - Conectar un conector (Gmail) y ejecutar un flujo con aprobación humana.
-> - Agregar servidores MCP en Claude Code con `claude mcp add` o `.mcp.json`.
-> - Estimar tokens y aplicar reglas para cuidar la ventana de contexto.
->
-> **Requisitos previos:** Módulo 01 · **Duración estimada:** 1 h 15 min
+## 🎯 Objetivos de aprendizaje
+
+| # | Al terminar vas a poder… (conducta · condición · criterio) | Nivel (Bloom) | Evidencia |
+|---|---|---|---|
+| 2.1 | Explicar, con un diagrama propio, cómo se comunican host, cliente y servidor MCP y qué son tools, resources y prompts, sin errores conceptuales | Comprender · conceptual | Autoevaluación |
+| 2.2 | Conectar dos conectores (por ejemplo Gmail y Slack) y ejecutar un flujo entre plataformas en el que nada se envíe sin tu aprobación explícita | Aplicar · procedimental | Práctica |
+| 2.3 | Configurar un servidor MCP en Claude Code con `claude mcp add` o `.mcp.json` y verificar con `/mcp` que está conectado | Aplicar · procedimental | Práctica |
+| 2.4 | Estimar el tamaño en tokens de un documento dado, con un error menor al 30%, y decidir con justificación si conviene procesarlo entero o por partes | Evaluar · procedimental | Práctica |
+
+**Requisitos previos:** Módulo 01 · **Duración estimada:** 1 h 15 min
 
 ## 2.1 Model Context Protocol (MCP)
 
@@ -173,6 +176,8 @@ Conectá **dos o más** conectores (por ejemplo Gmail + Slack, o Gmail + Google 
 - [ ] Nada se envía ni se publica sin tu aprobación explícita.
 - [ ] Solo activaste los conectores que el flujo necesita (así ahorrás contexto, como viste en 2.3).
 - [ ] Podés describir qué herramientas (tools) de cada servidor MCP usó Claude. Las ves en el detalle de cada paso.
+
+**Variante en Claude Code:** agregá un servidor con `claude mcp add --transport http notion https://mcp.notion.com/mcp` (o el de tu herramienta), autenticalo desde `/mcp` y verificá que aparece como conectado. Pedile una consulta de solo lectura.
 
 ## 🧠 Autoevaluación
 

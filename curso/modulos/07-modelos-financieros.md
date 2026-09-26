@@ -1,11 +1,14 @@
 # Módulo 07 — Modelos financieros nivel Wall Street con Cowork + Excel
 
-> **🎯 Objetivos.** Al terminar este módulo vas a poder:
-> - Aplicar los estándares de un modelo financiero profesional (colores, chequeos, escenarios).
-> - Construir un modelo de 3 estados, un DCF y un LBO con Claude.
-> - Interpretar sensibilidades y detectar errores típicos de valuación.
->
-> **Requisitos previos:** Módulos 03 y 06 · nociones de contabilidad · **Duración estimada:** 3 h
+## 🎯 Objetivos de aprendizaje
+
+| # | Al terminar vas a poder… (conducta · condición · criterio) | Nivel (Bloom) | Evidencia |
+|---|---|---|---|
+| 7.1 | Aplicar a un modelo financiero la convención de colores, la separación supuestos/cálculos/resultados y una hoja de chequeos, con todos los chequeos en verde | Aplicar · procedimental | Práctica |
+| 7.2 | Construir con Claude un DCF a partir de estados financieros, con WACC documentado y grillas de sensibilidad por fórmulas, sin errores en la auditoría del revisor | Crear · procedimental | Práctica |
+| 7.3 | Evaluar una valuación dada identificando al menos 3 errores típicos (g ≥ WACC, valor terminal > 85% del EV, signos de capex) y proponiendo la corrección | Evaluar · conceptual | Autoevaluación |
+
+**Requisitos previos:** Módulos 03 y 06 · nociones de contabilidad · **Duración estimada:** 3 h
 
 > **Plugins recomendados:** `model-builder` (skills `dcf-model`, `lbo-model`, `3-statement-model`, `comps-analysis`, `audit-xls`) y `Finance`. Ver [SKILLS-Y-PLUGINS.md](../SKILLS-Y-PLUGINS.md).
 >

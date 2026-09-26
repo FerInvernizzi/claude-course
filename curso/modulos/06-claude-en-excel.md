@@ -1,12 +1,15 @@
 # Módulo 06 — Claude en Excel
 
-> **🎯 Objetivos.** Al terminar este módulo vas a poder:
-> - Instalar y usar Claude en Excel sobre datos reales.
-> - Obtener estadísticas y filtrar, ordenar y visualizar con fórmulas dinámicas.
-> - Aplicar formato condicional e imputar valores faltantes de forma trazable.
-> - Construir un dashboard con KPIs y segmentadores.
->
-> **Requisitos previos:** Módulo 01 · Excel de Microsoft 365 · **Duración estimada:** 2 h 30 min
+## 🎯 Objetivos de aprendizaje
+
+| # | Al terminar vas a poder… (conducta · condición · criterio) | Nivel (Bloom) | Evidencia |
+|---|---|---|---|
+| 6.1 | Configurar el complemento de Claude en Excel en una versión compatible, con instrucciones persistentes de formato, y verificar que se aplican sin repetirlas en el prompt | Aplicar · procedimental | Práctica |
+| 6.2 | Calcular, en una tabla de Excel dada, un resumen estadístico por grupo con fórmulas que se recalculen al cambiar un dato | Aplicar · procedimental | Práctica |
+| 6.3 | Imputar valores faltantes con la mediana por grupo, dejando columnas imputadas, bandera y una tabla comparativa antes/después (trazabilidad completa) | Aplicar · procedimental | Práctica |
+| 6.4 | Construir en Excel un dashboard con 4 KPIs, 3 gráficos y un filtro que actualice todo, a partir de un dataset limpio | Crear · procedimental | Práctica |
+
+**Requisitos previos:** Módulo 01 · Excel de Microsoft 365 · **Duración estimada:** 2 h 30 min
 
 ## 6.1 Instalación de Claude en Excel
 
@@ -149,7 +152,7 @@ Creá una hoja "Dashboard" (sin líneas de cuadrícula) con:
 
 Dataset: generá 800 registros de **empleados** (ID, Área, Puesto, Fecha_Ingreso, Salario, Horas_Extra, Evaluación 1–5, Capacitación_Horas, Ausencias, Ciudad) con 5% de faltantes.
 
-Tareas: 1) Insights, 2) resumen estadístico por Área, 3) imputación trazable, 4) formato condicional de Evaluación y Ausencias, 5) 3 gráficos, 6) dashboard con segmentador por Área, 7) conclusión en 5 bullets.
+Tareas: 0) configurá en el complemento las *Instrucciones* persistentes de formato (separador de miles, encabezados en negrita) y verificá que se aplican sin pedirlas, 1) Insights, 2) resumen estadístico por Área, 3) imputación trazable, 4) formato condicional de Evaluación y Ausencias, 5) 3 gráficos, 6) dashboard con segmentador por Área, 7) conclusión en 5 bullets.
 
 ### ✅ Solución (secuencia de prompts)
 

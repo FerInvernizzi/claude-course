@@ -1,12 +1,15 @@
 # Módulo 01 — Claude Cowork: fundamentos
 
-> **🎯 Objetivos.** Al terminar este módulo vas a poder:
-> - Configurar Cowork con una carpeta de trabajo segura.
-> - Formular pedidos con objetivo, entradas, formato, restricciones y plan previo.
-> - Generar un Excel con fórmulas y formato a partir de archivos crudos.
-> - Adaptar el patrón de pedido a finanzas, legal, marketing e investigación.
->
-> **Requisitos previos:** Módulo 00 · Claude Desktop instalado · **Duración estimada:** 1 h 30 min
+## 🎯 Objetivos de aprendizaje
+
+| # | Al terminar vas a poder… (conducta · condición · criterio) | Nivel (Bloom) | Evidencia |
+|---|---|---|---|
+| 1.1 | Configurar Cowork con una carpeta de trabajo dedicada, instrucciones globales y el modo de permiso adecuado, sin dar acceso a carpetas con credenciales | Aplicar · procedimental | Práctica |
+| 1.2 | Formular un pedido con objetivo, entradas, formato de salida, restricciones y plan previo, de modo que Cowork muestre el plan y espere tu aprobación antes de modificar archivos | Aplicar · procedimental | Práctica |
+| 1.3 | Generar, a partir de archivos crudos de tu área, un Excel con fórmulas (no valores pegados), formato y un resumen de hallazgos en el que cada conclusión cite su dato | Crear · procedimental | Práctica |
+| 1.4 | Adaptar, a partir de casos reales, el patrón de pedido a 2 áreas distintas (finanzas, legal, marketing, datos o investigación), de modo que cada pedido declare entregable y criterio de revisión | Aplicar · procedimental | Práctica |
+
+**Requisitos previos:** Módulo 00 · Claude Desktop instalado · **Duración estimada:** 1 h 30 min
 
 ## 1.1 ¿Qué es Claude Cowork?
 

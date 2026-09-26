@@ -1,12 +1,15 @@
 # Módulo 04 — Claude Chat: investigación, escritura, creatividad y datos
 
-> **🎯 Objetivos.** Al terminar este módulo vas a poder:
-> - Investigar con búsqueda web y con el modo Research, con fuentes verificables.
-> - Usar Claude para escritura creativa, brainstorming, aprendizaje y código.
-> - Extraer estados financieros de un PDF a Excel y a PowerPoint.
-> - Elegir entre Claude y un generador de imágenes según la tarea.
->
-> **Requisitos previos:** Módulo 00 · **Duración estimada:** 2 h
+## 🎯 Objetivos de aprendizaje
+
+| # | Al terminar vas a poder… (conducta · condición · criterio) | Nivel (Bloom) | Evidencia |
+|---|---|---|---|
+| 4.1 | Investigar un mercado con el modo Research y entregar un informe en el que cada cifra tenga fuente y año, y los datos de baja confianza estén marcados | Aplicar · procedimental | Práctica |
+| 4.2 | Verificar, dado un informe generado con Research, al menos 3 cifras abriendo las fuentes originales, y corregir las que no coincidan | Evaluar · procedimental | Práctica |
+| 4.3 | Extraer los estados financieros de un PDF a Excel con fórmulas de ratios y el chequeo Activo = Pasivo + PN en cada año | Aplicar · procedimental | Autoevaluación |
+| 4.4 | Generar con la skill pptx un one pager de una empresa o sector que se entienda en 60 segundos y cite sus fuentes al pie | Crear · procedimental | Práctica |
+
+**Requisitos previos:** Módulo 00 · **Duración estimada:** 2 h
 
 Claude Chat (claude.ai o la app) es la puerta de entrada. Aunque no trabaja sobre tus carpetas como Cowork, tiene herramientas muy potentes: **búsqueda web, Research (investigación profunda), Artifacts, ejecución de código, creación de archivos, Projects y conectores**.
 

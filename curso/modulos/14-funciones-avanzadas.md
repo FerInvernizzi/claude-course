@@ -11,7 +11,8 @@ Este módulo reúne lo que **no vas a descubrir usando Claude "de oído"**: ataj
 | 14.3 | **Automatizar** una tarea hasta un criterio verificable con `/goal` y **justificar** cuándo usar `/goal`, `/loop`, Ralph Loop o una rutina | Evaluar · metacognitivo | Práctica B y autoevaluación |
 | 14.4 | **Escribir** una skill avanzada que use al menos tres campos de frontmatter (`disable-model-invocation`, `context: fork`, `allowed-tools`, `paths`, `arguments`) e inyección de contexto con `` !`comando` `` | Crear · procedimental | Práctica C |
 | 14.5 | **Paralelizar** trabajo con el mecanismo adecuado (subagente, `/subtask`, worktree, `/batch`, workflow o agent team), según el aislamiento y la coordinación que necesite la tarea | Analizar · conceptual | Autoevaluación |
-| 14.6 | **Configurar** instrucciones persistentes en Cowork (globales y de carpeta) y en los complementos de Excel y PowerPoint, y **elegir** el modo de permiso (Manual, Auto o Skip) según el riesgo de la tarea | Aplicar · procedimental | Práctica D |
+| 14.6 | **Configurar**, para tu trabajo real, instrucciones persistentes en Cowork (globales y de carpeta) y en los complementos de Excel y PowerPoint, de modo que el resultado respete tus preferencias sin repetirlas en el prompt | Aplicar · procedimental | Práctica D |
+| 14.7 | **Elegir**, dado un escenario de tarea, el modo de permiso de Cowork (Manual, Auto o Skip) o de Claude Code, justificando al menos un riesgo que el modo mitiga | Evaluar · conceptual | Práctica D |
 
 **Requisitos previos:** módulos 01, 06, 08, 09 y 11 · **Duración estimada:** 3 h
 

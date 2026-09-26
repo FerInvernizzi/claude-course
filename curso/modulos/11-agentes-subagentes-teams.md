@@ -1,12 +1,16 @@
 # Módulo 11 — Agentes de IA, Subagentes y Agent Teams
 
-> **🎯 Objetivos.** Al terminar este módulo vas a poder:
-> - Explicar el bucle agéntico y los componentes de un agente.
-> - Construir agentes con herramientas, memoria y salida estructurada (OpenAI Agents SDK y Claude Agent SDK).
-> - Diseñar subagentes y equipos de agentes con el patrón de orquestación adecuado.
-> - Llevar un equipo de agentes de la investigación al email con aprobación humana.
->
-> **Requisitos previos:** Módulos 09 y 10 · Python básico · **Duración estimada:** 5 h
+## 🎯 Objetivos de aprendizaje
+
+| # | Al terminar vas a poder… (conducta · condición · criterio) | Nivel (Bloom) | Evidencia |
+|---|---|---|---|
+| 11.1 | Explicar el bucle agéntico sobre la traza de una ejecución real, señalando en cada paso qué pensó, qué herramienta usó y qué observó | Comprender · conceptual | Autoevaluación |
+| 11.2 | Implementar con el OpenAI Agents SDK un agente con herramientas y memoria (`SQLiteSession` y datos persistentes) que recuerde un dato entre turnos | Aplicar · procedimental | Código |
+| 11.3 | Construir con el Claude Agent SDK un equipo de al menos 3 subagentes que produzca un informe con fuentes y un borrador de email, sin enviar nada sin aprobación | Crear · procedimental | Código |
+| 11.4 | Seleccionar el patrón de orquestación (secuencial, paralelo, orquestador, evaluador-optimizador o handoff) para 3 casos dados, justificando cada uno | Analizar · conceptual | Autoevaluación |
+| 11.5 | Agregar con el OpenAI Agents SDK un agente editor evaluador-optimizador que reescriba el informe hasta que todas las notas sean ≥ 8, con un máximo de 3 rondas | Crear · procedimental | Práctica |
+
+**Requisitos previos:** Módulos 09 y 10 · Python básico · **Duración estimada:** 5 h
 
 ## 11.1 La revolución de los agentes
 

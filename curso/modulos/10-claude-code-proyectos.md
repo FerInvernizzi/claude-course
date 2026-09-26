@@ -1,12 +1,16 @@
 # Módulo 10 — Claude Code: proyectos full‑stack de punta a punta
 
-> **🎯 Objetivos.** Al terminar este módulo vas a poder:
-> - Construir y comparar landing pages con y sin la skill frontend-design.
-> - Crear un slash command de marca y un plugin con subagente.
-> - Desarrollar una app full-stack con IA (rutas de API, validación, tests).
-> - Iterar con Ralph Loops usando criterios de fin verificables y desplegar en producción.
->
-> **Requisitos previos:** Módulo 09 · **Duración estimada:** 6 h
+## 🎯 Objetivos de aprendizaje
+
+| # | Al terminar vas a poder… (conducta · condición · criterio) | Nivel (Bloom) | Evidencia |
+|---|---|---|---|
+| 10.1 | Construir dos versiones de una landing page, con y sin la skill frontend-design, y comparar ambas en 6 criterios de diseño con evidencia visual | Evaluar · procedimental | Práctica |
+| 10.2 | Crear un slash command de marca que lea tu carpeta de marca y genere landings con contraste AA verificado | Crear · procedimental | Práctica |
+| 10.3 | Empaquetar un plugin con un subagente investigador, probarlo con `claude --plugin-dir` y producir un mapa de posicionamiento de 4 competidores | Crear · procedimental | Práctica |
+| 10.4 | Desarrollar una app full-stack con una ruta de API que llame a un modelo de visión, valide la respuesta con Zod y tenga tests que pasen | Crear · procedimental | Proyecto |
+| 10.5 | Implementar mejoras con un Ralph Loop hasta que `npm test`, lint y typecheck pasen (código de salida 0) y todas las tareas de MEJORAS.md estén marcadas | Aplicar · procedimental | Proyecto |
+
+**Requisitos previos:** Módulo 09 · **Duración estimada:** 6 h
 
 En este módulo construís 4 proyectos reales: landing pages (con y sin skill), un slash command de marca, un plugin de análisis de competencia y una app full‑stack con IA (Calorie Tracker), mejorada con **Ralph Loops** y desplegada en internet.
 

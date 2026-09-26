@@ -1,13 +1,17 @@
 # Módulo 03 — Agent Skills y Plugins en Cowork
 
-> **🎯 Objetivos.** Al terminar este módulo vas a poder:
-> - Explicar qué es una skill, su estructura y la carga progresiva.
-> - Crear una skill propia con `skill-creator`.
-> - Diferenciar skills de plugins e instalar un plugin.
-> - Limpiar datos, hacer análisis estadístico, dashboards y slides con el plugin de datos.
-> - Diseñar y empaquetar un plugin de finanzas propio.
->
-> **Requisitos previos:** Módulos 01 y 02 · **Duración estimada:** 4 h
+## 🎯 Objetivos de aprendizaje
+
+| # | Al terminar vas a poder… (conducta · condición · criterio) | Nivel (Bloom) | Evidencia |
+|---|---|---|---|
+| 3.1 | Explicar, usando un SKILL.md de ejemplo, cómo la carga progresiva decide qué partes de una skill entran al contexto y cuándo | Comprender · conceptual | Autoevaluación |
+| 3.2 | Crear con `skill-creator` una skill propia con una `description` que diga qué hace y cuándo usarla, y verificar que se activa sola con un pedido que no la nombra | Crear · procedimental | Práctica |
+| 3.3 | Diferenciar, dado un caso de uso, si corresponde una skill, un plugin, un slash command o un subagente, justificando con la tabla del módulo | Analizar · conceptual | Autoevaluación |
+| 3.4 | Limpiar un dataset con el plugin de datos, dejando un log de limpieza con regla aplicada y filas afectadas en cada paso | Aplicar · procedimental | Práctica |
+| 3.5 | Producir, a partir de un dataset limpio, un análisis estadístico con supuestos verificados, un dashboard y 5 slides cuyos números coincidan con el Excel | Crear · procedimental | Práctica |
+| 3.6 | Empaquetar un plugin propio con al menos una skill, un comando y un subagente, que pase `claude plugin validate` | Crear · procedimental | Práctica |
+
+**Requisitos previos:** Módulos 01 y 02 · **Duración estimada:** 4 h
 
 ## 3.1 ¿Qué es una Agent Skill?
 

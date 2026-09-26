@@ -46,9 +46,9 @@ Cada objetivo se puntúa en 5 criterios de 0 a 2 puntos:
 
 | Versión | Objetivos | Promedio | % ≥ 8 | Observaciones |
 |---------|-----------|----------|-------|---------------|
-| v1: promesas del curso original (README) | 12 | 3,1 | 0% | Verbos "Master", "Understand", "Leverage"; sin condición ni criterio |
-| v2: primera versión de objetivos por módulo | 50 | 5,6 | 4% | Verbos observables, pero sin condición, criterio ni evidencia |
-| **v3: objetivos ABCD actuales** | ver [`OBJETIVOS.md`](OBJETIVOS.md) | ver ahí | ver ahí | Medición detallada objetivo por objetivo |
+| v1: promesas del curso original (README) | 12 | 3,8 | 0% | Verbos "Master", "Understand", "Leverage"; sin condición ni criterio |
+| v2: primera versión de objetivos por módulo | 54 | 5,6 | 9% | Verbos observables, pero casi sin condición, criterio ni evidencia explícita |
+| **v3: objetivos ABCD actuales** | **67** | **9,4** | **100%** | Una conducta, condición, criterio verificable, nivel de Bloom y práctica que lo mide |
 
 La medición completa, objetivo por objetivo, está en [`OBJETIVOS.md`](OBJETIVOS.md).
 

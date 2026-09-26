@@ -1,12 +1,14 @@
 # Módulo 13 — Las 10 automatizaciones de tu agente personal
 
-> **🎯 Objetivos.** Al terminar este módulo vas a poder:
-> - Construir automatizaciones como procedimiento escrito + comando + disparador.
-> - Implementar al menos 5 de los 10 blueprints con conectores reales.
-> - Programar tareas y dispararlas desde el celular con Dispatch.
-> - Evaluar una automatización con 6 criterios de calidad.
->
-> **Requisitos previos:** Módulo 12 · **Duración estimada:** 8 h o más
+## 🎯 Objetivos de aprendizaje
+
+| # | Al terminar vas a poder… (conducta · condición · criterio) | Nivel (Bloom) | Evidencia |
+|---|---|---|---|
+| 13.1 | Construir al menos 5 automatizaciones como procedimiento escrito + comando + disparador, a partir de los blueprints del módulo | Crear · procedimental | Práctica |
+| 13.2 | Programar al menos 2 automatizaciones con `/schedule` y disparar 1 con Dispatch desde el celular, registrando cada ejecución en el diario | Aplicar · procedimental | Práctica |
+| 13.3 | Evaluar cada automatización con los 6 criterios de calidad (definición escrita, idempotencia, seguridad, observabilidad, tolerancia a fallos, medición), documentando el tiempo ahorrado por semana | Evaluar · metacognitivo | Práctica |
+
+**Requisitos previos:** Módulo 12 · **Duración estimada:** 8 h o más
 
 ## 13.1 Visión general de los 10 blueprints
 
@@ -353,4 +355,6 @@ Implementá **al menos 5** de las 10 automatizaciones, con al menos **2 programa
 3. ¿Qué requisito tiene Dispatch?
    <details><summary>Ver respuesta</summary>Plan Pro o Max, y la computadora encendida y despierta con Claude Desktop abierto. Las tareas programadas de Cowork, en cambio, corren en la nube.</details>
 
-🎓 **¡Terminaste el curso!** Volvé al [índice](../README.md) y revisá la lista de objetivos: ahora podés hacer cada uno.
+🎓 **¡Completaste el recorrido principal!** Seguí con los dos módulos de profundización.
+
+➡️ Siguiente: [Módulo 14 — Funciones avanzadas que nadie te cuenta](14-funciones-avanzadas.md)

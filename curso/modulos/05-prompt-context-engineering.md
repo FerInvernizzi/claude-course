@@ -1,11 +1,14 @@
 # Módulo 05 — Prompt Engineering y Context Engineering
 
-> **🎯 Objetivos.** Al terminar este módulo vas a poder:
-> - Escribir prompts con los 6 componentes (rol, tarea, contexto, formato, restricciones, ejemplos).
-> - Aplicar técnicas avanzadas: XML, few-shot, encadenamiento, autocrítica y preguntas previas.
-> - Diseñar el contexto de un agente con las 4 estrategias (escribir, seleccionar, comprimir, aislar).
->
-> **Requisitos previos:** Módulo 04 · **Duración estimada:** 1 h 30 min
+## 🎯 Objetivos de aprendizaje
+
+| # | Al terminar vas a poder… (conducta · condición · criterio) | Nivel (Bloom) | Evidencia |
+|---|---|---|---|
+| 5.1 | Escribir un prompt con los 6 componentes (rol, tarea, contexto, formato, restricciones y ejemplos) a partir de un pedido de una línea | Aplicar · procedimental | Práctica |
+| 5.2 | Aplicar al menos 3 técnicas avanzadas (XML, few-shot, encadenamiento, autocrítica o preguntas previas) en un mismo prompt, identificando cada una | Aplicar · procedimental | Práctica |
+| 5.3 | Diseñar el contexto de un agente para una tarea larga usando las 4 estrategias (escribir, seleccionar, comprimir, aislar), con al menos una acción concreta por estrategia | Crear · metacognitivo | Autoevaluación |
+
+**Requisitos previos:** Módulo 04 · **Duración estimada:** 1 h 30 min
 
 ## 5.1 Fundamentos: qué es un buen prompt
 

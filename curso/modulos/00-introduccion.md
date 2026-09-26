@@ -1,11 +1,13 @@
 # Módulo 00 — Introducción: el poder de Claude Code y Cowork
 
-> **🎯 Objetivos.** Al terminar este módulo vas a poder:
-> - Explicar la diferencia entre un chatbot y un agente.
-> - Ubicar Chat, Cowork, Code y los add-ins de Office en el ecosistema de Claude.
-> - Aplicar los 8 consejos de éxito al formular un pedido.
->
-> **Requisitos previos:** Ninguno · **Duración estimada:** 20 min
+## 🎯 Objetivos de aprendizaje
+
+| # | Al terminar vas a poder… (conducta · condición · criterio) | Nivel (Bloom) | Evidencia |
+|---|---|---|---|
+| 0.1 | Clasificar, a partir de una lista de 6 tareas reales de tu trabajo, cuáles conviene resolver con Chat, Cowork, Claude Code o un complemento de Office, justificando cada elección en una línea | Comprender · conceptual | Autoevaluación |
+| 0.2 | Reformular, a partir de un pedido vago de tu trabajo, un objetivo delegable (objetivo, entradas, formato, restricciones, plan previo), de modo que cumpla al menos 4 de los 8 consejos de éxito | Aplicar · procedimental | Autoevaluación |
+
+**Requisitos previos:** Ninguno · **Duración estimada:** 20 min
 
 ## 0.1 El cambio de paradigma: de "chatbot" a "agente"
 

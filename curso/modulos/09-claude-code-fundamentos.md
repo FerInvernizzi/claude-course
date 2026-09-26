@@ -1,12 +1,16 @@
 # Módulo 09 — Claude Code: instalación y fundamentos
 
-> **🎯 Objetivos.** Al terminar este módulo vas a poder:
-> - Instalar Claude Code en Mac, Windows o Linux y usarlo desde la terminal, VS Code o la app de escritorio.
-> - Trabajar con modos de permiso, Plan mode y el flujo explorar → planificar → codear → verificar.
-> - Crear slash commands propios y un CLAUDE.md efectivo.
-> - Gestionar la ventana de contexto y configurar plugins y hooks.
->
-> **Requisitos previos:** Node.js 18+ y Git instalados · **Duración estimada:** 2 h
+## 🎯 Objetivos de aprendizaje
+
+| # | Al terminar vas a poder… (conducta · condición · criterio) | Nivel (Bloom) | Evidencia |
+|---|---|---|---|
+| 9.1 | Instalar Claude Code en tu sistema operativo y verificar la instalación con `claude --version` y `claude doctor` sin errores | Aplicar · procedimental | Práctica |
+| 9.2 | Escribir un `CLAUDE.md` de menos de 60 líneas para un proyecto dado, con comandos, convenciones y una sección de reglas críticas | Crear · procedimental | Práctica |
+| 9.3 | Crear un slash command propio con frontmatter y argumentos, que aparezca en el menú `/` y funcione con un archivo del proyecto | Crear · procedimental | Práctica |
+| 9.4 | Configurar, en un proyecto propio, un permiso `deny` en `.claude/settings.json`, de modo que un pedido de leer `.env` sea rechazado | Aplicar · procedimental | Práctica |
+| 9.5 | Diferenciar `/clear`, `/compact` y `/rewind` dado un escenario de sesión larga, eligiendo el adecuado con justificación | Analizar · conceptual | Autoevaluación |
+
+**Requisitos previos:** Node.js 18+ y Git instalados · **Duración estimada:** 2 h
 
 ## 9.1 ¿Qué es Claude Code?
 

@@ -1,12 +1,15 @@
 # Módulo 12 — Tu agente personal con Claude Code y Cowork
 
-> **🎯 Objetivos.** Al terminar este módulo vas a poder:
-> - Diseñar la arquitectura de un agente personal (identidad, memoria, capacidades, disparadores).
-> - Aplicar el patrón Wiki de Karpathy y visualizarlo en Obsidian.
-> - Escribir un SOUL.md y un CLAUDE.md para tu agente.
-> - Conectar Gmail, Calendar y Notion y configurar tu marca.
->
-> **Requisitos previos:** Módulos 02, 03 y 09 · **Duración estimada:** 3 h
+## 🎯 Objetivos de aprendizaje
+
+| # | Al terminar vas a poder… (conducta · condición · criterio) | Nivel (Bloom) | Evidencia |
+|---|---|---|---|
+| 12.1 | Diseñar, usando la plantilla del curso, la arquitectura de tu agente personal con sus 4 capas (identidad, memoria, capacidades y disparadores), de modo que cada capa nombre sus archivos o conectores concretos | Crear · conceptual | Práctica |
+| 12.2 | Escribir, con la plantilla del curso, un SOUL.md y un CLAUDE.md propios, de modo que el agente responda quién sos y cuáles son tus prioridades citando `yo/` | Crear · procedimental | Práctica |
+| 12.3 | Aplicar el patrón Wiki de Karpathy sobre tus fuentes en `raw/`, de modo que se generen al menos 10 páginas enlazadas y visibles como grafo en Obsidian | Aplicar · procedimental | Práctica |
+| 12.4 | Conectar Gmail, Calendar y Notion y verificar cada conector con un pedido de solo lectura | Aplicar · procedimental | Práctica |
+
+**Requisitos previos:** Módulos 02, 03 y 09 · **Duración estimada:** 3 h
 
 ## 12.1 Bienvenida y materiales
 

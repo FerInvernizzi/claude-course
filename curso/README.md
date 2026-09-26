@@ -6,24 +6,26 @@ Curso práctico y en español para dominar el ecosistema de Claude de punta a pu
 
 ## Qué vas a lograr
 
+Los objetivos están escritos para ser **medibles**: cada uno dice qué vas a poder hacer, con qué y cómo se comprueba. Cada módulo abre con sus objetivos detallados (formato ABCD, nivel de Bloom y la práctica que los mide). La metodología está en [METODOLOGIA-OBJETIVOS.md](METODOLOGIA-OBJETIVOS.md) y la medición completa en [OBJETIVOS.md](OBJETIVOS.md): **67 objetivos, 9,4/10 de promedio**.
+
 Al terminar el curso vas a poder:
 
-| # | Objetivo | Módulos |
-|---|----------|---------|
-| 1 | Dominar los agentes de **Claude Cowork** para automatizar tareas de finanzas, legal, marketing, análisis de datos e investigación | 01, 02, 03 |
-| 2 | Construir, depurar y desplegar apps y webs full‑stack con **Claude Code** y sus capacidades agénticas | 09, 10 |
-| 3 | Entender qué son las **Agent Skills** y los **Plugins** y cómo dan nuevas capacidades a Claude | 03, 09, 10 |
-| 4 | Usar plugins especializados para **limpiar datos, hacer estadística, dashboards e informes** | 03 |
-| 5 | Conectar Claude con **Gmail, Slack, Salesforce**, etc. mediante **MCP** | 02, 11 |
-| 6 | Dominar **Claude en Excel**: limpieza, formato condicional, valores faltantes, gráficos y dashboards | 06 |
-| 7 | Automatizar **presentaciones PowerPoint con tu marca** e informes ejecutivos | 08 |
-| 8 | Dominar **prompt engineering y context engineering** | 04, 05 |
-| 9 | Construir **modelos financieros nivel Wall Street** (DCF, LBO) con Cowork + Excel | 07 |
-| 10 | Diseñar y gestionar un **equipo de agentes autónomos** de la investigación al envío de emails | 11, 12, 13 |
-| 11 | Entender **Subagentes** y **Agent Teams** para proyectos complejos multi‑paso | 11 |
-| 12 | Usar Claude Code para **scaffolding, diseño y despliegue** de webs con orquestación agéntica y previsualización en vivo | 10 |
-
----
+| # | Objetivo del curso | Se mide en | Módulos |
+|---|--------------------|------------|---------|
+| 1 | **Automatizar** con Claude Cowork tareas reales de finanzas, legal, marketing, datos e investigación, a partir de tus archivos, obteniendo entregables con fórmulas y conclusiones citadas | Prácticas 01 y 03 | 01, 03 |
+| 2 | **Construir, depurar y desplegar** con Claude Code una app full‑stack cuyos tests, lint y typecheck pasen antes de publicarla | Proyecto Calorie Tracker | 09, 10 |
+| 3 | **Crear** una skill y un plugin propios que se activen cuando corresponde y pasen `claude plugin validate` | Prácticas 03 y 10 | 03, 09, 10 |
+| 4 | **Limpiar, analizar y presentar** un dataset con plugins, dejando log de limpieza, estadística con supuestos verificados, dashboard e informe cuyos números coincidan | Prácticas 03 | 03 |
+| 5 | **Conectar** Claude con Gmail, Slack, Salesforce u otras herramientas por MCP y ejecutar un flujo entre plataformas con aprobación humana | Práctica 02 | 02, 11 |
+| 6 | **Transformar** en Excel, con Claude, una tabla cruda en un dashboard con imputación trazable, formato condicional y fórmulas que se recalculan | Práctica 06 | 06 |
+| 7 | **Generar** presentaciones e informes ejecutivos con tu plantilla de marca a partir de datos o investigación, con cifras verificadas contra la fuente | Prácticas 04 y 08 | 04, 08 |
+| 8 | **Diseñar** prompts y contextos (6 componentes, técnicas avanzadas, 4 estrategias de contexto) para código, contenido creativo y resolución de problemas | Práctica 05 | 05, 14 |
+| 9 | **Construir** modelos financieros profesionales (3 estados, DCF, LBO) con chequeos en verde y sensibilidades | Práctica 07 | 07 |
+| 10 | **Orquestar** un equipo de agentes que vaya de la investigación al borrador de email, con subagentes y patrones de orquestación justificados | Práctica y código 11 | 11, 13 |
+| 11 | **Elegir** entre subagentes, forks, worktrees, workflows y agent teams según el aislamiento y la coordinación que necesita cada tarea | Autoevaluación 11 y 14 | 11, 14 |
+| 12 | **Montar** tu agente personal con memoria en Markdown y al menos 5 automatizaciones programadas o disparadas desde el celular | Prácticas 12 y 13 | 12, 13 |
+| 13 | **Usar** las funciones avanzadas de Claude Code, Cowork y Office que no son evidentes (`/goal`, `/rewind`, memoria, skills avanzadas, instrucciones persistentes) | Prácticas 14 | 14 |
+| 14 | **Producir** piezas creativas o de nicho (arte, diseño, video, audio, juegos) con skills especializadas y adaptarlas a tu estilo | Prácticas 15 | 15 |
 
 ## Temario
 
@@ -43,6 +45,9 @@ Al terminar el curso vas a poder:
 | 11 | [Agentes de IA, Subagentes y Agent Teams](modulos/11-agentes-subagentes-teams.md) | Agentes 101, MCP 101, frameworks, OpenAI Agents SDK, Claude Agent SDK, agente financiero con memoria, equipos de agentes |
 | 12 | [Tu agente personal con Claude Code y Cowork](modulos/12-agente-personal.md) | Arquitectura, patrón Wiki de Karpathy, Obsidian, vault, SOUL.md, CLAUDE.md, carpeta de marca, setup |
 | 13 | [Las 10 automatizaciones](modulos/13-automatizaciones.md) | Sprint Tracker, Morning Brief, Market Pulse, Research Team, CRM, Meeting Intel, Email Triage, Expense Wrangler, Content Machine, Weekly Exec Report |
+| 14 | [Funciones avanzadas que nadie te cuenta](modulos/14-funciones-avanzadas.md) | `/goal`, `/btw`, `/rewind`, memoria automática, reglas por ruta, `/verify`, skills avanzadas, paralelismo, Cowork y Office en profundidad |
+| 15 | [Skills de nicho: arte, diseño y cualquier pasión](modulos/15-skills-de-nicho.md) | 30 skills y plugins verificados para arte generativo, diseño, video, audio, juegos, aprendizaje y creadores |
+| — | [Metodología de objetivos](METODOLOGIA-OBJETIVOS.md) · [Medición](OBJETIVOS.md) | Cómo se escribieron y midieron los objetivos (ABCD, Bloom, Quality Matters) |
 | — | [Skills y plugins del curso](SKILLS-Y-PLUGINS.md) | Qué skills/plugins usa el curso, cuáles ya tenés y cómo instalar el resto |
 | — | [Plantillas](plantillas/) | SKILL.md, slash commands, subagentes, plugin de finanzas, SOUL.md, CLAUDE.md |
 | — | [Código](codigo/) | Ejemplos de agentes en Python (OpenAI Agents SDK y Claude Agent SDK) |

@@ -1,12 +1,15 @@
 # Módulo 08 — Claude en PowerPoint e informes ejecutivos
 
-> **🎯 Objetivos.** Al terminar este módulo vas a poder:
-> - Crear presentaciones con títulos-acción y notas del orador.
-> - Mejorar el diseño y generar slides desde PDFs, la web y plantillas de marca.
-> - Automatizar un informe ejecutivo recurrente.
-> - Elegir entre Claude, Copilot y NotebookLM según el caso.
->
-> **Requisitos previos:** Módulos 04 y 06 · PowerPoint de Microsoft 365 · **Duración estimada:** 2 h
+## 🎯 Objetivos de aprendizaje
+
+| # | Al terminar vas a poder… (conducta · condición · criterio) | Nivel (Bloom) | Evidencia |
+|---|---|---|---|
+| 8.1 | Generar con Claude en PowerPoint un deck de 6-8 slides sobre la plantilla de tu marca, con títulos-acción, gráficos nativos editables y notas del orador en cada slide | Crear · procedimental | Práctica |
+| 8.2 | Verificar que todos los números de un deck generado coinciden con el Excel de origen, corrigiendo cada diferencia | Evaluar · procedimental | Práctica |
+| 8.3 | Automatizar un informe ejecutivo recurrente como skill o slash command, de modo que el mes siguiente se genere con un solo pedido | Crear · procedimental | Práctica |
+| 8.4 | Elegir entre Claude, Copilot y NotebookLM para 3 casos dados, justificando cada elección con un criterio de la tabla comparativa | Evaluar · conceptual | Autoevaluación |
+
+**Requisitos previos:** Módulos 04 y 06 · PowerPoint de Microsoft 365 · **Duración estimada:** 2 h
 
 ## 8.1 Instalación del add‑in
 
