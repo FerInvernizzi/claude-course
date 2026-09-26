@@ -1,5 +1,7 @@
 # Módulo 12 — Tu agente personal con Claude Code y Cowork
 
+<img src="../assets/linea.svg" alt="" width="100%">
+
 ## 🎯 Objetivos de aprendizaje
 
 | # | Al terminar vas a poder… (conducta · condición · criterio) | Nivel (Bloom) | Evidencia |

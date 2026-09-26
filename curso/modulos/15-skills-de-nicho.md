@@ -1,5 +1,7 @@
 # Módulo 15 — Skills de nicho: arte, diseño y cualquier pasión
 
+<img src="../assets/linea.svg" alt="" width="100%">
+
 Claude no es solo para planillas y código. Con las skills y plugins correctos se convierte en **taller de arte generativo, estudio de diseño, productora de video y podcast, motor de videojuegos, tutor de matemática olímpica o agencia de redes**. Este módulo es un catálogo curado de **30 skills y plugins reales** (todos verificados en los marketplaces oficiales o en el repositorio de Anthropic), organizado por intereses, con un ejercicio para cada perfil.
 
 ## 🎯 Objetivos de aprendizaje

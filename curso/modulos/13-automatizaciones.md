@@ -1,5 +1,7 @@
 # Módulo 13 — Las 10 automatizaciones de tu agente personal
 
+<img src="../assets/linea.svg" alt="" width="100%">
+
 ## 🎯 Objetivos de aprendizaje
 
 | # | Al terminar vas a poder… (conducta · condición · criterio) | Nivel (Bloom) | Evidencia |

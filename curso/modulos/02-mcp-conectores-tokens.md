@@ -1,5 +1,7 @@
 # Módulo 02 — MCP, conectores, tokens y ventana de contexto
 
+<img src="../assets/linea.svg" alt="" width="100%">
+
 ## 🎯 Objetivos de aprendizaje
 
 | # | Al terminar vas a poder… (conducta · condición · criterio) | Nivel (Bloom) | Evidencia |

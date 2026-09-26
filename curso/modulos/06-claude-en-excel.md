@@ -1,5 +1,7 @@
 # Módulo 06 — Claude en Excel
 
+<img src="../assets/linea.svg" alt="" width="100%">
+
 ## 🎯 Objetivos de aprendizaje
 
 | # | Al terminar vas a poder… (conducta · condición · criterio) | Nivel (Bloom) | Evidencia |

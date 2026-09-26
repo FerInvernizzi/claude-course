@@ -1,5 +1,7 @@
 # Módulo 09 — Claude Code: instalación y fundamentos
 
+<img src="../assets/linea.svg" alt="" width="100%">
+
 ## 🎯 Objetivos de aprendizaje
 
 | # | Al terminar vas a poder… (conducta · condición · criterio) | Nivel (Bloom) | Evidencia |

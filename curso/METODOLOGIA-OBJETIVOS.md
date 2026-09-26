@@ -1,5 +1,7 @@
 # Metodología: cómo se escribieron y midieron los objetivos del curso
 
+<img src="assets/linea.svg" alt="" width="100%">
+
 Este documento explica **cómo están construidos los objetivos de aprendizaje** del curso y **cómo se midió su calidad**. Sirve también como guía si querés escribir tus propios cursos (o skills de capacitación) con Claude.
 
 ## 1. Marco de referencia

@@ -1,3 +1,5 @@
+<img src="assets/encabezado.svg" alt="Curso de Claude — guía práctica en español" width="100%">
+
 # Masterclass de Claude: Cowork, Code, Skills, Plugins, MCP y Agentes
 
 Curso práctico y en español para dominar el ecosistema de Claude de punta a punta: desde automatizar tareas de oficina con **Claude Cowork**, **Claude en Excel** y **Claude en PowerPoint**, hasta construir y desplegar aplicaciones full‑stack con **Claude Code**, diseñar **equipos de agentes autónomos** y montar tu propio **agente personal** con 10 automatizaciones reales.
@@ -69,3 +71,12 @@ Al terminar el curso vas a poder:
 - Node.js 18+ y Git para los módulos 09–13. Python 3.10+ para el módulo 11.
 
 > ⚠️ **Nota:** las interfaces de Claude cambian rápido. Si un botón o comando tiene otro nombre en tu versión, buscá la función equivalente o escribí `/help` en Claude Code. La lógica y los patrones del curso siguen siendo válidos.
+
+---
+
+<sub>Material de estudio preparado con Claude. Paleta y tipografía inspiradas en</sub>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/logo-agency-blanco.png">
+  <img src="assets/logo-agency-negro.png" alt="Agency" height="14">
+</picture>
+

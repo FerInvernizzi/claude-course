@@ -1,5 +1,7 @@
 # Módulo 14 — Funciones avanzadas que nadie te cuenta
 
+<img src="../assets/linea.svg" alt="" width="100%">
+
 Este módulo reúne lo que **no vas a descubrir usando Claude "de oído"**: atajos, comandos y configuraciones que están en la documentación oficial pero casi nadie usa. Todo fue verificado contra la documentación de Anthropic (septiembre de 2026) y, cuando fue posible, contra la CLI instalada. Las funciones marcadas *(vista previa)* o *(experimental)* pueden cambiar.
 
 ## 🎯 Objetivos de aprendizaje

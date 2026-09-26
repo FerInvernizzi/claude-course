@@ -1,5 +1,7 @@
 # Skills y plugins del curso: inventario e instalación
 
+<img src="assets/linea.svg" alt="" width="100%">
+
 Estas son las skills y plugins que el curso usa o recomienda, agrupadas por prioridad. Todos los plugins listados son del **Anthropic Directory** (directorio oficial), salvo los marcados como *comunidad* o *partner*.
 
 ## A. Skills ya incluidas en tu cuenta ✅ (no requieren instalación)

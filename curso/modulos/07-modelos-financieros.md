@@ -1,5 +1,7 @@
 # Módulo 07 — Modelos financieros nivel Wall Street con Cowork + Excel
 
+<img src="../assets/linea.svg" alt="" width="100%">
+
 ## 🎯 Objetivos de aprendizaje
 
 | # | Al terminar vas a poder… (conducta · condición · criterio) | Nivel (Bloom) | Evidencia |
