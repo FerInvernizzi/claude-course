@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="260" viewBox="0 0 1200 260" role="img" aria-label="Curso de Claude: guía práctica">
+  <rect width="1200" height="260" fill="#000000"/>
+  <rect x="0" y="0" width="1200" height="6" fill="#BFEB30"/>
+  <rect x="64" y="64" width="44" height="44" fill="#BFEB30"/>
+  <text x="64" y="170" fill="#EDEDED" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" font-size="56" font-weight="700" letter-spacing="-1">Curso de Claude</text>
+  <text x="64" y="214" fill="#D2EF74" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" font-size="20">Cowork · Code · Skills · Plugins · MCP · Agentes — guía práctica en español</text>
+  <text x="1136" y="100" text-anchor="end" fill="#879E3E" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" font-size="14" letter-spacing="2">16 MÓDULOS · 2026</text>
+</svg>

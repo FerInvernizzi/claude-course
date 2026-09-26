@@ -1,0 +1,7 @@
+{
+  "name": "finanzas-pyme",
+  "version": "0.1.0",
+  "description": "Modelos financieros (DCF, forecast), one pagers y revisión de modelos para pymes",
+  "author": { "name": "Tu nombre" },
+  "keywords": ["finanzas", "dcf", "forecast", "excel"]
+}
