@@ -1,0 +1,111 @@
+site_name: Curso de Claude
+site_description: Guía práctica en español de Claude Cowork, Claude Code, Skills, Plugins, MCP, Excel, PowerPoint y agentes.
+site_url: https://ferinvernizzi.github.io/claude-nube/
+repo_url: https://github.com/FerInvernizzi/claude-nube
+repo_name: FerInvernizzi/claude-nube
+edit_uri: edit/main/curso/
+copyright: Material de estudio abierto · paleta y tipografía inspiradas en Agency
+
+docs_dir: curso
+site_dir: site
+use_directory_urls: false
+
+exclude_docs: |
+  plantillas/
+  codigo/
+
+hooks:
+  - hooks/enlaces_github.py
+
+theme:
+  name: material
+  language: es
+  font:
+    text: Inter
+    code: JetBrains Mono
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/weather-night
+        name: Cambiar a modo oscuro
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/weather-sunny
+        name: Cambiar a modo claro
+  icon:
+    repo: fontawesome/brands/github
+  features:
+    - navigation.sections
+    - navigation.footer
+    - navigation.top
+    - navigation.indexes
+    - navigation.tracking
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.tooltips
+
+extra_css:
+  - stylesheets/agency.css
+
+markdown_extensions:
+  - tables
+  - attr_list
+  - md_in_html
+  - admonition
+  - footnotes
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - toc:
+      permalink: "#"
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+
+validation:
+  links:
+    not_found: warn
+    anchors: warn
+    unrecognized_links: warn
+
+plugins:
+  - search:
+      lang: es
+
+nav:
+  - Inicio: README.md
+  - Fundamentos:
+      - 00 · Introducción: modulos/00-introduccion.md
+      - 01 · Claude Cowork: modulos/01-cowork-fundamentos.md
+      - 02 · MCP, conectores y tokens: modulos/02-mcp-conectores-tokens.md
+      - 03 · Skills y plugins: modulos/03-skills-y-plugins.md
+  - Chat y prompting:
+      - 04 · Claude Chat: modulos/04-claude-chat.md
+      - 05 · Prompt y context engineering: modulos/05-prompt-context-engineering.md
+  - Office y finanzas:
+      - 06 · Claude en Excel: modulos/06-claude-en-excel.md
+      - 07 · Modelos financieros: modulos/07-modelos-financieros.md
+      - 08 · Claude en PowerPoint: modulos/08-claude-en-powerpoint.md
+  - Claude Code:
+      - 09 · Fundamentos: modulos/09-claude-code-fundamentos.md
+      - 10 · Proyectos full‑stack: modulos/10-claude-code-proyectos.md
+  - Agentes:
+      - 11 · Agentes, subagentes y teams: modulos/11-agentes-subagentes-teams.md
+      - 12 · Tu agente personal: modulos/12-agente-personal.md
+      - 13 · Las 10 automatizaciones: modulos/13-automatizaciones.md
+  - Profundización:
+      - 14 · Funciones avanzadas: modulos/14-funciones-avanzadas.md
+      - 15 · Skills de nicho: modulos/15-skills-de-nicho.md
+  - Recursos:
+      - Skills y plugins del curso: SKILLS-Y-PLUGINS.md
+      - Metodología de objetivos: METODOLOGIA-OBJETIVOS.md
+      - Medición de objetivos: OBJETIVOS.md
+      - Informe de calidad: INFORME-CALIDAD.md
